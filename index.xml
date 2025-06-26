@@ -131,19 +131,19 @@
       <h2 style="color: #d4afff;">Copy Host Configuration</h2>
       <div class="copy-block">
         <span class="copy-label">Android (ptunnel)</span>
-        <button class="copy-button" onclick="copyText('https://growsoft.cc/android.txt'); return false;">Copy</button>
+        <button class="copy-button" data-copy="https://growsoft.cc/android.txt">Copy</button>
       </div>
       <div class="copy-block">
         <span class="copy-label">iOS</span>
-        <button class="copy-button" onclick="copyText('[General]\nbypass-system = true\n\n[Rule]\nFINAL,DIRECT\n\n[Host]\ngrowtopia1.com = 91.134.85.13\ngrowtopia2.com = 91.134.85.13\nwww.growtopia1.com = 91.134.85.13\nwww.growtopia2.com = 91.134.85.13'); return false;">Copy</button>
+        <button class="copy-button" data-copy="[General]\nbypass-system = true\n\n[Rule]\nFINAL,DIRECT\n\n[Host]\ngrowtopia1.com = 91.134.85.13\ngrowtopia2.com = 91.134.85.13\nwww.growtopia1.com = 91.134.85.13\nwww.growtopia2.com = 91.134.85.13">Copy</button>
       </div>
       <div class="copy-block">
         <span class="copy-label">PC</span>
-        <button class="copy-button" onclick="copyText('91.134.85.13 growtopia1.com\n91.134.85.13 growtopia2.com\n91.134.85.13 www.growtopia1.com\n91.134.85.13 www.growtopia2.com'); return false;">Copy</button>
+        <button class="copy-button" data-copy="91.134.85.13 growtopia1.com\n91.134.85.13 growtopia2.com\n91.134.85.13 www.growtopia1.com\n91.134.85.13 www.growtopia2.com">Copy</button>
       </div>
       <div class="copy-block">
         <span class="copy-label">macOS</span>
-        <button class="copy-button" onclick="copyText('91.134.85.13 growtopia1.com\n91.134.85.13 growtopia2.com\n91.134.85.13 www.growtopia1.com\n91.134.85.13 www.growtopia2.com'); return false;">Copy</button>
+        <button class="copy-button" data-copy="91.134.85.13 growtopia1.com\n91.134.85.13 growtopia2.com\n91.134.85.13 www.growtopia1.com\n91.134.85.13 www.growtopia2.com">Copy</button>
       </div>
     </div>
   </div>
@@ -151,15 +151,21 @@
     Yume Private Server © 2025 | All rights reserved
   </footer>
   <script type="text/javascript">
-    function copyText(text) {
-      var textarea = document.createElement('textarea');
-      textarea.value = text;
-      document.body.appendChild(textarea);
-      textarea.select();
-      document.execCommand('copy');
-      document.body.removeChild(textarea);
-      alert('Copied to clipboard!');
-    }
+    window.onload = function () {
+      var buttons = document.querySelectorAll('.copy-button');
+      for (var i = 0; i < buttons.length; i++) {
+        buttons[i].addEventListener('click', function () {
+          var text = this.getAttribute('data-copy');
+          var textarea = document.createElement('textarea');
+          textarea.value = text;
+          document.body.appendChild(textarea);
+          textarea.select();
+          document.execCommand('copy');
+          document.body.removeChild(textarea);
+          alert('Copied to clipboard!');
+        });
+      }
+    };
   </script>
 </body>
 </html>
