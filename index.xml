@@ -79,7 +79,8 @@
             padding: 2rem;
             text-align: center;
             transition: transform 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3), 
+                        0 6px 6px rgba(0, 0, 0, 0.2);
             border-top: 3px solid var(--fantasy-secondary);
         }
         
@@ -103,7 +104,8 @@
             font-weight: bold;
             margin-top: 1rem;
             transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(255, 200, 87, 0.4);
+            box-shadow: 0 8px 15px rgba(255, 200, 87, 0.4),
+                        0 4px 4px rgba(255, 200, 87, 0.3);
         }
         
         .download-btn:hover {
@@ -127,7 +129,8 @@
             border-radius: 5px;
             cursor: pointer;
             margin-top: 0.5rem;
-            transition: background 0.2s;
+            transition: all 0.2s;
+            box-shadow: 0 4px 8px rgba(138, 127, 188, 0.3);
         }
         
         .copy-btn:hover {
@@ -181,6 +184,7 @@
             background: rgba(138, 127, 188, 0.2);
             border-radius: 10px;
             border-left: 3px solid var(--fantasy-accent);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
         }
         
         .comment-author {
@@ -236,7 +240,7 @@
             }
         }
     </style>
-    </head>
+</head>
 <body>
     <div class="container">
         <header>
