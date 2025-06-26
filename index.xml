@@ -143,17 +143,17 @@
 
       <div class="copy-block">
         <span class="copy-label">iOS</span>
-        <button class="copy-button" onclick="copyText(`[General]\nbypass-system = true\n\n[Rule]\nFINAL,DIRECT\n\n[Host]\ngrowtopia1.com = 91.134.85.13\ngrowtopia2.com = 91.134.85.13\nwww.growtopia1.com = 91.134.85.13\nwww.growtopia2.com = 91.134.85.13`)">Copy</button>
+        <button class="copy-button" onclick='copyText("[General]\nbypass-system = true\n\n[Rule]\nFINAL,DIRECT\n\n[Host]\ngrowtopia1.com = 91.134.85.13\ngrowtopia2.com = 91.134.85.13\nwww.growtopia1.com = 91.134.85.13\nwww.growtopia2.com = 91.134.85.13")'>Copy</button>
       </div>
 
       <div class="copy-block">
         <span class="copy-label">PC</span>
-        <button class="copy-button" onclick="copyText('91.134.85.13 growtopia1.com\n91.134.85.13 growtopia2.com\n91.134.85.13 www.growtopia1.com\n91.134.85.13 www.growtopia2.com')">Copy</button>
+        <button class="copy-button" onclick='copyText("91.134.85.13 growtopia1.com\n91.134.85.13 growtopia2.com\n91.134.85.13 www.growtopia1.com\n91.134.85.13 www.growtopia2.com")'>Copy</button>
       </div>
 
       <div class="copy-block">
         <span class="copy-label">macOS</span>
-        <button class="copy-button" onclick="copyText('91.134.85.13 growtopia1.com\n91.134.85.13 growtopia2.com\n91.134.85.13 www.growtopia1.com\n91.134.85.13 www.growtopia2.com')">Copy</button>
+        <button class="copy-button" onclick='copyText("91.134.85.13 growtopia1.com\n91.134.85.13 growtopia2.com\n91.134.85.13 www.growtopia1.com\n91.134.85.13 www.growtopia2.com")'>Copy</button>
       </div>
     </div>
   </div>
