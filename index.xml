@@ -6,7 +6,7 @@
   <title>Yume Private Server</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
-  <link href="https://fonts.googleapis.com/css2?family=Sweet+Joys&family=Quicksand:wght@400;600&family=Raleway:wght@500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&family=Raleway:wght@500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <style>
     :root {
@@ -30,20 +30,13 @@
       border-bottom: 3px solid var(--fantasy-accent);
     }
     h1 {
-      font-family: 'Sweet Joys', cursive;
+      font-family: 'Raleway', sans-serif;
       font-size: 3rem;
       margin: 0;
       background: linear-gradient(to right, var(--fantasy-accent), #ffffff);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
-    }
-    .logo-img {
-      margin-top: 1rem;
-      width: 100px;
-      opacity: 0.8;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
     }
     .welcome {
       font-family: 'Raleway', sans-serif;
@@ -135,3 +128,56 @@
     }
   </style>
 </head>
+<body>
+  <header>
+    <h1>Yume Private Server</h1>
+  </header>
+
+  <section class="welcome">
+    <h2>Welcome to Yume Private Server</h2>
+    <p>Yume is a private Growtopia server with:</p>
+    <ul>
+      <li>500+ Custom Items</li>
+      <li>Fishing system with <span style="font-weight: bold; color: #64ffda;">/sellfish</span> command</li>
+      <li>BFG profit system for earning Diamond Locks</li>
+      <li>Separate from the original Growtopia servers</li>
+    </ul>
+  </section>
+
+  <section class="buttons">
+    <button class="button" onclick="copyHost('android')">Copy Host for Android</button>
+    <button class="button" onclick="copyHost('windows')">Copy Host for Windows</button>
+    <button class="button" onclick="copyHost('ios')">Copy Host for iOS</button>
+    <button class="button" onclick="copyHost('macos')">Copy Host for macOS</button>
+  </section>
+
+  <section class="copy-section">
+    <p>Click the button to copy your host file to clipboard.</p>
+  </section>
+
+  <footer>
+    <p>Yume Private Server © 2025 | All rights reserved</p>
+  </footer>
+
+  <script>
+    const hostFiles = {
+      android: 'https://growsoft.cc/android.txt',
+      windows: `91.134.85.13 growtopia1.com\n91.134.85.13 growtopia2.com\n91.134.85.13 www.growtopia1.com\n91.134.85.13 www.growtopia2.com`,
+      ios: `[General]\nbypass-system = true\n\n[Rule]\nFINAL,DIRECT\n\n[Host]\ngrowtopia1.com = 91.134.85.13\ngrowtopia2.com = 91.134.85.13\nwww.growtopia1.com = 91.134.85.13\nwww.growtopia2.com = 91.134.85.13`,
+      macos: `91.134.85.13 growtopia1.com\n91.134.85.13 growtopia2.com\n91.134.85.13 www.growtopia1.com\n91.134.85.13 www.growtopia2.com`
+    };
+
+    function copyHost(type) {
+      const data = hostFiles[type];
+
+      if (type === 'android') {
+        window.open(data, '_blank');
+      } else {
+        navigator.clipboard.writeText(data).then(() => {
+          alert("Copied host for " + type.toUpperCase());
+        });
+      }
+    }
+  </script>
+</body>
+</html>
