@@ -104,7 +104,7 @@
             font-weight: bold;
             margin-top: 1rem;
             transition: all 0.3s ease;
-            box-shadow: 0 8px 15px rgba(255, 200, 87, 0.4),
+            box-shadow: 0 8px 15px rgba(255, 200, 87, 0.4), 
                         0 4px 4px rgba(255, 200, 87, 0.3);
         }
         
@@ -300,12 +300,12 @@
             <div class="tutorial-section">
                 <h3>iOS Tutorial</h3>
                 <div class="video-container">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/Uek-G9dg5bI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/Uek-G9dg5bI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen"></iframe>
                 </div>
                 
                 <h3>PC Tutorial</h3>
                 <div class="video-container">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/QB_D8HU0kno" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/QB_D8HU0kno" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen"></iframe>
                 </div>
                 
                 <h3>Android Tutorial (Coming Soon)</h3>
