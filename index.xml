@@ -4,127 +4,106 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Yume Private Server</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
-  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&family=Raleway:wght@500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <style>
-    :root {
-      --fantasy-primary: #6a4c93;
-      --fantasy-secondary: #8a7fbc;
-      --fantasy-accent: #64ffda;
-      --natural-dark: #1a1a2e;
-      --natural-light: #f8f9fa;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
+
     body {
-      font-family: 'Quicksand', sans-serif;
-      margin: 0;
-      background: linear-gradient(135deg, var(--fantasy-primary), var(--natural-dark));
-      color: var(--natural-light);
+      background: #1b112b;
+      color: #fff;
+      line-height: 1.6;
     }
+
     header {
-      background: rgba(26, 26, 46, 0.8);
-      padding: 3rem 1rem;
-      text-align: center;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-      border-bottom: 3px solid var(--fantasy-accent);
-    }
-    h1 {
-      font-family: 'Raleway', sans-serif;
-      font-size: 3rem;
-      margin: 0;
-      background: linear-gradient(to right, var(--fantasy-accent), #ffffff);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-    .welcome {
-      font-family: 'Raleway', sans-serif;
+      background: #5e2b8c;
       padding: 2rem;
       text-align: center;
-      background-color: rgba(106, 76, 147, 0.2);
-      margin: 2rem;
-      border-left: 5px solid var(--fantasy-accent);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      color: #fff;
+    }
+
+    .container {
+      padding: 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .card {
+      background: #2a1a3e;
       border-radius: 10px;
+      padding: 1.5rem;
+      margin: 1rem 0;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+      transition: transform 0.3s ease, background 0.3s ease;
     }
-    .welcome ul {
-      list-style-type: none;
-      padding-left: 0;
+
+    .card:hover {
+      transform: translateY(-5px);
+      background: #3d2463;
     }
-    .welcome ul li {
-      margin: 0.5rem 0;
-      padding: 0.5rem;
-      background-color: rgba(255, 255, 255, 0.05);
-      border-radius: 5px;
+
+    .card h2 {
+      color: #d4afff;
+      margin-bottom: 0.5rem;
     }
-    .buttons {
-      font-family: 'Raleway', sans-serif;
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      flex-wrap: wrap;
-      margin: 2rem 0;
+
+    .card p {
+      color: #dcd2ff;
     }
-    .button {
-      background: var(--fantasy-secondary);
-      border: none;
-      padding: 1rem 2.5rem;
-      border-radius: 50px;
-      color: white;
-      font-size: 1.1rem;
-      cursor: pointer;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
-      transition: all 0.3s ease;
-      transform: scale(1);
-    }
-    .button:hover {
-      background: var(--fantasy-accent);
-      transform: scale(1.05);
-      box-shadow: 0 10px 25px rgba(100, 255, 218, 0.5);
-      color: var(--natural-dark);
-    }
-    .button:disabled {
-      background: #555;
-      cursor: not-allowed;
-      box-shadow: none;
-    }
+
     .copy-section {
-      font-family: 'Quicksand', sans-serif;
-      margin: 3rem auto;
-      text-align: center;
-      max-width: 700px;
-      background: rgba(26, 26, 46, 0.7);
+      background: #221733;
       padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      border-radius: 10px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
     }
-    .copy-btn {
-      display: block;
-      width: 80%;
-      max-width: 300px;
-      margin: 1rem auto;
-      padding: 0.9rem 1.5rem;
-      border: none;
-      border-radius: 30px;
-      background: var(--fantasy-accent);
-      color: var(--natural-dark);
+
+    .copy-block {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #3d2463;
+      margin: 1rem 0;
+      padding: 1rem;
+      border-radius: 8px;
+      transition: background 0.3s ease;
+    }
+
+    .copy-block:hover {
+      background: #4f2c85;
+    }
+
+    .copy-label {
+      color: #fff;
       font-weight: bold;
+    }
+
+    .copy-button {
+      background: #8f5bd7;
+      border: none;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
       cursor: pointer;
-      transition: all 0.3s ease;
-      font-size: 1rem;
-      box-shadow: 0 6px 20px rgba(100, 255, 218, 0.4);
+      transition: background 0.3s ease;
     }
-    .copy-btn:hover {
-      background: #80ffd9;
-      box-shadow: 0 8px 25px rgba(100, 255, 218, 0.6);
-      transform: scale(1.03);
+
+    .copy-button:hover {
+      background: #a875f0;
     }
+
     footer {
-      font-family: 'Raleway', sans-serif;
       text-align: center;
-      margin: 3rem auto 1rem;
-      color: #ccc;
-      font-size: 0.9rem;
+      padding: 2rem;
+      color: #aaa;
     }
   </style>
 </head>
@@ -132,51 +111,62 @@
   <header>
     <h1>Yume Private Server</h1>
   </header>
+  <div class="container">
+    <div class="card">
+      <h2>Why Join Yume Private Server?</h2>
+      <p>
+        Welcome to Yume Private Server! This is a fully separated server, completely independent and not related to Growtopia.
+        Experience a new, balanced economy and cool features including fishing, farming, and more!
+      </p>
+    </div>
 
-  <section class="welcome">
-    <h2>Welcome to Yume Private Server</h2>
-    <p>Yume is a private Growtopia server with:</p>
-    <ul>
-      <li>500+ Custom Items</li>
-      <li>Fishing system with <span style="font-weight: bold; color: #64ffda;">/sellfish</span> command</li>
-      <li>BFG profit system for earning Diamond Locks</li>
-      <li>Separate from the original Growtopia servers</li>
-    </ul>
-  </section>
+    <div class="card">
+      <h2>Exclusive Features</h2>
+      <p>
+        Catch fish and use the command <code>/sellfish 1</code> to sell your fish. Each fish can be sold for <strong>3 Diamond Locks</strong>!<br><br>
+        Discover over <strong>500+ custom items</strong>, including rare collectibles, cosmetics, and exclusive event gear!<br>
+        Enjoy special currencies like <strong>XGems</strong> and <strong>XEXP</strong> to enhance your gameplay experience with unique upgrades and features.
+      </p>
+    </div>
 
-  <section class="buttons">
-    <button class="button" onclick="copyHost('android')">Copy Host for Android</button>
-    <button class="button" onclick="copyHost('windows')">Copy Host for Windows</button>
-    <button class="button" onclick="copyHost('ios')">Copy Host for iOS</button>
-    <button class="button" onclick="copyHost('macos')">Copy Host for macOS</button>
-  </section>
+    <div class="copy-section">
+      <h2 style="color: #d4afff;">Copy Host Configuration</h2>
 
-  <section class="copy-section">
-    <p>Click the button to copy your host file to clipboard.</p>
-  </section>
+      <div class="copy-block">
+        <span class="copy-label">Android (ptunnel)</span>
+        <button class="copy-button" onclick="copyText('https://growsoft.cc/android.txt')">Copy</button>
+      </div>
+
+      <div class="copy-block">
+        <span class="copy-label">iOS</span>
+        <button class="copy-button" onclick="copyText(`[General]\nbypass-system = true\n\n[Rule]\nFINAL,DIRECT\n\n[Host]\ngrowtopia1.com = 91.134.85.13\ngrowtopia2.com = 91.134.85.13\nwww.growtopia1.com = 91.134.85.13\nwww.growtopia2.com = 91.134.85.13`)">Copy</button>
+      </div>
+
+      <div class="copy-block">
+        <span class="copy-label">PC</span>
+        <button class="copy-button" onclick="copyText('91.134.85.13 growtopia1.com\n91.134.85.13 growtopia2.com\n91.134.85.13 www.growtopia1.com\n91.134.85.13 www.growtopia2.com')">Copy</button>
+      </div>
+
+      <div class="copy-block">
+        <span class="copy-label">macOS</span>
+        <button class="copy-button" onclick="copyText('91.134.85.13 growtopia1.com\n91.134.85.13 growtopia2.com\n91.134.85.13 www.growtopia1.com\n91.134.85.13 www.growtopia2.com')">Copy</button>
+      </div>
+    </div>
+  </div>
 
   <footer>
-    <p>Yume Private Server © 2025 | All rights reserved</p>
+    Yume Private Server © 2025 | All rights reserved
   </footer>
 
   <script>
-    const hostFiles = {
-      android: 'https://growsoft.cc/android.txt',
-      windows: `91.134.85.13 growtopia1.com\n91.134.85.13 growtopia2.com\n91.134.85.13 www.growtopia1.com\n91.134.85.13 www.growtopia2.com`,
-      ios: `[General]\nbypass-system = true\n\n[Rule]\nFINAL,DIRECT\n\n[Host]\ngrowtopia1.com = 91.134.85.13\ngrowtopia2.com = 91.134.85.13\nwww.growtopia1.com = 91.134.85.13\nwww.growtopia2.com = 91.134.85.13`,
-      macos: `91.134.85.13 growtopia1.com\n91.134.85.13 growtopia2.com\n91.134.85.13 www.growtopia1.com\n91.134.85.13 www.growtopia2.com`
-    };
-
-    function copyHost(type) {
-      const data = hostFiles[type];
-
-      if (type === 'android') {
-        window.open(data, '_blank');
-      } else {
-        navigator.clipboard.writeText(data).then(() => {
-          alert("Copied host for " + type.toUpperCase());
-        });
-      }
+    function copyText(text) {
+      const textarea = document.createElement("textarea");
+      textarea.value = text;
+      document.body.appendChild(textarea);
+      textarea.select();
+      document.execCommand("copy");
+      document.body.removeChild(textarea);
+      alert("Copied to clipboard!");
     }
   </script>
 </body>
