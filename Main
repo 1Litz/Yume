@@ -267,7 +267,12 @@
                 <a href="#download-android" class="download-btn">Download Host</a>
                 <div class="host-copy">
                     <div>Server Host:</div>
-                    <div id="host-android">yume.server.com:1234</div>
+                    <div id="host-android">
+                                            91.134.85.13 growtopia1.com
+                                            91.134.85.13 growtopia2.com
+                                            91.134.85.13 www.growtopia1.com
+                                            91.134.85.13 www.growtopia2.com
+                                    </div>
                     <button class="copy-btn" onclick="copyToClipboard('host-android')">Copy Host</button>
                 </div>
             </div>
@@ -290,7 +295,19 @@
                 <a href="#download-ios" class="download-btn">Download Host</a>
                 <div class="host-copy">
                     <div>Server Host:</div>
-                    <div id="host-ios">yume.server.com:1234</div>
+                    <div id="host-ios">
+                                        [General]
+                                        bypass-system = true
+                                        
+                                        [Rule]
+                                        FINAL,DIRECT
+                                        
+                                        [Host]
+                                        growtopia1.com = 91.134.85.13
+                                        growtopia2.com = 91.134.85.13
+                                        www.growtopia1.com = 91.134.85.13
+                                        www.growtopia2.com = 91.134.85.13
+                                </div>
                     <button class="copy-btn" onclick="copyToClipboard('host-ios')">Copy Host</button>
                 </div>
             </div>
