@@ -1,91 +1,88 @@
-<!DOCTYPE html>
-<html lang="en">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Yume Private Server</title>
-  <style>
+  <style type="text/css">
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
-
     body {
       background: #1b112b;
       color: #fff;
       line-height: 1.6;
     }
-
     header {
       background: #5e2b8c;
       padding: 2rem;
       text-align: center;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
     }
-
     header h1 {
       font-size: 2.5rem;
       color: #fff;
     }
-
     .container {
       padding: 2rem;
       max-width: 1000px;
       margin: auto;
     }
-
     .card {
       background: #2a1a3e;
       border-radius: 10px;
       padding: 1.5rem;
       margin: 1rem 0;
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+      -webkit-transition: transform 0.3s ease, background 0.3s ease;
       transition: transform 0.3s ease, background 0.3s ease;
     }
-
     .card:hover {
       transform: translateY(-5px);
       background: #3d2463;
     }
-
     .card h2 {
       color: #d4afff;
       margin-bottom: 0.5rem;
     }
-
     .card p {
       color: #dcd2ff;
     }
-
     .copy-section {
       background: #221733;
       padding: 2rem;
       border-radius: 10px;
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
     }
-
     .copy-block {
+      display: -webkit-box;
+      display: -ms-flexbox;
       display: flex;
+      -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
       justify-content: space-between;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
       align-items: center;
       background: #3d2463;
       margin: 1rem 0;
       padding: 1rem;
       border-radius: 8px;
+      -webkit-transition: background 0.3s ease;
       transition: background 0.3s ease;
     }
-
     .copy-block:hover {
       background: #4f2c85;
     }
-
     .copy-label {
       color: #fff;
       font-weight: bold;
     }
-
     .copy-button {
       background: #8f5bd7;
       border: none;
@@ -93,13 +90,12 @@
       padding: 0.5rem 1rem;
       border-radius: 5px;
       cursor: pointer;
+      -webkit-transition: background 0.3s ease;
       transition: background 0.3s ease;
     }
-
     .copy-button:hover {
       background: #a875f0;
     }
-
     footer {
       text-align: center;
       padding: 2rem;
@@ -119,7 +115,6 @@
         Experience a new, balanced economy and cool features including fishing, farming, and more!
       </p>
     </div>
-
     <div class="card">
       <h2>Exclusive Features</h2>
       <p>
@@ -132,45 +127,38 @@
         Enjoy special currencies like <strong>XGems</strong> and <strong>XEXP</strong> to enhance your gameplay experience with unique upgrades and features.
       </p>
     </div>
-
     <div class="copy-section">
       <h2 style="color: #d4afff;">Copy Host Configuration</h2>
-
       <div class="copy-block">
         <span class="copy-label">Android (ptunnel)</span>
-        <button class="copy-button" onclick="copyText('https://growsoft.cc/android.txt')">Copy</button>
+        <button class="copy-button" onclick="copyText('https://growsoft.cc/android.txt'); return false;">Copy</button>
       </div>
-
       <div class="copy-block">
         <span class="copy-label">iOS</span>
-        <button class="copy-button" onclick='copyText("[General]\nbypass-system = true\n\n[Rule]\nFINAL,DIRECT\n\n[Host]\ngrowtopia1.com = 91.134.85.13\ngrowtopia2.com = 91.134.85.13\nwww.growtopia1.com = 91.134.85.13\nwww.growtopia2.com = 91.134.85.13")'>Copy</button>
+        <button class="copy-button" onclick="copyText('[General]\nbypass-system = true\n\n[Rule]\nFINAL,DIRECT\n\n[Host]\ngrowtopia1.com = 91.134.85.13\ngrowtopia2.com = 91.134.85.13\nwww.growtopia1.com = 91.134.85.13\nwww.growtopia2.com = 91.134.85.13'); return false;">Copy</button>
       </div>
-
       <div class="copy-block">
         <span class="copy-label">PC</span>
-        <button class="copy-button" onclick='copyText("91.134.85.13 growtopia1.com\n91.134.85.13 growtopia2.com\n91.134.85.13 www.growtopia1.com\n91.134.85.13 www.growtopia2.com")'>Copy</button>
+        <button class="copy-button" onclick="copyText('91.134.85.13 growtopia1.com\n91.134.85.13 growtopia2.com\n91.134.85.13 www.growtopia1.com\n91.134.85.13 www.growtopia2.com'); return false;">Copy</button>
       </div>
-
       <div class="copy-block">
         <span class="copy-label">macOS</span>
-        <button class="copy-button" onclick='copyText("91.134.85.13 growtopia1.com\n91.134.85.13 growtopia2.com\n91.134.85.13 www.growtopia1.com\n91.134.85.13 www.growtopia2.com")'>Copy</button>
+        <button class="copy-button" onclick="copyText('91.134.85.13 growtopia1.com\n91.134.85.13 growtopia2.com\n91.134.85.13 www.growtopia1.com\n91.134.85.13 www.growtopia2.com'); return false;">Copy</button>
       </div>
     </div>
   </div>
-
   <footer>
     Yume Private Server © 2025 | All rights reserved
   </footer>
-
-  <script>
+  <script type="text/javascript">
     function copyText(text) {
-      const textarea = document.createElement("textarea");
+      var textarea = document.createElement('textarea');
       textarea.value = text;
       document.body.appendChild(textarea);
       textarea.select();
-      document.execCommand("copy");
+      document.execCommand('copy');
       document.body.removeChild(textarea);
-      alert("Copied to clipboard!");
+      alert('Copied to clipboard!');
     }
   </script>
 </body>
