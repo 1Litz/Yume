@@ -1,393 +1,179 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Yume Private Server</title>
-    <meta name="description" content="Official Yume Private Server website - Enhanced Growtopia experience"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
-    <style>
-        :root {
-            --fantasy-primary: #6a4c93;
-            --fantasy-secondary: #8a7fbc;
-            --fantasy-accent: #ffc857;
-            --natural-dark: #1a1a2e;
-            --natural-light: #f8f9fa;
-        }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(135deg, var(--fantasy-primary), var(--natural-dark));
-            color: var(--natural-light);
-            min-height: 100vh;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-        
-        header {
-            text-align: center;
-            padding: 3rem 0;
-            background: rgba(26, 26, 46, 0.7);
-            border-radius: 20px;
-            margin-bottom: 2rem;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(10px);
-        }
-        
-        h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            background: linear-gradient(to right, var(--fantasy-accent), #ff9671);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            text-shadow: 0 2px 10px rgba(255, 200, 87, 0.3);
-        }
-        
-        .tagline {
-            font-size: 1.5rem;
-            opacity: 0.9;
-            margin-bottom: 2rem;
-        }
-        
-        .welcome-message {
-            max-width: 800px;
-            margin: 0 auto 3rem;
-            padding: 2rem;
-            background: rgba(106, 76, 147, 0.2);
-            border-radius: 15px;
-            line-height: 1.6;
-            border-left: 5px solid var(--fantasy-accent);
-        }
-        
-        .download-section {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-bottom: 4rem;
-        }
-        
-        .download-card {
-            background: rgba(26, 26, 46, 0.7);
-            border-radius: 15px;
-            padding: 2rem;
-            text-align: center;
-            transition: transform 0.3s ease;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3), 
-                        0 6px 6px rgba(0, 0, 0, 0.2);
-            border-top: 3px solid var(--fantasy-secondary);
-        }
-        
-        .download-card:hover {
-            transform: translateY(-10px);
-        }
-        
-        .download-card i {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            color: var(--fantasy-accent);
-        }
-        
-        .download-btn {
-            display: inline-block;
-            padding: 0.8rem 1.5rem;
-            background: var(--fantasy-accent);
-            color: var(--natural-dark);
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            margin-top: 1rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 15px rgba(255, 200, 87, 0.4), 
-                        0 4px 4px rgba(255, 200, 87, 0.3);
-        }
-        
-        .download-btn:hover {
-            background: #ffb347;
-            box-shadow: 0 8px 20px rgba(255, 200, 87, 0.6);
-        }
-        
-        .host-copy {
-            margin-top: 1.5rem;
-            position: relative;
-        }
-        .host-copy div {
-            display: none;
-        }
-        
-        .copy-btn {
-            background: var(--fantasy-secondary);
-            color: white;
-            border: none;
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-top: 0.5rem;
-            transition: all 0.2s;
-            box-shadow: 0 4px 8px rgba(138, 127, 188, 0.3);
-        }
-        
-        .copy-btn:hover {
-            background: var(--fantasy-primary);
-        }
-        
-        .instructions {
-            background: rgba(26, 26, 46, 0.8);
-            padding: 2rem;
-            border-radius: 15px;
-            margin-bottom: 3rem;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
-        }
-        
-        .instructions h2 {
-            color: var(--fantasy-accent);
-        }
-        
-        .comments-section {
-            background: rgba(26, 26, 46, 0.8);
-            padding: 2rem;
-            border-radius: 15px;
-        }
-        
-        .comment-form {
-            margin-bottom: 2rem;
-        }
-        
-        .form-group {
-            margin-bottom: 1rem;
-        }
-        
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 0.8rem;
-            border-radius: 8px;
-            border: 1px solid var(--fantasy-secondary);
-            background: rgba(26, 26, 46, 0.5);
-            color: white;
-        }
-        
-        .form-group textarea {
-            min-height: 120px;
-            resize: vertical;
-        }
-        
-        .comment {
-            padding: 1rem;
-            margin-bottom: 1rem;
-            background: rgba(138, 127, 188, 0.2);
-            border-radius: 10px;
-            border-left: 3px solid var(--fantasy-accent);
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
-        }
-        
-        .comment-author {
-            font-weight: bold;
-            color: var(--fantasy-accent);
-        }
-        
-        .comment-date {
-            opacity: 0.7;
-            font-size: 0.8rem;
-            margin-left: 1rem;
-        }
-        
-        .tutorial-section {
-            margin-top: 2rem;
-        }
-        
-        .video-container {
-            position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-            overflow: hidden;
-            margin: 1rem 0 2rem;
-            border-radius: 10px;
-        }
-        
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-        
-        footer {
-            text-align: center;
-            margin-top: 4rem;
-            padding: 2rem;
-            opacity: 0.7;
-        }
-        
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2.5rem;
-            }
-            
-            .tagline {
-                font-size: 1.2rem;
-            }
-            
-            .download-section {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yume Private Server</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sweet+Joys&family=Quicksand:wght@400;600&family=Raleway:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    :root {
+      --fantasy-primary: #6a4c93;
+      --fantasy-secondary: #8a7fbc;
+      --fantasy-accent: #64ffda;
+      --natural-dark: #1a1a2e;
+      --natural-light: #f8f9fa;
+    }
+    body {
+      font-family: 'Quicksand', sans-serif;
+      margin: 0;
+      background: linear-gradient(135deg, var(--fantasy-primary), var(--natural-dark));
+      color: var(--natural-light);
+    }
+    header {
+      background: rgba(26, 26, 46, 0.8);
+      padding: 3rem 1rem;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      border-bottom: 3px solid var(--fantasy-accent);
+    }
+    h1 {
+      font-family: 'Sweet Joys', cursive;
+      font-size: 3rem;
+      margin: 0;
+      background: linear-gradient(to right, var(--fantasy-accent), #ffffff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .logo-img {
+      margin-top: 1rem;
+      width: 100px;
+      opacity: 0.8;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+    .welcome {
+      font-family: 'Raleway', sans-serif;
+      padding: 2rem;
+      text-align: center;
+      background-color: rgba(106, 76, 147, 0.2);
+      margin: 2rem;
+      border-left: 5px solid var(--fantasy-accent);
+      border-radius: 10px;
+    }
+    .welcome ul {
+      list-style-type: none;
+      padding-left: 0;
+    }
+    .welcome ul li {
+      margin: 0.5rem 0;
+      padding: 0.5rem;
+      background-color: rgba(255, 255, 255, 0.05);
+      border-radius: 5px;
+    }
+    .buttons {
+      font-family: 'Raleway', sans-serif;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin: 2rem 0;
+    }
+    .button {
+      background: var(--fantasy-secondary);
+      border: none;
+      padding: 1rem 2.5rem;
+      border-radius: 50px;
+      color: white;
+      font-size: 1.1rem;
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+      transition: all 0.3s ease;
+      transform: scale(1);
+    }
+    .button:hover {
+      background: var(--fantasy-accent);
+      transform: scale(1.05);
+      box-shadow: 0 10px 25px rgba(100, 255, 218, 0.5);
+      color: var(--natural-dark);
+    }
+    .button:disabled {
+      background: #555;
+      cursor: not-allowed;
+      box-shadow: none;
+    }
+    .copy-section {
+      font-family: 'Quicksand', sans-serif;
+      margin: 3rem auto;
+      text-align: center;
+      max-width: 700px;
+      background: rgba(26, 26, 46, 0.7);
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+    .copy-btn {
+      display: block;
+      width: 80%;
+      max-width: 300px;
+      margin: 1rem auto;
+      padding: 0.9rem 1.5rem;
+      border: none;
+      border-radius: 30px;
+      background: var(--fantasy-accent);
+      color: var(--natural-dark);
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 1rem;
+      box-shadow: 0 6px 20px rgba(100, 255, 218, 0.4);
+    }
+    .copy-btn:hover {
+      background: #80ffd9;
+      box-shadow: 0 8px 25px rgba(100, 255, 218, 0.6);
+      transform: scale(1.03);
+    }
+    footer {
+      font-family: 'Raleway', sans-serif;
+      text-align: center;
+      margin: 3rem auto 1rem;
+      color: #ccc;
+      font-size: 0.9rem;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Yume Private Server</h1>
-            <div class="tagline">Experience the fantasy adventure of your dreams</div>
-        </header>
-        
-        <div class="welcome-message">
-            <h2>Welcome to Yume - The Ultimate Growtopia Private Server!</h2>
-            <p>Experience Growtopia like never before with 500+ custom items, exclusive worlds, and enhanced gameplay features including:</p>
-            <ul>
-                <li>520+ Custom Items unavailable in regular GT</li>
-                <li>Dual Wield weapons and special abilities</li>
-                <li>Premium ranks with unique perks</li>
-                <li>Daily events and giveaways</li>
-                <li>Faster growth and reduced grind</li>
-            </ul>
-            <p>Join our community of over 50,000 active players!</p>
-        </div>
-        
-        <div class="download-section">
-            <div class="download-card">
-                <i class="fas fa-mobile-alt"></i>
-                <h3>Android Version</h3>
-                <p>Optimized for mobile play</p>
-                <a href="#download-android" class="download-btn">Download Host</a>
-                <div class="host-copy">
-                    <div id="host-android"></div>
-                    <button class="copy-btn" onclick="copyToClipboard('android')">Copy Host</button>
-                </div>
-            </div>
-            
-            <div class="download-card">
-                <i class="fas fa-desktop"></i>
-                <h3>PC Version</h3>
-                <p>For optimal desktop experience</p>
-                <div class="host-copy">
-                    <div id="host-pc"></div>
-                    <button class="copy-btn" onclick="copyToClipboard('pc')">Copy Host</button>
-                </div>
-            </div>
-            
-            <div class="download-card">
-                <i class="fab fa-apple"></i>
-                <h3>iOS Version</h3>
-                <p>Available now for iOS</p>
-                <a href="#download-ios" class="download-btn">Download Host</a>
-                <div class="host-copy">
-                    <div id="host-ios"></div>
-                    <button class="copy-btn" onclick="copyToClipboard('ios')">Copy Host</button>
-                </div>
-            </div>
-        </div>
-        
-        <div class="instructions">
-            <h2><i class="fas fa-book-open"></i> Installation Tutorials</h2>
-            <div class="tutorial-section">
-                <h3>iOS Tutorial</h3>
-                <div class="video-container">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/Uek-G9dg5bI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen"></iframe>
-                </div>
-                
-                <h3>PC Tutorial</h3>
-                <div class="video-container">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/QB_D8HU0kno" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen"></iframe>
-                </div>
-                
-                <h3>Android Tutorial (Coming Soon)</h3>
-                <p>Android installation guide will be available shortly.</p>
-            </div>
-        </div>
-        
-        <div class="comments-section">
-            <h2><i class="fas fa-comments"></i> Share Your Experience</h2>
-            <form id="comment-form" class="comment-form">
-                <div class="form-group">
-                    <input type="text" id="comment-name" placeholder="Your name" required>
-                </div>
-                <div class="form-group">
-                    <textarea id="comment-text" placeholder="Your comment" required></textarea>
-                </div>
-                <button type="submit" class="download-btn">Post Comment</button>
-            </form>
-            <div id="comments-container">
-                <!-- Comments will be loaded here -->
-            </div>
-        </div>
-        
-        <footer>
-            <p>Yume Private Server © 2025 | All rights reserved</p>
-        </footer>
-    </div>
-    
-    <script>
-        // Host data for each platform
-        const hostData = {
-            'android': `91.134.85.13 growtopia1.com\n91.134.85.13 growtopia2.com\n91.134.85.13 www.growtopia1.com\n91.134.85.13 www.growtopia2.com`,
-            'pc': `91.134.85.13 growtopia1.com\n91.134.85.13 growtopia2.com\n91.134.85.13 www.growtopia1.com\n91.134.85.13 www.growtopia2.com`,
-            'ios': `[General]\nbypass-system = true\n[Rule]\nFINAL,DIRECT\n[Host]\ngrowtopia1.com = 91.134.85.13\ngrowtopia2.com = 91.134.85.13\nwww.growtopia1.com = 91.134.85.13\nwww.growtopia2.com = 91.134.85.13`
-        };
+  <header>
+    <h1>Yume Private Server</h1>
+    <img class="logo-img" src="https://media.discordapp.net/attachments/1169631869923492003/1379383230389551195/image.jpg?ex=685e5cbd&is=685d0b3d&hm=8135d757cf134e822bc46ab394f5d54f7291497a46eb8a6b1b35e44b133bf53f&=&format=webp&width=492&height=492" alt="Yume Logo">
+  </header>
 
-        function copyToClipboard(platform) {
-            const textToCopy = hostData[platform];
-            
-            navigator.clipboard.writeText(textToCopy).then(() => {
-                alert('Host copied to clipboard!');
-            }).catch(err => {
-                console.error('Failed to copy: ', err);
-            });
-        }
+  <div class="welcome">
+    <p>Welcome to Yume Private Server! Here's why you'll love it:</p>
+    <ul>
+      <li>⚔️ 500+ exclusive custom items not available in regular Growtopia</li>
+      <li>🌐 Hosted on a private server separated from the original game</li>
+      <li>💎 Easy BFG system with diamond lock profit potential</li>
+      <li>🎣 Sell your caught fish instantly using <code>/sellfish</code></li>
+      <li>🎁 Daily events, rewards, and giveaways</li>
+    </ul>
+  </div>
 
-        // Simple comment system using localStorage
-        document.getElementById('comment-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const name = document.getElementById('comment-name').value.trim();
-            const text = document.getElementById('comment-text').value.trim();
-            if (name && text) {
-                const comment = {
-                    name,
-                    text,
-                    date: new Date().toLocaleDateString()
-                };
-                const comments = JSON.parse(localStorage.getItem('yume-comments') || '[]');
-                comments.push(comment);
-                localStorage.setItem('yume-comments', JSON.stringify(comments));
-                this.reset();
-                displayComments();
-            }
-        });
+  <div class="buttons">
+    <button class="button" onclick="window.open('https://www.youtube.com/watch?v=QB_D8HU0kno', '_blank')">PC Tutorial</button>
+    <button class="button" onclick="window.open('https://www.youtube.com/watch?v=Uek-G9dg5bI&t=2s', '_blank')">iOS Tutorial</button>
+    <button class="button" disabled>Android (Coming Soon)</button>
+  </div>
 
-        function displayComments() {
-            const container = document.getElementById('comments-container');
-            const comments = JSON.parse(localStorage.getItem('yume-comments') || '[]');
-            container.innerHTML = '';
-            comments.forEach(comment => {
-                const commentEl = document.createElement('div');
-                commentEl.className = 'comment';
-                commentEl.innerHTML = `
-                    <div><span class="comment-author">${comment.name}</span><span class="comment-date">${comment.date}</span></div>
-                    <p>${comment.text}</p>
-                `;
-                container.appendChild(commentEl);
-            });
-        }
+  <div class="copy-section">
+    <button class="copy-btn" onclick="copyHost(`91.134.85.13 growtopia1.com\n91.134.85.13 growtopia2.com\n91.134.85.13 www.growtopia1.com\n91.134.85.13 www.growtopia2.com`)">Copy PC Host</button>
+    <button class="copy-btn" onclick="copyHost(`[General]\nbypass-system = true\n[Rule]\nFINAL,DIRECT\n[Host]\ngrowtopia1.com = 91.134.85.13\ngrowtopia2.com = 91.134.85.13\nwww.growtopia1.com = 91.134.85.13\nwww.growtopia2.com = 91.134.85.13`)">Copy iOS Host</button>
+    <button class="copy-btn" onclick="copyHost(`91.134.85.13 growtopia1.com\n91.134.85.13 growtopia2.com\n91.134.85.13 www.growtopia1.com\n91.134.85.13 www.growtopia2.com`)">Copy Android Host</button>
+  </div>
 
-        // Load comments on page load
-        displayComments();
-    </script>
+  <footer>
+    <p>Yume Private Server © 2025 | All rights reserved</p>
+  </footer>
+
+  <script>
+    function copyHost(text) {
+      navigator.clipboard.writeText(text).then(() => {
+        alert("Host copied to clipboard!");
+      });
+    }
+  </script>
 </body>
 </html>
