@@ -1,12 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Yume Private Server</title>
-  <style type="text/css">
+  <style>
     * {
       margin: 0;
       padding: 0;
@@ -39,7 +37,6 @@
       padding: 1.5rem;
       margin: 1rem 0;
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-      -webkit-transition: transform 0.3s ease, background 0.3s ease;
       transition: transform 0.3s ease, background 0.3s ease;
     }
     .card:hover {
@@ -60,20 +57,13 @@
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
     }
     .copy-block {
-      display: -webkit-box;
-      display: -ms-flexbox;
       display: flex;
-      -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
       justify-content: space-between;
-      -webkit-box-align: center;
-      -ms-flex-align: center;
       align-items: center;
       background: #3d2463;
       margin: 1rem 0;
       padding: 1rem;
       border-radius: 8px;
-      -webkit-transition: background 0.3s ease;
       transition: background 0.3s ease;
     }
     .copy-block:hover {
@@ -90,7 +80,6 @@
       padding: 0.5rem 1rem;
       border-radius: 5px;
       cursor: pointer;
-      -webkit-transition: background 0.3s ease;
       transition: background 0.3s ease;
     }
     .copy-button:hover {
@@ -135,28 +124,44 @@
       </div>
       <div class="copy-block">
         <span class="copy-label">iOS</span>
-        <button class="copy-button" data-copy="[General]\nbypass-system = true\n\n[Rule]\nFINAL,DIRECT\n\n[Host]\ngrowtopia1.com = 91.134.85.13\ngrowtopia2.com = 91.134.85.13\nwww.growtopia1.com = 91.134.85.13\nwww.growtopia2.com = 91.134.85.13">Copy</button>
+        <button class="copy-button" data-copy="[General]
+bypass-system = true
+
+[Rule]
+FINAL,DIRECT
+
+[Host]
+growtopia1.com = 91.134.85.13
+growtopia2.com = 91.134.85.13
+www.growtopia1.com = 91.134.85.13
+www.growtopia2.com = 91.134.85.13">Copy</button>
       </div>
       <div class="copy-block">
         <span class="copy-label">PC</span>
-        <button class="copy-button" data-copy="91.134.85.13 growtopia1.com\n91.134.85.13 growtopia2.com\n91.134.85.13 www.growtopia1.com\n91.134.85.13 www.growtopia2.com">Copy</button>
+        <button class="copy-button" data-copy="91.134.85.13 growtopia1.com
+91.134.85.13 growtopia2.com
+91.134.85.13 www.growtopia1.com
+91.134.85.13 www.growtopia2.com">Copy</button>
       </div>
       <div class="copy-block">
         <span class="copy-label">macOS</span>
-        <button class="copy-button" data-copy="91.134.85.13 growtopia1.com\n91.134.85.13 growtopia2.com\n91.134.85.13 www.growtopia1.com\n91.134.85.13 www.growtopia2.com">Copy</button>
+        <button class="copy-button" data-copy="91.134.85.13 growtopia1.com
+91.134.85.13 growtopia2.com
+91.134.85.13 www.growtopia1.com
+91.134.85.13 www.growtopia2.com">Copy</button>
       </div>
     </div>
   </div>
   <footer>
     Yume Private Server © 2025 | All rights reserved
   </footer>
-  <script type="text/javascript">
+  <script>
     window.onload = function () {
-      var buttons = document.querySelectorAll('.copy-button');
-      for (var i = 0; i < buttons.length; i++) {
-        buttons[i].addEventListener('click', function () {
-          var text = this.getAttribute('data-copy');
-          var textarea = document.createElement('textarea');
+      const buttons = document.querySelectorAll('.copy-button');
+      buttons.forEach(button => {
+        button.addEventListener('click', function () {
+          const text = this.getAttribute('data-copy');
+          const textarea = document.createElement('textarea');
           textarea.value = text;
           document.body.appendChild(textarea);
           textarea.select();
@@ -164,7 +169,7 @@
           document.body.removeChild(textarea);
           alert('Copied to clipboard!');
         });
-      }
+      });
     };
   </script>
 </body>
