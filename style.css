@@ -6,16 +6,19 @@
 }
 
 body {
-  background: #1b112b;
   color: #fff;
   line-height: 1.6;
 }
 
 header {
-  background: #5e2b8c;
+  background: rgba(94, 43, 140, 0.85);
   padding: 2rem;
   text-align: center;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+  position: sticky;
+  top: 0;
+  z-index: 999;
 }
 
 header h1 {
@@ -27,10 +30,11 @@ header h1 {
   padding: 2rem;
   max-width: 1000px;
   margin: auto;
+  backdrop-filter: blur(10px);
 }
 
 .card {
-  background: #2a1a3e;
+  background: rgba(42, 26, 62, 0.9);
   border-radius: 10px;
   padding: 1.5rem;
   margin: 1rem 0;
@@ -40,7 +44,7 @@ header h1 {
 
 .card:hover {
   transform: translateY(-5px);
-  background: #3d2463;
+  background: rgba(61, 36, 99, 0.9);
 }
 
 .card h2 {
@@ -53,7 +57,7 @@ header h1 {
 }
 
 .copy-section {
-  background: #221733;
+  background: rgba(34, 23, 51, 0.9);
   padding: 2rem;
   border-radius: 10px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
@@ -96,5 +100,6 @@ header h1 {
 footer {
   text-align: center;
   padding: 2rem;
-  color: #aaa;
+  color: #ccc;
+  margin-top: 2rem;
 }
