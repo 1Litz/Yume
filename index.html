@@ -1,63 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yume Private Server</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
 <body>
   <header>
     <h1>Yume Private Server</h1>
-    <div class="main-buttons">
-      <button class="scroll-btn" onclick="showSection('features')">Main Features</button>
-      <button class="scroll-btn" onclick="showSection('host')">Host Configuration</button>
-    </div>
+    <a href="#main-features" class="scroll-btn">Check Features</a>
   </header>
 
   <div class="container">
-    <!-- Features Section -->
-    <div id="features-section" class="section" style="display: none;">
-      <div class="card">
-        <h2>Main Features</h2>
-      </div>
-
-      <div class="card">
-        <h3>Giveaway</h3>
-        <p>Our admin hosts giveaways almost every day! These include rare items, Diamond Locks, and special event currencies...</p>
-      </div>
-
-      <div class="card">
-        <h3>500+ Custom Items</h3>
-        <p>Discover more than 500 unique items only available on our server...</p>
-      </div>
-
-      <div class="card">
-        <h3>Community</h3>
-        <p>Our community is welcoming, active, and supportive...</p>
-      </div>
+    <div class="card" id="main-features">
+      <h2>Main Features</h2>
     </div>
 
-    <!-- Host Section -->
-    <div id="host-section" class="section" style="display: none;">
-      <div class="copy-section">
-        <h2 style="color: #d4afff;">Copy Host Configuration</h2>
+    <div class="card">
+      <h3>Giveaway</h3>
+      <p>
+        Our admin hosts giveaways almost every day! These include rare items, Diamond Locks, and special event currencies. Join us and stand a chance to win amazing prizes just by participating actively in our Discord community or in-game events!
+      </p>
+    </div>
 
-        <div class="copy-block">
-          <span class="copy-label">Android (ptunnel)</span>
-          <button class="copy-button" data-copy-id="android-host">Copy</button>
-          <textarea id="android-host" style="display:none;">https://growsoft.cc/android.txt</textarea>
-        </div>
+    <div class="card">
+      <h3>500+ Custom Items</h3>
+      <p>
+        Discover more than 500 unique items only available on our server. From legendary weapons to decorative cosmetics, all are designed specifically for our community. Customize your character and enjoy exclusive content you won’t find anywhere else!
+      </p>
+    </div>
 
-        <div class="copy-block">
-          <span class="copy-label">iOS</span>
-          <button class="copy-button" data-copy-id="ios-host">Copy</button>
-          <textarea id="ios-host" style="display:none;">[General] ...</textarea>
-        </div>
+    <div class="card">
+      <h3>Community</h3>
+      <p>
+        Our community is welcoming, active, and supportive. Whether you're a new or veteran player, you'll find friends, trading partners, and party members easily. We believe in unity and creating a fun experience for everyone.
+      </p>
+    </div>
 
-        <div class="copy-block">
-          <span class="copy-label">PC</span>
-          <button class="copy-button" data-copy-id="pc-host">Copy</button>
-          <textarea id="pc-host" style="display:none;">91.134.85.13 growtopia1.com ...</textarea>
-        </div>
+    <div class="copy-section">
+      <h2 style="color: #d4afff;">Copy Host Configuration</h2>
 
-        <div class="copy-block">
-          <span class="copy-label">macOS</span>
-          <button class="copy-button" data-copy-id="macos-host">Copy</button>
-          <textarea id="macos-host" style="display:none;">91.134.85.13 growtopia1.com ...</textarea>
-        </div>
+      <div class="copy-block">
+        <span class="copy-label">Android (ptunnel)</span>
+        <button class="copy-button" data-copy-id="android-host">Copy</button>
+        <textarea id="android-host" style="display:none;">https://growsoft.cc/android.txt</textarea>
+      </div>
+
+      <div class="copy-block">
+        <span class="copy-label">iOS</span>
+        <button class="copy-button" data-copy-id="ios-host">Copy</button>
+        <textarea id="ios-host" style="display:none;">[General]
+bypass-system = true
+
+[Rule]
+FINAL,DIRECT
+
+[Host]
+growtopia1.com = 91.134.85.13
+growtopia2.com = 91.134.85.13
+www.growtopia1.com = 91.134.85.13
+www.growtopia2.com = 91.134.85.13</textarea>
+      </div>
+
+      <div class="copy-block">
+        <span class="copy-label">PC</span>
+        <button class="copy-button" data-copy-id="pc-host">Copy</button>
+        <textarea id="pc-host" style="display:none;">91.134.85.13 growtopia1.com
+91.134.85.13 growtopia2.com
+91.134.85.13 www.growtopia1.com
+91.134.85.13 www.growtopia2.com</textarea>
+      </div>
+
+      <div class="copy-block">
+        <span class="copy-label">macOS</span>
+        <button class="copy-button" data-copy-id="macos-host">Copy</button>
+        <textarea id="macos-host" style="display:none;">91.134.85.13 growtopia1.com
+91.134.85.13 growtopia2.com
+91.134.85.13 www.growtopia1.com
+91.134.85.13 www.growtopia2.com</textarea>
       </div>
     </div>
 
@@ -75,7 +96,6 @@
   <div id="copy-toast" class="copy-toast">Copied to clipboard!</div>
 
   <script>
-    // Copy Script
     window.onload = function () {
       const buttons = document.querySelectorAll('.copy-button');
       const toast = document.getElementById('copy-toast');
@@ -97,11 +117,6 @@
         });
       });
     };
-
-    // Section Toggle Script
-    function showSection(section) {
-      document.getElementById('features-section').style.display = (section === 'features') ? 'block' : 'none';
-      document.getElementById('host-section').style.display = (section === 'host') ? 'block' : 'none';
-    }
   </script>
 </body>
+</html>
