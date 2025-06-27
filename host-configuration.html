@@ -8,18 +8,22 @@
 </head>
 <body>
   <header>
+    <h1>Host Configuration</h1>
+    <p class="welcome-text">Set up your device to connect with the Yume server.</p>
+  </header>
 
   <div class="container">
     <div class="copy-section">
+
       <div class="copy-block">
         <span class="copy-label">Android (ptunnel)</span>
-        <button class="copy-button" data-copy-id="android-host">Copy</button>
+        <button type="button" class="copy-button" data-copy-id="android-host">Copy</button>
         <textarea id="android-host" style="display:none;">https://growsoft.cc/android.txt</textarea>
       </div>
 
       <div class="copy-block">
         <span class="copy-label">iOS</span>
-        <button class="copy-button" data-copy-id="ios-host">Copy</button>
+        <button type="button" class="copy-button" data-copy-id="ios-host">Copy</button>
         <textarea id="ios-host" style="display:none;">[General]
 bypass-system = true
 
@@ -35,7 +39,7 @@ www.growtopia2.com = 91.134.85.13</textarea>
 
       <div class="copy-block">
         <span class="copy-label">PC</span>
-        <button class="copy-button" data-copy-id="pc-host">Copy</button>
+        <button type="button" class="copy-button" data-copy-id="pc-host">Copy</button>
         <textarea id="pc-host" style="display:none;">91.134.85.13 growtopia1.com
 91.134.85.13 growtopia2.com
 91.134.85.13 www.growtopia1.com
@@ -44,14 +48,16 @@ www.growtopia2.com = 91.134.85.13</textarea>
 
       <div class="copy-block">
         <span class="copy-label">macOS</span>
-        <button class="copy-button" data-copy-id="macos-host">Copy</button>
+        <button type="button" class="copy-button" data-copy-id="macos-host">Copy</button>
         <textarea id="macos-host" style="display:none;">91.134.85.13 growtopia1.com
 91.134.85.13 growtopia2.com
 91.134.85.13 www.growtopia1.com
 91.134.85.13 www.growtopia2.com</textarea>
       </div>
+
     </div>
-  <div style="margin-top: 2rem; text-align: center;">
+
+    <div style="margin-top: 2rem; text-align: center;">
       <a href="index.html" class="scroll-btn">Back to Home</a>
     </div>
   </div>
@@ -72,6 +78,7 @@ www.growtopia2.com = 91.134.85.13</textarea>
           const id = this.getAttribute('data-copy-id');
           const textarea = document.getElementById(id);
           if (!textarea) return;
+
           textarea.style.display = 'block';
           textarea.select();
           document.execCommand('copy');
