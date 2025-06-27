@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Host Configuration | Yume Private Server</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Host Configuration</h1>
+    <a href="index.html" class="scroll-btn">Back to Home</a>
+  </header>
+
+  <div class="container">
+    <div class="copy-section">
+      <div class="copy-block">
+        <span class="copy-label">Android (ptunnel)</span>
+        <button class="copy-button" data-copy-id="android-host">Copy</button>
+        <textarea id="android-host" style="display:none;">https://growsoft.cc/android.txt</textarea>
+      </div>
+
+      <div class="copy-block">
+        <span class="copy-label">iOS</span>
+        <button class="copy-button" data-copy-id="ios-host">Copy</button>
+        <textarea id="ios-host" style="display:none;">[General]
+bypass-system = true
+
+[Rule]
+FINAL,DIRECT
+
+[Host]
+growtopia1.com = 91.134.85.13
+growtopia2.com = 91.134.85.13
+www.growtopia1.com = 91.134.85.13
+www.growtopia2.com = 91.134.85.13</textarea>
+      </div>
+
+      <div class="copy-block">
+        <span class="copy-label">PC</span>
+        <button class="copy-button" data-copy-id="pc-host">Copy</button>
+        <textarea id="pc-host" style="display:none;">91.134.85.13 growtopia1.com
+91.134.85.13 growtopia2.com
+91.134.85.13 www.growtopia1.com
+91.134.85.13 www.growtopia2.com</textarea>
+      </div>
+
+      <div class="copy-block">
+        <span class="copy-label">macOS</span>
+        <button class="copy-button" data-copy-id="macos-host">Copy</button>
+        <textarea id="macos-host" style="display:none;">91.134.85.13 growtopia1.com
+91.134.85.13 growtopia2.com
+91.134.85.13 www.growtopia1.com
+91.134.85.13 www.growtopia2.com</textarea>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    Yume Private Server © 2025 | All rights reserved
+  </footer>
+
+  <div id="copy-toast" class="copy-toast">Copied to clipboard!</div>
+
+  <script>
+    window.onload = function () {
+      const buttons = document.querySelectorAll('.copy-button');
+      const toast = document.getElementById('copy-toast');
+
+      buttons.forEach(button => {
+        button.addEventListener('click', function () {
+          const id = this.getAttribute('data-copy-id');
+          const textarea = document.getElementById(id);
+          if (!textarea) return;
+          textarea.style.display = 'block';
+          textarea.select();
+          document.execCommand('copy');
+          textarea.style.display = 'none';
+
+          toast.classList.add('show');
+          setTimeout(() => {
+            toast.classList.remove('show');
+          }, 1500);
+        });
+      });
+    };
+  </script>
+</body>
+</html>
