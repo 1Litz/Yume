@@ -6,6 +6,14 @@
   <title>Yume Private Server</title>
   <link rel="stylesheet" href="style.css" />
   <style>
+    body {
+      background-image: url('https://media.discordapp.net/attachments/1169631869923492003/1379383229919793225/image.jpg?ex=685f057d&is=685db3fd&hm=9ce9b05a6ca44141d223b0f111e0dca159264045cf41b7d380235463ba73835c&&format=webp&width=1238&height=310');
+      background-size: cover;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
     .copy-toast {
       position: fixed;
       bottom: -60px;
@@ -20,16 +28,52 @@
       transition: all 0.4s ease;
       z-index: 1000;
     }
+
     .copy-toast.show {
       bottom: 30px;
       opacity: 1;
+    }
+
+    .scroll-btn {
+      display: inline-block;
+      margin: 1rem auto;
+      background-color: #8f5bd7;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background 0.3s ease;
+    }
+
+    .scroll-btn:hover {
+      background-color: #a875f0;
+    }
+
+    .discord-icon {
+      display: flex;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+
+    .discord-icon a img {
+      width: 60px;
+      height: 60px;
+      transition: transform 0.3s ease;
+    }
+
+    .discord-icon a img:hover {
+      transform: scale(1.1);
     }
   </style>
 </head>
 <body>
   <header>
     <h1>Yume Private Server</h1>
+    <button class="scroll-btn" onclick="document.querySelector('.copy-section').scrollIntoView({ behavior: 'smooth' });">Check Features</button>
   </header>
+
   <div class="container">
     <div class="card">
       <h2>Why Join Yume Private Server?</h2>
@@ -38,6 +82,7 @@
         Experience a new, balanced economy and cool features including fishing, farming, and more!
       </p>
     </div>
+
     <div class="card">
       <h2>Exclusive Features</h2>
       <p>
@@ -50,6 +95,7 @@
         Enjoy special currencies like <strong>XGems</strong> and <strong>XEXP</strong> to enhance your gameplay experience with unique upgrades and features.
       </p>
     </div>
+
     <div class="copy-section">
       <h2 style="color: #d4afff;">Copy Host Configuration</h2>
       <div class="copy-block">
@@ -89,11 +135,20 @@ www.growtopia2.com = 91.134.85.13</textarea>
 91.134.85.13 www.growtopia2.com</textarea>
       </div>
     </div>
+
+    <div class="discord-icon">
+      <a href="https://discord.com/invite/6TtvQDqZKT" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/5968/5968756.png" alt="Join Discord" />
+      </a>
+    </div>
   </div>
+
   <footer>
     Yume Private Server © 2025 | All rights reserved
   </footer>
+
   <div id="copy-toast" class="copy-toast">Copied to clipboard!</div>
+
   <script>
     window.onload = function () {
       const buttons = document.querySelectorAll('.copy-button');
