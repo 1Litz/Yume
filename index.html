@@ -25,14 +25,15 @@
 
   <link rel="stylesheet" href="/style.css" />
 
-  <style>
+    <style>
     .button-group {
       display: flex;
       justify-content: center;
-      gap: 2rem;
-      margin: 1.5rem 0;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 0.5rem;
     }
-
+  
     .button-group a {
       position: relative;
       text-decoration: none;
@@ -41,7 +42,7 @@
       font-weight: bold;
       padding-bottom: 3px;
     }
-
+  
     .button-group a::after {
       content: "";
       position: absolute;
@@ -52,41 +53,31 @@
       background-color: #dcd2ff;
       transition: width 0.3s ease;
     }
-
+  
     .button-group a:hover::after {
       width: 100%;
     }
-
+  
     .button-group a:hover {
       color: #ffffff;
     }
-
-    .text-button {
-      background: none;
-      border: none;
-      color: #dcd2ff;
-      font-size: 1.1rem;
-      text-decoration: underline;
-      cursor: pointer;
-      padding: 0;
-      margin: 0.5rem 0;
-    }
-
-    .text-button:hover {
-      color: #ffffff;
+  
+    .separator {
+      color: #888;
+      font-weight: bold;
     }
   </style>
-</head>
-<body>
+  
   <header>
     <h1>Yume Private Server</h1>
+    <div class="button-group">
+      <a href="/main-features/">Main Features</a>
+      <span class="separator">|</span>
+      <a href="/host-configuration/">Host Configuration</a>
+      <span class="separator">|</span>
+      <a href="/about/">About</a>
+    </div>
   </header>
-
-  <div class="button-group">
-    <a href="/main-features/">Main Features</a>
-    <a href="/host-configuration/">Host Configuration</a>
-    <a href="/about/">About</a>
-  </div>
 
   <div class="container">
     <p style="text-align: center; color: #dcd2ff; font-size: 1.1rem;">
