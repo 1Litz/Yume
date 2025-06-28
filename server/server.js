@@ -1,25 +1,85 @@
-const express = require("express");
+const express = require('express');
+const Stripe = require('stripe');
+const dotenv = require('dotenv');
+const path = require('path');
+const fs = require('fs');
+
+dotenv.config();
+
 const app = express();
-const path = require("path");
-const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
+const stripe = Stripe(process.env.STRIPE_SECRET_KEY);
 
-app.use(express.static("public"));
+app.use(express.json());
 
-app.get("/download", async (req, res) => {
-  const sessionId = req.query.session_id;
-  if (!sessionId) return res.status(400).send("Missing session ID.");
+const YOUR_DOMAIN = 'https://yume-api.onrender.com';
 
-  try {
-    const session = await stripe.checkout.sessions.retrieve(sessionId);
+app.post('/create-secure-checkout', async (req, res) => {
+  const session = await stripe.checkout.sessions.create({
+    mode: 'payment',
+    payment_method_types: ['card'],
+    line_items: [{
+      price_data: {
+        currency: 'usd',
+        product_data: {
+          name: 'Secure Source (Calculator System)'
+        },
+        unit_amount: 1000,
+      },
+      quantity: 1,
+    }],
+    success_url: `${YOUR_DOMAIN}/download?session_id={CHECKOUT_SESSION_ID}`,
+    cancel_url: `${YOUR_DOMAIN}/cancel`,
+  });
 
-    if (session.payment_status === "paid") {
-      const filePath = path.join(__dirname, "files", "calculator-secured.zip");
-      return res.download(filePath);
-    } else {
-      return res.status(403).send("Payment not verified.");
-    }
-  } catch (err) {
-    console.error("Error verifying session:", err.message);
-    return res.status(500).send("Something went wrong.");
+  res.json({ id: session.id });
+});
+
+app.post('/create-fullsource-checkout', async (req, res) => {
+  const session = await stripe.checkout.sessions.create({
+    mode: 'payment',
+    payment_method_types: ['card'],
+    line_items: [{
+      price_data: {
+        currency: 'usd',
+        product_data: {
+          name: 'Full Source (Calculator System)'
+        },
+        unit_amount: 3000,
+      },
+      quantity: 1,
+    }],
+    success_url: `${YOUR_DOMAIN}/download?session_id={CHECKOUT_SESSION_ID}`,
+    cancel_url: `${YOUR_DOMAIN}/cancel`,
+  });
+
+  res.json({ id: session.id });
+});
+
+app.get('/download', async (req, res) => {
+  const session = await stripe.checkout.sessions.retrieve(req.query.session_id);
+
+  if (!session || session.payment_status !== 'paid') {
+    return res.status(403).send("❌ Payment not completed.");
   }
+
+  const fileName = session.amount_total === 1000
+    ? 'calculator-source.zip'
+    : 'fullsource.zip';
+
+  const filePath = path.join(__dirname, 'files', fileName);
+
+  if (!fs.existsSync(filePath)) {
+    return res.status(404).send("❌ File not found.");
+  }
+
+  res.download(filePath);
+});
+
+app.get('/cancel', (req, res) => {
+  res.send('⛔ Payment canceled. You can go back and try again.');
+});
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`✅ Server running at http://localhost:${PORT}`);
 });
