@@ -38,11 +38,19 @@ header h1 {
   margin-bottom: 1.5rem;
 }
 
+.button-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
 .button-group a {
   color: #d4afff;
   text-decoration: none;
   font-weight: bold;
-  padding: 0 10px;
   transition: color 0.3s ease;
 }
 
@@ -51,7 +59,7 @@ header h1 {
 }
 
 .separator {
-  color: #888;
+  color: #aaa;
 }
 
 .text-button-container {
