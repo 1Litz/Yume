@@ -29,9 +29,10 @@ header h1 {
 .button-group {
   display: flex;
   justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
   gap: 1rem;
   margin: 2rem 0;
-  flex-wrap: wrap;
 }
 
 .button-group a {
@@ -53,23 +54,31 @@ header h1 {
   border-color: #d4afff;
 }
 
-.scroll-btn {
-  text-decoration: none;
-  padding: 0.8rem 1.6rem;
-  border-radius: 12px;
-  font-size: 1rem;
+.separator {
+  color: #888;
   font-weight: bold;
-  background: linear-gradient(145deg, #8f5bd7, #6a3cb6);
-  color: white;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-  transition: all 0.3s ease;
-  border: 2px solid transparent;
 }
 
-.scroll-btn:hover {
-  background: #a875f0;
-  transform: translateY(-3px);
-  border-color: #d4afff;
+.welcome-text {
+  margin-top: 1rem;
+  font-size: 1.1rem;
+  color: #cdb8ff;
+}
+
+.text-button {
+  background: none;
+  border: none;
+  color: #dcd2ff;
+  font-size: 1.1rem;
+  text-decoration: underline;
+  cursor: pointer;
+  padding: 0.3rem 0;
+  margin: 0.4rem 0;
+}
+
+.text-button:hover {
+  color: #ffffff;
+  text-decoration: underline;
 }
 
 .container {
@@ -79,12 +88,7 @@ header h1 {
   text-align: center;
 }
 
-.welcome-text {
-  margin-top: 1rem;
-  font-size: 1.1rem;
-  color: #cdb8ff;
-}
-
+/* FEEDBACK SECTION */
 .feedback-section {
   overflow: hidden;
   margin: 3rem auto;
@@ -130,6 +134,7 @@ header h1 {
   font-size: 0.95rem;
 }
 
+/* DISCORD ICON */
 .discord-icon {
   display: flex;
   justify-content: center;
@@ -148,6 +153,7 @@ header h1 {
   opacity: 1;
 }
 
+/* FOOTER */
 footer {
   text-align: center;
   padding: 2rem;
@@ -157,7 +163,7 @@ footer {
   margin-top: 2rem;
 }
 
-/* FEEDBACK SLIDE */
+/* FEEDBACK SLIDE ANIMATION */
 @keyframes slideLeft {
   0% {
     transform: translateX(0);
@@ -175,6 +181,15 @@ footer {
     word-break: break-word;
   }
 
+  .button-group {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .separator {
+    display: none;
+  }
+
   .welcome-text {
     font-size: 0.95rem;
     padding: 0 1rem;
@@ -184,14 +199,7 @@ footer {
     padding: 1.2rem;
   }
 
-  .button-group {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .scroll-btn {
-    width: 90%;
-    text-align: center;
+  .text-button {
     font-size: 1rem;
   }
 
