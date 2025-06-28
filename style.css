@@ -1,3 +1,5 @@
+/* Updated styles for Yume Private Server */
+
 * {
   margin: 0;
   padding: 0;
@@ -35,28 +37,58 @@ header h1 {
 .button-group {
   display: flex;
   justify-content: center;
-  gap: 1rem;
-  margin: 2rem 0;
+  align-items: center;
   flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 0.5rem;
 }
 
-.scroll-btn {
+.button-group a {
+  position: relative;
   text-decoration: none;
-  padding: 0.8rem 1.6rem;
-  border-radius: 12px;
-  font-size: 1rem;
+  color: #dcd2ff;
+  font-size: 1.1rem;
   font-weight: bold;
-  background: linear-gradient(145deg, #8f5bd7, #6a3cb6);
-  color: white;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-  transition: all 0.3s ease;
-  border: 2px solid transparent;
+  padding-bottom: 3px;
 }
 
-.scroll-btn:hover {
-  background: #a875f0;
-  transform: translateY(-3px);
-  border-color: #d4afff;
+.button-group a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 0;
+  background-color: #dcd2ff;
+  transition: width 0.3s ease;
+}
+
+.button-group a:hover::after {
+  width: 100%;
+}
+
+.button-group a:hover {
+  color: #ffffff;
+}
+
+.separator {
+  color: #888;
+  font-weight: bold;
+}
+
+.text-button {
+  background: none;
+  border: none;
+  color: #dcd2ff;
+  font-size: 1.1rem;
+  text-decoration: underline;
+  cursor: pointer;
+  padding: 0.3rem 0;
+  margin: 0.4rem 0;
+}
+
+.text-button:hover {
+  color: #ffffff;
 }
 
 .container {
@@ -178,6 +210,40 @@ footer {
   opacity: 1;
 }
 
+/* Feedback Slider */
+.feedback-section {
+  margin-top: 4rem;
+  text-align: center;
+}
+
+.feedback-section h2 {
+  color: #d4afff;
+  margin-bottom: 1rem;
+}
+
+.feedback-slider-wrapper {
+  overflow: hidden;
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.feedback-slider {
+  display: flex;
+  width: 300%;
+  transition: transform 1s ease-in-out;
+}
+
+.feedback-card {
+  flex: 0 0 100%;
+  padding: 1.5rem;
+  background: #2a1a3e;
+  border-radius: 10px;
+  margin: 0 1rem;
+  color: #fff;
+  font-size: 1.1rem;
+}
+
 @media (max-width: 768px) {
   header h1 {
     font-size: 1.8rem;
@@ -232,5 +298,10 @@ footer {
   footer {
     padding: 1rem;
     font-size: 0.8rem;
+  }
+
+  .feedback-card {
+    font-size: 1rem;
+    padding: 1rem;
   }
 }
