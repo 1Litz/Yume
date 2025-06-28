@@ -178,6 +178,7 @@ footer {
   opacity: 1;
 }
 
+/* ✅ FEEDBACK SECTION (NEW) */
 .feedback-section {
   overflow: hidden;
   margin: 3rem auto;
@@ -226,24 +227,11 @@ footer {
 }
 
 @keyframes slideLeft {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
 }
 
-@media (max-width: 768px) {
-  .feedback-track {
-    animation-duration: 60s;
-  }
-
-  .feedback-item {
-    min-width: 80%;
-  }
-}
-
+/* 📱 Responsive */
 @media (max-width: 768px) {
   header h1 {
     font-size: 1.8rem;
@@ -298,5 +286,13 @@ footer {
   footer {
     padding: 1rem;
     font-size: 0.8rem;
+  }
+
+  .feedback-track {
+    animation-duration: 60s;
+  }
+
+  .feedback-item {
+    min-width: 80%;
   }
 }
