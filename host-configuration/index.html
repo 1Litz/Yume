@@ -6,16 +6,10 @@
   <title>Host Configuration | Yume Private Server</title>
 
   <link rel="icon" href="/favicon.ico" type="image/x-icon" />
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-  <link rel="manifest" href="/site.webmanifest" />
-  <link rel="preload" href="/favicon.ico" as="image" />
   <link rel="stylesheet" href="/style.css" />
 
   <style>
     .copy-block {
-      position: relative;
       margin-bottom: 1.5rem;
     }
 
@@ -39,28 +33,28 @@
       background-color: #5a4fcf;
     }
 
-    .copy-message {
-      display: none;
-      position: absolute;
-      top: 50%;
-      left: 110%;
-      transform: translateY(-50%);
-      background-color: #1e1e1e;
+    .copy-toast {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background-color: #222;
       color: #8cff8c;
-      padding: 0.4rem 0.7rem;
-      font-size: 0.9rem;
-      border-radius: 6px;
+      font-size: 1rem;
+      font-weight: bold;
+      padding: 10px 16px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      z-index: 1000;
       white-space: pre-line;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
-      z-index: 10;
+      pointer-events: none;
     }
 
-    .copy-message::before {
-      content: "✅ Success\nCopied to your billboard";
-    }
-
-    .copy-message.show {
-      display: block;
+    .copy-toast.show {
+      opacity: 1;
+      transform: translateY(0);
     }
   </style>
 </head>
@@ -75,14 +69,12 @@
       <div class="copy-block">
         <span class="copy-label">Android (ptunnel)</span>
         <button type="button" class="copy-button" data-copy-id="android-host">Copy</button>
-        <span class="copy-message"></span>
         <textarea id="android-host" readonly style="display:none;">https://growsoft.cc/android.txt</textarea>
       </div>
 
       <div class="copy-block">
         <span class="copy-label">iOS</span>
         <button type="button" class="copy-button" data-copy-id="ios-host">Copy</button>
-        <span class="copy-message"></span>
         <textarea id="ios-host" readonly style="display:none;">[General]
 bypass-system = true
 
@@ -99,7 +91,6 @@ www.growtopia2.com = 91.134.85.13</textarea>
       <div class="copy-block">
         <span class="copy-label">PC</span>
         <button type="button" class="copy-button" data-copy-id="pc-host">Copy</button>
-        <span class="copy-message"></span>
         <textarea id="pc-host" readonly style="display:none;">91.134.85.13 growtopia1.com
 91.134.85.13 growtopia2.com
 91.134.85.13 www.growtopia1.com
@@ -109,7 +100,6 @@ www.growtopia2.com = 91.134.85.13</textarea>
       <div class="copy-block">
         <span class="copy-label">macOS</span>
         <button type="button" class="copy-button" data-copy-id="macos-host">Copy</button>
-        <span class="copy-message"></span>
         <textarea id="macos-host" readonly style="display:none;">91.134.85.13 growtopia1.com
 91.134.85.13 growtopia2.com
 91.134.85.13 www.growtopia1.com
@@ -127,16 +117,18 @@ www.growtopia2.com = 91.134.85.13</textarea>
     Yume Private Server © 2025 | All rights reserved
   </footer>
 
+  <!-- Notification Toast -->
+  <div id="copy-toast" class="copy-toast">✅ Success\nCopied to your billboard</div>
+
   <script>
     window.onload = function () {
       const buttons = document.querySelectorAll('.copy-button');
+      const toast = document.getElementById('copy-toast');
 
       buttons.forEach(button => {
         button.addEventListener('click', function () {
           const id = this.getAttribute('data-copy-id');
           const textarea = document.getElementById(id);
-          const message = this.nextElementSibling;
-
           if (!textarea) return;
 
           textarea.style.display = 'block';
@@ -144,10 +136,10 @@ www.growtopia2.com = 91.134.85.13</textarea>
           document.execCommand('copy');
           textarea.style.display = 'none';
 
-          message.classList.add('show');
+          toast.classList.add('show');
           setTimeout(() => {
-            message.classList.remove('show');
-          }, 1800);
+            toast.classList.remove('show');
+          }, 1500);
         });
       });
     };
