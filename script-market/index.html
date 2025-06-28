@@ -25,7 +25,7 @@
     <div class="card">
       <h2>Calculator System</h2>
       <p>
-        Calculator system where you can calculate by using command /calc. <strong>Buy? Join our discord server or use buttons below!</strong>
+        Calculator system where you can calculate by using command /calc. <strong>Buy? Join our discord server below!</strong>
       </p>
       <p>
         <strong>Secure Source:</strong> 10 DLS<br>
@@ -35,11 +35,6 @@
         <source src="../calculator-video.mp4" type="video/mp4">
         Your browser does not support the video tag.
       </video>
-
-      <div style="margin-top: 2rem;">
-        <button id="buy-secure" class="scroll-btn">Buy Secure Source (10 DLS)</button>
-        <button id="buy-fullsource" class="scroll-btn">Buy Full Source (30 DLS)</button>
-      </div>
     </div>
 
     <div style="margin-top: 2rem; text-align: center;">
@@ -56,25 +51,5 @@
   <footer>
     Yume Private Server © 2025 | All rights reserved
   </footer>
-
-  <script>
-    const stripe = Stripe('pk_live_51ReqvCC6bIAoO4QY3YqT5EDjLeOdAJ98ANbG3vPS8D5leZSQgCdtfttfDAPe2VVvFGKkkkxbmFb5vLXJJ83mMaX7005yl6HUIc');
-
-    document.getElementById("buy-secure").addEventListener("click", () => {
-      fetch("https://yume-api.onrender.com/create-secure-checkout", {
-        method: "POST"
-      })
-        .then(res => res.json())
-        .then(data => stripe.redirectToCheckout({ sessionId: data.id }));
-    });
-
-    document.getElementById("buy-fullsource").addEventListener("click", () => {
-      fetch("https://yume-api.onrender.com/create-fullsource-checkout", {
-        method: "POST"
-      })
-        .then(res => res.json())
-        .then(data => stripe.redirectToCheckout({ sessionId: data.id }));
-    });
-  </script>
 </body>
 </html>
