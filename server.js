@@ -1,34 +1,30 @@
-// This is your secure Node.js backend server example using Express
 const express = require('express');
+const dotenv = require('dotenv');
+const stripe = require('stripe');
 const path = require('path');
-const stripe = require('stripe')('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');
+
+dotenv.config();
 
 const app = express();
-app.use(express.static('public'));
+const stripeClient = stripe(process.env.STRIPE_SECRET_KEY);
 
 app.get('/download', async (req, res) => {
   const sessionId = req.query.session_id;
-
-  if (!sessionId) return res.status(400).send('Missing session ID.');
+  if (!sessionId) return res.status(400).send('Missing session ID');
 
   try {
-    const session = await stripe.checkout.sessions.retrieve(sessionId);
+    const session = await stripeClient.checkout.sessions.retrieve(sessionId);
 
     if (session.payment_status === 'paid') {
-      const filePath = path.join(__dirname, 'files', 'calculator-source.zip');
+      const filePath = path.join(__dirname, 'secure-files', 'calculator-source.zip');
       return res.download(filePath);
     } else {
-      return res.status(403).send('You must complete payment to access this file.');
+      return res.status(403).send('Payment not completed');
     }
-  } catch (error) {
-    console.error(error);
-    res.status(500).send('Server error.');
+  } catch (err) {
+    return res.status(500).send('Invalid session');
   }
 });
 
-// Optional: homepage
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
-});
-
-app.listen(3000, () => console.log('Server running on http://localhost:3000'));
+const PORT = process.env.PORT || 4242;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
