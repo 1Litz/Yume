@@ -26,63 +26,76 @@
   <link rel="stylesheet" href="/style.css" />
 
   <style>
+  .button-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 0.5rem;
+  }
+
+  .button-group a {
+    position: relative;
+    text-decoration: none;
+    color: #dcd2ff;
+    font-size: 1.1rem;
+    font-weight: bold;
+    padding-bottom: 3px;
+  }
+
+  .button-group a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 0;
+    background-color: #dcd2ff;
+    transition: width 0.3s ease;
+  }
+
+  .button-group a:hover::after {
+    width: 100%;
+  }
+
+  .button-group a:hover {
+    color: #ffffff;
+  }
+
+  .separator {
+    color: #888;
+    font-weight: bold;
+  }
+
+  @media (max-width: 600px) {
     .button-group {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 1rem;
-      margin-top: 0.5rem;
-    }
-
-    .button-group a {
-      position: relative;
-      text-decoration: none;
-      color: #dcd2ff;
-      font-size: 1.1rem;
-      font-weight: bold;
-      padding-bottom: 3px;
-    }
-
-    .button-group a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      height: 2px;
-      width: 0;
-      background-color: #dcd2ff;
-      transition: width 0.3s ease;
-    }
-
-    .button-group a:hover::after {
-      width: 100%;
-    }
-
-    .button-group a:hover {
-      color: #ffffff;
+      flex-direction: column;
+      gap: 0.5rem;
     }
 
     .separator {
-      color: #888;
-      font-weight: bold;
+      display: none;
     }
-    
-    .text-button {
-      background: none;
-      border: none;
-      color: #dcd2ff;
-      font-size: 1.1rem;
-      text-decoration: underline;
-      cursor: pointer;
-      padding: 0.3rem 0;
-      margin: 0.4rem 0;
-    }
+  }
 
-    .text-button:hover {
-      color: #ffffff;
-      text-decoration: underline;
-    }
-  </style>
+  .text-button {
+    background: none;
+    border: none;
+    color: #dcd2ff;
+    font-size: 1.1rem;
+    text-decoration: underline;
+    cursor: pointer;
+    padding: 0.3rem 0;
+    margin: 0.4rem 0;
+  }
+
+  .text-button:hover {
+    color: #ffffff;
+    text-decoration: underline;
+  }
+</style>
+
 </head>
 <body>
   <header>
