@@ -1,0 +1,21 @@
+# Node modules (don't push dependencies)
+node_modules/
+
+# Environment variables (your Stripe secret key, etc.)
+.env
+
+# Logs
+logs/
+*.log
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Optional: Ignore build artifacts
+dist/
+build/
+
+# Ignore secure/private files
+files/
+secure-files/
