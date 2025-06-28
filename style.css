@@ -1,5 +1,4 @@
-/* Updated styles for Yume Private Server */
-
+/* Global Reset */
 * {
   margin: 0;
   padding: 0;
@@ -15,6 +14,7 @@ body {
   overflow-x: hidden;
 }
 
+/* Header */
 header {
   padding: 2rem;
   text-align: center;
@@ -34,63 +34,35 @@ header h1 {
   color: #cdb8ff;
 }
 
+/* Button Group */
 .button-group {
   display: flex;
   justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
   gap: 1rem;
-  margin-top: 0.5rem;
+  margin: 2rem 0;
+  flex-wrap: wrap;
 }
 
-.button-group a {
-  position: relative;
+.scroll-btn {
   text-decoration: none;
-  color: #dcd2ff;
-  font-size: 1.1rem;
+  padding: 0.8rem 1.6rem;
+  border-radius: 12px;
+  font-size: 1rem;
   font-weight: bold;
-  padding-bottom: 3px;
+  background: linear-gradient(145deg, #8f5bd7, #6a3cb6);
+  color: white;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
 }
 
-.button-group a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  height: 2px;
-  width: 0;
-  background-color: #dcd2ff;
-  transition: width 0.3s ease;
+.scroll-btn:hover {
+  background: #a875f0;
+  transform: translateY(-3px);
+  border-color: #d4afff;
 }
 
-.button-group a:hover::after {
-  width: 100%;
-}
-
-.button-group a:hover {
-  color: #ffffff;
-}
-
-.separator {
-  color: #888;
-  font-weight: bold;
-}
-
-.text-button {
-  background: none;
-  border: none;
-  color: #dcd2ff;
-  font-size: 1.1rem;
-  text-decoration: underline;
-  cursor: pointer;
-  padding: 0.3rem 0;
-  margin: 0.4rem 0;
-}
-
-.text-button:hover {
-  color: #ffffff;
-}
-
+/* Container */
 .container {
   padding: 2rem;
   max-width: 1000px;
@@ -98,6 +70,7 @@ header h1 {
   text-align: center;
 }
 
+/* Discord Icon */
 .discord-icon {
   display: flex;
   justify-content: center;
@@ -116,6 +89,7 @@ header h1 {
   opacity: 1;
 }
 
+/* Footer */
 footer {
   text-align: center;
   padding: 2rem;
@@ -125,6 +99,7 @@ footer {
   margin-top: 2rem;
 }
 
+/* Cards */
 .card {
   background: #2a1a3e;
   border-radius: 10px;
@@ -149,6 +124,7 @@ footer {
   color: #dcd2ff;
 }
 
+/* Copy Section */
 .copy-section {
   background: #221733;
   padding: 2rem;
@@ -190,6 +166,7 @@ footer {
   background: #a875f0;
 }
 
+/* Copy Toast */
 .copy-toast {
   position: fixed;
   bottom: -60px;
@@ -210,38 +187,71 @@ footer {
   opacity: 1;
 }
 
-/* Feedback Slider */
+/* Feedback Section */
 .feedback-section {
-  margin-top: 4rem;
-  text-align: center;
+  margin-top: 3rem;
+  padding: 2rem 0;
+  background-color: #1d1230;
+  border-radius: 12px;
 }
 
 .feedback-section h2 {
   color: #d4afff;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
+  font-size: 1.6rem;
 }
 
 .feedback-slider-wrapper {
   overflow: hidden;
-  max-width: 800px;
-  margin: 0 auto;
   position: relative;
+  max-width: 100%;
 }
 
 .feedback-slider {
   display: flex;
-  width: 300%;
-  transition: transform 1s ease-in-out;
+  animation: slide-left 20s linear infinite;
+  gap: 2rem;
+  padding: 1rem;
+  width: max-content;
 }
 
 .feedback-card {
-  flex: 0 0 100%;
-  padding: 1.5rem;
+  min-width: 250px;
+  max-width: 300px;
   background: #2a1a3e;
-  border-radius: 10px;
-  margin: 0 1rem;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+  flex-shrink: 0;
+  text-align: center;
+}
+
+.feedback-avatar {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 0.8rem;
+  border: 2px solid #a875f0;
+}
+
+.feedback-name {
+  font-weight: bold;
   color: #fff;
-  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+.feedback-text {
+  font-style: italic;
+  color: #dcd2ff;
+  padding: 0 1rem;
+  font-size: 0.95rem;
+}
+
+@keyframes slide-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
 }
 
 @media (max-width: 768px) {
@@ -300,8 +310,13 @@ footer {
     font-size: 0.8rem;
   }
 
+  .feedback-slider {
+    animation: slide-left 30s linear infinite;
+    gap: 1rem;
+  }
+
   .feedback-card {
-    font-size: 1rem;
+    min-width: 220px;
     padding: 1rem;
   }
 }
