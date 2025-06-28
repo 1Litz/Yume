@@ -29,65 +29,47 @@ header h1 {
 .button-group {
   display: flex;
   justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
   gap: 1rem;
-  margin-top: 0.5rem;
+  margin: 2rem 0;
+  flex-wrap: wrap;
 }
 
 .button-group a {
-  position: relative;
   text-decoration: none;
-  color: #dcd2ff;
-  font-size: 1.1rem;
+  padding: 0.8rem 1.6rem;
+  border-radius: 12px;
+  font-size: 1rem;
   font-weight: bold;
-  padding-bottom: 3px;
-}
-
-.button-group a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  height: 2px;
-  width: 0;
-  background-color: #dcd2ff;
-  transition: width 0.3s ease;
-}
-
-.button-group a:hover::after {
-  width: 100%;
+  background: linear-gradient(145deg, #8f5bd7, #6a3cb6);
+  color: white;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
 }
 
 .button-group a:hover {
-  color: #ffffff;
+  background: #a875f0;
+  transform: translateY(-3px);
+  border-color: #d4afff;
 }
 
-.separator {
-  color: #888;
+.scroll-btn {
+  text-decoration: none;
+  padding: 0.8rem 1.6rem;
+  border-radius: 12px;
+  font-size: 1rem;
   font-weight: bold;
+  background: linear-gradient(145deg, #8f5bd7, #6a3cb6);
+  color: white;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
 }
 
-.welcome-text {
-  margin-top: 1rem;
-  font-size: 1.1rem;
-  color: #cdb8ff;
-}
-
-.text-button {
-  background: none;
-  border: none;
-  color: #dcd2ff;
-  font-size: 1.1rem;
-  text-decoration: underline;
-  cursor: pointer;
-  padding: 0.3rem 0;
-  margin: 0.4rem 0;
-}
-
-.text-button:hover {
-  color: #ffffff;
-  text-decoration: underline;
+.scroll-btn:hover {
+  background: #a875f0;
+  transform: translateY(-3px);
+  border-color: #d4afff;
 }
 
 .container {
@@ -95,6 +77,12 @@ header h1 {
   max-width: 1000px;
   margin: auto;
   text-align: center;
+}
+
+.welcome-text {
+  margin-top: 1rem;
+  font-size: 1.1rem;
+  color: #cdb8ff;
 }
 
 .feedback-section {
@@ -118,6 +106,7 @@ header h1 {
   padding: 1rem;
   border-radius: 10px;
   min-width: 250px;
+  max-width: 300px;
   text-align: center;
   box-shadow: 0 0 10px rgba(0,0,0,0.4);
 }
@@ -168,6 +157,7 @@ footer {
   margin-top: 2rem;
 }
 
+/* FEEDBACK SLIDE */
 @keyframes slideLeft {
   0% {
     transform: translateX(0);
@@ -177,20 +167,12 @@ footer {
   }
 }
 
+/* RESPONSIVE */
 @media (max-width: 768px) {
   header h1 {
     font-size: 1.8rem;
     padding: 0 1rem;
     word-break: break-word;
-  }
-
-  .button-group {
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-
-  .separator {
-    display: none;
   }
 
   .welcome-text {
@@ -202,11 +184,36 @@ footer {
     padding: 1.2rem;
   }
 
+  .button-group {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .scroll-btn {
+    width: 90%;
+    text-align: center;
+    font-size: 1rem;
+  }
+
   .feedback-track {
     animation-duration: 60s;
   }
 
   .feedback-item {
     min-width: 80%;
+    max-width: 90%;
+  }
+
+  .feedback-text {
+    font-size: 0.9rem;
+  }
+
+  .discord-icon {
+    margin-top: 2rem;
+  }
+
+  footer {
+    padding: 1rem;
+    font-size: 0.8rem;
   }
 }
