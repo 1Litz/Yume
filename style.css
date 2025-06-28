@@ -26,16 +26,21 @@ header h1 {
   color: #d4afff;
 }
 
+.welcome-text {
+  margin-top: 1rem;
+  font-size: 1.1rem;
+  color: #cdb8ff;
+}
+
 .button-group {
   display: flex;
   justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
   gap: 1rem;
   margin: 2rem 0;
+  flex-wrap: wrap;
 }
 
-.button-group a {
+.scroll-btn {
   text-decoration: none;
   padding: 0.8rem 1.6rem;
   border-radius: 12px;
@@ -48,37 +53,10 @@ header h1 {
   border: 2px solid transparent;
 }
 
-.button-group a:hover {
+.scroll-btn:hover {
   background: #a875f0;
   transform: translateY(-3px);
   border-color: #d4afff;
-}
-
-.separator {
-  color: #888;
-  font-weight: bold;
-}
-
-.welcome-text {
-  margin-top: 1rem;
-  font-size: 1.1rem;
-  color: #cdb8ff;
-}
-
-.text-button {
-  background: none;
-  border: none;
-  color: #dcd2ff;
-  font-size: 1.1rem;
-  text-decoration: underline;
-  cursor: pointer;
-  padding: 0.3rem 0;
-  margin: 0.4rem 0;
-}
-
-.text-button:hover {
-  color: #ffffff;
-  text-decoration: underline;
 }
 
 .container {
@@ -88,7 +66,118 @@ header h1 {
   text-align: center;
 }
 
-/* FEEDBACK SECTION */
+.discord-icon {
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+}
+
+.discord-icon a img {
+  width: 45px;
+  height: 45px;
+  transition: transform 0.3s ease;
+  opacity: 0.8;
+}
+
+.discord-icon a img:hover {
+  transform: scale(1.2);
+  opacity: 1;
+}
+
+footer {
+  text-align: center;
+  padding: 2rem;
+  color: #aaa;
+  font-size: 0.9rem;
+  border-top: 1px solid #333;
+  margin-top: 2rem;
+}
+
+.card {
+  background: #2a1a3e;
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin: 1rem 0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  background: #3d2463;
+}
+
+.card h2,
+.card h3 {
+  color: #d4afff;
+  margin-bottom: 0.5rem;
+}
+
+.card p {
+  color: #dcd2ff;
+}
+
+.copy-section {
+  background: #221733;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.copy-block {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #3d2463;
+  margin: 1rem 0;
+  padding: 1rem;
+  border-radius: 8px;
+  transition: background 0.3s ease;
+}
+
+.copy-block:hover {
+  background: #4f2c85;
+}
+
+.copy-label {
+  color: #fff;
+  font-weight: bold;
+}
+
+.copy-button {
+  background: #8f5bd7;
+  border: none;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.copy-button:hover {
+  background: #a875f0;
+}
+
+.copy-toast {
+  position: fixed;
+  bottom: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #8f5bd7;
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 10px;
+  font-weight: bold;
+  opacity: 0;
+  transition: all 0.4s ease;
+  z-index: 1000;
+}
+
+.copy-toast.show {
+  bottom: 30px;
+  opacity: 1;
+}
+
 .feedback-section {
   overflow: hidden;
   margin: 3rem auto;
@@ -96,6 +185,8 @@ header h1 {
   background: #2a1a3e;
   border-radius: 10px;
   width: 95%;
+  max-width: 1000px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
 }
 
 .feedback-track {
@@ -134,36 +225,6 @@ header h1 {
   font-size: 0.95rem;
 }
 
-/* DISCORD ICON */
-.discord-icon {
-  display: flex;
-  justify-content: center;
-  margin-top: 3rem;
-}
-
-.discord-icon a img {
-  width: 45px;
-  height: 45px;
-  transition: transform 0.3s ease;
-  opacity: 0.8;
-}
-
-.discord-icon a img:hover {
-  transform: scale(1.2);
-  opacity: 1;
-}
-
-/* FOOTER */
-footer {
-  text-align: center;
-  padding: 2rem;
-  color: #aaa;
-  font-size: 0.9rem;
-  border-top: 1px solid #333;
-  margin-top: 2rem;
-}
-
-/* FEEDBACK SLIDE ANIMATION */
 @keyframes slideLeft {
   0% {
     transform: translateX(0);
@@ -173,7 +234,16 @@ footer {
   }
 }
 
-/* RESPONSIVE */
+@media (max-width: 768px) {
+  .feedback-track {
+    animation-duration: 60s;
+  }
+
+  .feedback-item {
+    min-width: 80%;
+  }
+}
+
 @media (max-width: 768px) {
   header h1 {
     font-size: 1.8rem;
@@ -181,39 +251,44 @@ footer {
     word-break: break-word;
   }
 
-  .button-group {
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-
-  .separator {
-    display: none;
-  }
-
   .welcome-text {
     font-size: 0.95rem;
     padding: 0 1rem;
+  }
+
+  .card h2,
+  .card h3 {
+    font-size: 1.2rem;
+  }
+
+  .card p {
+    font-size: 0.95rem;
   }
 
   .container {
     padding: 1.2rem;
   }
 
-  .text-button {
+  .button-group {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .scroll-btn {
+    width: 90%;
+    text-align: center;
     font-size: 1rem;
   }
 
-  .feedback-track {
-    animation-duration: 60s;
+  .copy-block {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
   }
 
-  .feedback-item {
-    min-width: 80%;
-    max-width: 90%;
-  }
-
-  .feedback-text {
-    font-size: 0.9rem;
+  .copy-button {
+    align-self: flex-end;
+    width: 100%;
   }
 
   .discord-icon {
