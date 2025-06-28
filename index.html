@@ -24,7 +24,43 @@
   <meta name="twitter:image" content="https://www.yumegt.xyz/yume_banner.jpg">
 
   <link rel="stylesheet" href="/style.css" />
+
   <style>
+    .button-group {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin: 1.5rem 0;
+    }
+
+    .button-group a {
+      position: relative;
+      text-decoration: none;
+      color: #dcd2ff;
+      font-size: 1.1rem;
+      font-weight: bold;
+      padding-bottom: 3px;
+    }
+
+    .button-group a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      height: 2px;
+      width: 0;
+      background-color: #dcd2ff;
+      transition: width 0.3s ease;
+    }
+
+    .button-group a:hover::after {
+      width: 100%;
+    }
+
+    .button-group a:hover {
+      color: #ffffff;
+    }
+
     .text-button {
       background: none;
       border: none;
@@ -35,6 +71,7 @@
       padding: 0;
       margin: 0.5rem 0;
     }
+
     .text-button:hover {
       color: #ffffff;
     }
@@ -46,9 +83,9 @@
   </header>
 
   <div class="button-group">
-    <a href="/main-features/" class="scroll-btn">Main Features</a>
-    <a href="/host-configuration/" class="scroll-btn">Host Configuration</a>
-    <a href="/about/" class="scroll-btn">About</a>
+    <a href="/main-features/">Main Features</a>
+    <a href="/host-configuration/">Host Configuration</a>
+    <a href="/about/">About</a>
   </div>
 
   <div class="container">
