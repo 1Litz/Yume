@@ -25,7 +25,7 @@
 
   <link rel="stylesheet" href="/style.css" />
 
-    <style>
+  <style>
     .button-group {
       display: flex;
       justify-content: center;
@@ -33,7 +33,7 @@
       gap: 1rem;
       margin-top: 0.5rem;
     }
-  
+
     .button-group a {
       position: relative;
       text-decoration: none;
@@ -42,7 +42,7 @@
       font-weight: bold;
       padding-bottom: 3px;
     }
-  
+
     .button-group a::after {
       content: "";
       position: absolute;
@@ -53,21 +53,38 @@
       background-color: #dcd2ff;
       transition: width 0.3s ease;
     }
-  
+
     .button-group a:hover::after {
       width: 100%;
     }
-  
+
     .button-group a:hover {
       color: #ffffff;
     }
-  
+
     .separator {
       color: #888;
       font-weight: bold;
     }
+    
+    .text-button {
+      background: none;
+      border: none;
+      color: #dcd2ff;
+      font-size: 1.1rem;
+      text-decoration: underline;
+      cursor: pointer;
+      padding: 0.3rem 0;
+      margin: 0.4rem 0;
+    }
+
+    .text-button:hover {
+      color: #ffffff;
+      text-decoration: underline;
+    }
   </style>
-  
+</head>
+<body>
   <header>
     <h1>Yume Private Server</h1>
     <div class="button-group">
