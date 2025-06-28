@@ -13,7 +13,7 @@ app.get("/download", async (req, res) => {
     const session = await stripe.checkout.sessions.retrieve(sessionId);
 
     if (session.payment_status === "paid") {
-      const filePath = path.join(__dirname, "files", "calculator-source.zip");
+      const filePath = path.join(__dirname, "files", "calculator-secured.zip");
       return res.download(filePath);
     } else {
       return res.status(403).send("Payment not verified.");
