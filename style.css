@@ -261,7 +261,7 @@ footer {
 
 .feedback-track {
   display: flex;
-  animation: slideLeft 45s linear infinite;
+  animation: slideLeft 75s linear infinite;
   gap: 2rem;
 }
 
@@ -369,7 +369,7 @@ footer {
   }
 
   .feedback-track {
-    animation-duration: 60s;
+    animation-duration: 75s;
   }
 
   .feedback-item {
