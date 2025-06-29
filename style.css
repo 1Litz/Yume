@@ -261,8 +261,9 @@ footer {
 
 .feedback-track {
   display: flex;
-  animation: slideLeft 40s linear infinite;
+  animation: slideLeft 30s linear infinite;
   gap: 2rem;
+  width: max-content;
 }
 
 .feedback-item {
@@ -296,8 +297,12 @@ footer {
 }
 
 @keyframes slideLeft {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 @media (max-width: 480px) {
@@ -369,7 +374,7 @@ footer {
   }
 
   .feedback-track {
-    animation-duration: 40s;
+    animation-duration: 30s;
   }
 
   .feedback-item {
