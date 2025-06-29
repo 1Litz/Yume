@@ -274,7 +274,8 @@ footer {
 
 .feedback-item {
   flex: 0 0 auto;
-  background: #3d2463;
+  border: 2px solid red;
+  background: rgba(255, 0, 0, 0.1);
   padding: 1rem;
   border-radius: 10px;
   min-width: 250px;
@@ -312,14 +313,30 @@ footer {
   }
 }
 
+.feedback-item {
+  flex: 0 0 auto;
+  border: 2px solid red;
+  background: rgba(255, 0, 0, 0.1);
+  padding: 1rem;
+  border-radius: 10px;
+  min-width: 250px;
+  max-width: 300px;
+  width: 70vw;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0,0,0,0.4);
+}
+
+/* Responsive fix */
 @media (max-width: 600px) {
   .feedback-item {
-    min-width: 90vw;
-    max-width: 90vw;
+    width: 90vw !important;
+    min-width: unset !important;
+    max-width: unset !important;
   }
 
   .feedback-track {
     animation-duration: 20s;
+    gap: 1rem;
   }
 }
 
