@@ -259,11 +259,17 @@ footer {
   box-shadow: 0 4px 15px rgba(0,0,0,0.3);
 }
 
+.feedback-track-wrapper {
+  overflow: hidden;
+  width: 100%;
+}
+
 .feedback-track {
   display: flex;
-  animation: slideLeft 30s linear infinite;
-  gap: 2rem;
+  flex-wrap: nowrap;
   width: max-content;
+  gap: 1.5rem;
+  animation: scroll-left 30s linear infinite;
 }
 
 .feedback-item {
@@ -272,6 +278,7 @@ footer {
   padding: 1rem;
   border-radius: 10px;
   min-width: 250px;
+  width: 70vw;
   max-width: 300px;
   text-align: center;
   box-shadow: 0 0 10px rgba(0,0,0,0.4);
@@ -296,13 +303,18 @@ footer {
   font-size: 0.95rem;
 }
 
-@keyframes slideLeft {
+@keyframes scroll-left {
   0% {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-150%);
+    transform: translateX(-50%);
   }
+}
+
+/* Optional: Pause animation on hover */
+.feedback-track:hover {
+  animation-play-state: paused;
 }
 
 @media (max-width: 480px) {
