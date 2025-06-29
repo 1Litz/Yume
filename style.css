@@ -278,8 +278,8 @@ footer {
   padding: 1rem;
   border-radius: 10px;
   min-width: 250px;
-  width: 70vw;
   max-width: 300px;
+  width: 70vw;
   text-align: center;
   box-shadow: 0 0 10px rgba(0,0,0,0.4);
 }
@@ -309,6 +309,17 @@ footer {
   }
   100% {
     transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 600px) {
+  .feedback-item {
+    min-width: 90vw;
+    max-width: 90vw;
+  }
+
+  .feedback-track {
+    animation-duration: 20s;
   }
 }
 
@@ -384,22 +395,4 @@ footer {
     padding: 1rem;
     font-size: 0.8rem;
   }
-
-  .feedback-item {
-  min-width: 250px;
-  max-width: 300px;
-  width: 70vw;
-  }
-  
-  @media (max-width: 768px) {
-    .feedback-item {
-      min-width: 80vw;
-      max-width: 90vw;
-    }
-    
-    .feedback-track {
-      animation-duration: 25s;
-    }
-  }
-  
 }
