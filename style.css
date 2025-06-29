@@ -385,11 +385,21 @@ footer {
     font-size: 0.8rem;
   }
 
-  .feedback-track {
-    animation-duration: 30s;
-  }
-
   .feedback-item {
-    min-width: 80%;
+  min-width: 250px;
+  max-width: 300px;
+  width: 70vw;
   }
+  
+  @media (max-width: 768px) {
+    .feedback-item {
+      min-width: 80vw;
+      max-width: 90vw;
+    }
+    
+    .feedback-track {
+      animation-duration: 25s;
+    }
+  }
+  
 }
