@@ -3,51 +3,114 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Script Market | Yume Private Server</title>
+  <title>Yume Game Marketplace</title>
+  <link rel="stylesheet" href="/style.css" />
+  <style>
+    body {
+      background: #1b112b;
+      color: #fff;
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
 
-  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-  <link rel="manifest" href="/site.webmanifest" />
-  <link rel="preload" href="/favicon.ico" as="image" />
-  
-  <link rel="stylesheet" href="../style.css" />
-  <script src="https://js.stripe.com/v3/"></script>
+    header {
+      background: #2e1a47;
+      padding: 2rem;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    header h1 {
+      margin: 0;
+      color: #fff;
+      font-size: 2.5rem;
+    }
+
+    .market-container {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 1rem;
+    }
+
+    .shop-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .shop-item {
+      background: #2a1a3e;
+      border-radius: 10px;
+      padding: 1rem;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease;
+    }
+
+    .shop-item:hover {
+      transform: translateY(-5px);
+    }
+
+    .shop-item img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 0.5rem;
+    }
+
+    .shop-item h3 {
+      color: #d4afff;
+      margin: 0.5rem 0;
+    }
+
+    .shop-item p {
+      color: #ccc;
+      font-size: 0.9rem;
+    }
+
+    .price-tag {
+      color: #8f5bd7;
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: #888;
+    }
+  </style>
 </head>
 <body>
   <header>
-    <h1>Script Market</h1>
-    <div class="button-group">
-      <a href="/">Back</a> 
-    </div>
-    <p class="welcome-text">Safe & Secure Scripts Powered by Whitelist System</p>
+    <h1>Yume Game Marketplace</h1>
   </header>
 
-  <div class="container">
-    <div class="card">
-      <h2>Calculator System</h2>
-      <p>
-        Calculator system where you can calculate by using command /calc. <strong>Buy? Join our discord server below!</strong>
-      </p>
-      <p>
-        <strong>Secure Source:</strong> 10 DLS<br>
-        <strong>Full Source:</strong> 30 DLS
-      </p>
-      <video controls width="100%" style="border-radius: 10px; margin-top: 1rem;">
-        <source src="../calculator-video.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
+  <div class="market-container">
+    <div class="shop-grid">
+      <div class="shop-item">
+        <img src="/image/item1.jpg" alt="Item 1">
+        <h3>Legendary Sword</h3>
+        <p>Powerful blade forged with dark crystal energy.</p>
+        <p class="price-tag">Price: 500 NB</p>
+      </div>
+      <div class="shop-item">
+        <img src="/image/item2.jpg" alt="Item 2">
+        <h3>Golden Wings</h3>
+        <p>Fly in style with this rare pair of wings.</p>
+        <p class="price-tag">Price: 300 NB</p>
+      </div>
+      <div class="shop-item">
+        <img src="/image/item3.jpg" alt="Item 3">
+        <h3>Fire Orb</h3>
+        <p>Unleash a burst of flame in your battles.</p>
+        <p class="price-tag">Price: 200 NB</p>
+      </div>
     </div>
-
-  <div class="discord-icon">
-    <a href="https://discord.com/invite/v23x7qumSe" target="_blank">
-      <img src="https://cdn-icons-png.flaticon.com/512/5968/5968756.png" alt="Join Discord" />
-    </a>
   </div>
 
   <footer>
-    Yume Private Server © 2025 | All rights reserved
+    Yume Market © 2025 | All rights reserved.
   </footer>
 </body>
 </html>
