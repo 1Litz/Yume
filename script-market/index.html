@@ -31,47 +31,30 @@
       max-width: 1000px;
       margin: 2rem auto;
       padding: 1rem;
+      text-align: center;
     }
 
-    .shop-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .shop-item {
+    .no-shop-msg {
       background: #2a1a3e;
+      padding: 2rem;
       border-radius: 10px;
-      padding: 1rem;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-      transition: transform 0.3s ease;
+      margin-bottom: 2rem;
     }
 
-    .shop-item:hover {
-      transform: translateY(-5px);
-    }
-
-    .shop-item img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
+    .create-shop-btn {
+      background-color: #8f5bd7;
+      border: none;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
       border-radius: 8px;
-      margin-bottom: 0.5rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
     }
 
-    .shop-item h3 {
-      color: #d4afff;
-      margin: 0.5rem 0;
-    }
-
-    .shop-item p {
-      color: #ccc;
-      font-size: 0.9rem;
-    }
-
-    .price-tag {
-      color: #8f5bd7;
-      font-weight: bold;
+    .create-shop-btn:hover {
+      background-color: #a875f0;
     }
 
     footer {
@@ -87,25 +70,10 @@
   </header>
 
   <div class="market-container">
-    <div class="shop-grid">
-      <div class="shop-item">
-        <img src="/image/item1.jpg" alt="Item 1">
-        <h3>Legendary Sword</h3>
-        <p>Powerful blade forged with dark crystal energy.</p>
-        <p class="price-tag">Price: 500 NB</p>
-      </div>
-      <div class="shop-item">
-        <img src="/image/item2.jpg" alt="Item 2">
-        <h3>Golden Wings</h3>
-        <p>Fly in style with this rare pair of wings.</p>
-        <p class="price-tag">Price: 300 NB</p>
-      </div>
-      <div class="shop-item">
-        <img src="/image/item3.jpg" alt="Item 3">
-        <h3>Fire Orb</h3>
-        <p>Unleash a burst of flame in your battles.</p>
-        <p class="price-tag">Price: 200 NB</p>
-      </div>
+    <div class="no-shop-msg">
+      <h2>No shops available yet.</h2>
+      <p>Be the first to open a shop and start selling your game-related items!</p>
+      <button class="create-shop-btn" onclick="window.location.href='/create-shop/'">Create Your Shop</button>
     </div>
   </div>
 
