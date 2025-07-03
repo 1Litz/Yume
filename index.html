@@ -122,6 +122,21 @@
         <img src="https://cdn-icons-png.flaticon.com/512/5968/5968756.png" alt="Join Discord" />
       </a>
     </div>
+    <script>
+  const createParticles = () => {
+    for (let i = 0; i < 40; i++) {
+      const particle = document.createElement('div');
+      particle.className = 'particle';
+      particle.style.left = `${Math.random() * 100}%`;
+      particle.style.top = `${Math.random() * 100}%`;
+      particle.style.animationDuration = `${4 + Math.random() * 6}s`;
+      particle.style.opacity = Math.random();
+      particle.style.transform = `scale(${Math.random() + 0.5})`;
+      document.body.appendChild(particle);
+    }
+  };
+  createParticles();
+</script>
   </div>
   <footer>
     <p>Yume Private Server © 2025 | Created by <strong>iLitz_</strong> | All rights reserved</p>
