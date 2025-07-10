@@ -335,6 +335,31 @@ footer {
   text-decoration: underline;
 }
 
+.text-button-container {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.text-button {
+  background: none;
+  border: none;
+  color: var(--secondary-color);
+  font-size: 1.05rem;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: underline;
+  transition: color 0.3s ease, transform 0.2s ease;
+  padding: 0.5rem 1rem;
+  display: inline-block;
+}
+
+.text-button:hover,
+.text-button:focus {
+  color: var(--primary-color);
+  transform: scale(1.05);
+  outline: none;
+}
+
 .container {
   padding: 2rem;
   max-width: 1000px;
