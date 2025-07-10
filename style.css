@@ -32,7 +32,6 @@ a {
   text-decoration: none;
 }
 
-/* Header Section */
 header {
   position: relative;
   padding: 3rem 2rem;
@@ -112,7 +111,6 @@ header h1 {
   font-weight: normal;
 }
 
-/* Card Design */
 .card {
   background: var(--card-bg);
   border-radius: var(--border-radius);
@@ -150,7 +148,6 @@ header h1 {
   background: #3d2463;
 }
 
-/* Feedback Carousel */
 .feedback-section {
   overflow: hidden;
   margin: 3rem auto;
@@ -215,7 +212,6 @@ header h1 {
   animation-play-state: paused;
 }
 
-/* Copy Blocks (Host Configuration) */
 .copy-section {
   background: #221733;
   padding: 2.2rem;
@@ -255,7 +251,6 @@ header h1 {
   box-shadow: 0 0 12px var(--primary-color);
 }
 
-/* Discord Icon */
 .discord-icon {
   text-align: center;
   margin: 3rem 0;
@@ -273,7 +268,6 @@ header h1 {
   filter: drop-shadow(0 0 10px rgba(168, 117, 240, 0.6));
 }
 
-/* Footer */
 footer {
   text-align: center;
   padding: 2rem 1rem;
@@ -285,7 +279,6 @@ footer {
   border-radius: var(--border-radius);
 }
 
-/* Text Link Button */
 .text-link-button {
   display: inline-block;
   margin: 1rem 0;
@@ -300,7 +293,6 @@ footer {
   text-decoration: underline;
 }
 
-/* Container */
 .container {
   padding: 2rem;
   max-width: 1000px;
@@ -308,7 +300,6 @@ footer {
   text-align: center;
 }
 
-/* Particles Background */
 .particle {
   position: absolute;
   background: radial-gradient(circle, var(--primary-color), #3d2463);
@@ -336,7 +327,6 @@ footer {
   }
 }
 
-/* Toast Notification */
 #copy-toast {
   position: fixed;
   bottom: -60px;
@@ -357,7 +347,6 @@ footer {
   opacity: 1;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
   header h1 {
     font-size: 1.8rem;
