@@ -189,7 +189,6 @@ header h1 {
   max-width: 1000px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
   position: relative;
-  transition: background 0.4s ease;
 }
 
 .feedback-track-wrapper {
@@ -232,14 +231,20 @@ header h1 {
   font-weight: bold;
   color: var(--secondary-color);
   margin-bottom: 0.5rem;
-  transition: color 0.4s ease;
 }
 
 .feedback-text {
   color: #dcd2ff;
   font-style: italic;
   font-size: 0.95rem;
-  transition: color 0.4s ease;
+}
+
+@media (max-width: 768px) {
+  .feedback-item {
+    width: 90vw !important;
+    min-width: unset !important;
+    max-width: unset !important;
+  }
 }
 
 .feedback-track:hover {
