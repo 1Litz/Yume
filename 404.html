@@ -2,122 +2,75 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>404 - Page Not Found | YumeGT</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>404 - Page Not Found | Yume Private Server</title>
 
+  <!-- Favicon -->
   <link rel="icon" href="/favicon.ico" type="image/x-icon" />
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
   <link rel="manifest" href="/site.webmanifest" />
-  <link rel="preload" href="/favicon.ico" as="image" />
-  
-  <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
 
-    body {
-      background: #1b112b;
-      color: #fff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+  <!-- CSS -->
+  <link rel="stylesheet" href="/style.css" />
+
+  <style>
+    .error-container {
       text-align: center;
-      height: 100vh;
-      overflow: hidden;
+      margin-top: 5rem;
       padding: 2rem;
     }
 
-    .container {
-      max-width: 700px;
+    .error-code {
+      font-size: 5rem;
+      color: var(--primary-color);
+      font-weight: bold;
+      margin-bottom: 1rem;
     }
 
-    h1 {
-      font-size: 6rem;
-      color: #d4afff;
-      text-shadow: 0 0 10px #a875f0, 0 0 30px #a875f0;
-    }
-
-    p {
-      font-size: 1.25rem;
-      color: #cdb8ff;
-      margin-top: 1rem;
+    .error-message {
+      font-size: 1.5rem;
+      color: var(--text-muted);
       margin-bottom: 2rem;
     }
 
-    .back-btn {
+    .back-button {
       display: inline-block;
-      padding: 0.8rem 1.6rem;
-      font-size: 1.1rem;
-      font-weight: bold;
-      background: linear-gradient(145deg, #8f5bd7, #6a3cb6);
+      background: var(--primary-color);
       color: white;
-      border-radius: 12px;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-      border: 2px solid transparent;
+      padding: 0.75rem 1.5rem;
+      border-radius: var(--border-radius);
+      font-weight: bold;
       text-decoration: none;
-      transition: all 0.3s ease;
+      transition: background 0.3s ease;
     }
 
-    .back-btn:hover {
-      background: #a875f0;
-      transform: translateY(-3px);
-      border-color: #d4afff;
-    }
-
-    /* Floating neon particles */
-    .particle {
-      position: absolute;
-      background: #a875f0;
-      border-radius: 50%;
-      width: 8px;
-      height: 8px;
-      opacity: 0.2;
-      animation: float 8s infinite ease-in-out;
-    }
-
-    @keyframes float {
-      0% {
-        transform: translateY(0) scale(1);
-        opacity: 0.2;
-      }
-      50% {
-        transform: translateY(-100px) scale(1.5);
-        opacity: 0.5;
-      }
-      100% {
-        transform: translateY(0) scale(1);
-        opacity: 0.2;
-      }
+    .back-button:hover {
+      background: #c18df5;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>404</h1>
-    <p>Oops! The page you're looking for doesn't exist.<br>It may have been removed, renamed, or is temporarily unavailable.</p>
-    <a class="back-btn" href="/">Return Home</a>
+  <!-- Header -->
+  <header>
+    <h1>Yume Private Server</h1>
+  </header>
+
+  <!-- Error Content -->
+  <div class="error-container">
+    <div class="error-code">404</div>
+    <h2 class="welcome-text">Oops! Page Not Found</h2>
+    <p class="error-message">
+      The page you're looking for doesn't exist or has been moved.<br>
+      Don’t worry — we’ve got you covered!
+    </p>
+    <a href="/" class="back-button">Go Back Home</a>
   </div>
-  
-  <script>
-    const createParticles = () => {
-      for (let i = 0; i < 40; i++) {
-        const particle = document.createElement('div');
-        particle.className = 'particle';
-        particle.style.left = `${Math.random() * 100}%`;
-        particle.style.top = `${Math.random() * 100}%`;
-        particle.style.animationDuration = `${4 + Math.random() * 6}s`;
-        particle.style.opacity = Math.random();
-        particle.style.transform = `scale(${Math.random() + 0.5})`;
-        document.body.appendChild(particle);
-      }
-    };
-    createParticles();
-  </script>
+
+  <!-- Footer -->
+  <footer>
+    <p>Yume Private Server © 2025 | Crafted by <strong>iLitz_</strong> | All rights reserved</p>
+  </footer>
 </body>
 </html>
