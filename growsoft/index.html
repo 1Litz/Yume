@@ -21,7 +21,7 @@
   <!-- Inline Styles -->
   <style>
     body {
-      background-color: #121015;
+      background-color: var(--bg-color);
     }
 
     .text-link-button {
@@ -40,6 +40,9 @@
   </style>
 </head>
 <body>
+  <!-- Theme Toggle Button -->
+  <button class="theme-toggle-btn">Toggle Theme</button>
+
   <!-- Header -->
   <header>
     <h1>GrowSoft</h1>
@@ -93,5 +96,77 @@
   <footer>
     Yume Private Server © 2025 | Not affiliated with Growtopia or Ubisoft
   </footer>
+
+  <!-- Theme Script -->
+  <script>
+    const toggleBtn = document.querySelector('.theme-toggle-btn');
+
+    function setTheme(themeName) {
+      localStorage.setItem('theme', themeName);
+      document.documentElement.setAttribute('data-theme', themeName);
+    }
+
+    function toggleTheme() {
+      if (localStorage.getItem('theme') === 'light') {
+        setTheme('dark');
+      } else {
+        setTheme('light');
+      }
+    }
+
+    function loadTheme() {
+      const savedTheme = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+      if (savedTheme) {
+        setTheme(savedTheme);
+      } else if (prefersDark) {
+        setTheme('dark');
+      } else {
+        setTheme('light');
+      }
+    }
+
+    function applyDynamicStyles(theme) {
+      const root = document.documentElement;
+      if (theme === 'light') {
+        root.style.setProperty('--bg-color', '#ffffff');
+        root.style.setProperty('--card-bg', '#f3f3f3');
+        root.style.setProperty('--text-light', '#111');
+        root.style.setProperty('--text-muted', '#555');
+        root.style.setProperty('--primary-color', '#FF5A57');
+        root.style.setProperty('--secondary-color', '#FF5A57');
+        root.style.setProperty('--accent-glow', '#FCCBF0');
+        root.style.setProperty('--shadow-dark', 'rgba(0, 0, 0, 0.2)');
+        root.style.setProperty('--card-bg', '#f3f3f3');
+        root.style.setProperty('--bg-gradient', 'linear-gradient(135deg, #FCCBF0, #FF5A57)');
+      } else {
+        root.style.setProperty('--bg-color', '#1b112b');
+        root.style.setProperty('--card-bg', '#2a1a3e');
+        root.style.setProperty('--text-light', '#fff');
+        root.style.setProperty('--text-muted', '#cdb8ff');
+        root.style.setProperty('--primary-color', '#a875f0');
+        root.style.setProperty('--secondary-color', '#d4afff');
+        root.style.setProperty('--accent-glow', '#6a3cb6');
+        root.style.setProperty('--shadow-dark', 'rgba(0, 0, 0, 0.5)');
+        root.style.setProperty('--card-bg', '#2a1a3e');
+        root.style.setProperty('--bg-gradient', 'linear-gradient(135deg, #6700A3, #1B2062, #050C38)');
+      }
+
+      // Update header gradient
+      const headers = document.querySelectorAll('header');
+      headers.forEach(header => {
+        header.style.background = getComputedStyle(document.documentElement).getPropertyValue('--bg-gradient');
+      });
+    }
+
+    toggleBtn.addEventListener('click', () => {
+      toggleTheme();
+      applyDynamicStyles(localStorage.getItem('theme'));
+    });
+
+    loadTheme();
+    applyDynamicStyles(localStorage.getItem('theme') || 'dark');
+  </script>
 </body>
 </html>
