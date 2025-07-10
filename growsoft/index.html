@@ -2,73 +2,94 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>GrowSoft | Yume Private Server</title>
 
+  <!-- Favicon -->
   <link rel="icon" href="/favicon.ico" type="image/x-icon" />
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
   <link rel="manifest" href="/site.webmanifest" />
-  
-  <link rel="preload" href="/favicon.ico" as="image" />
-  <link rel="stylesheet" href="../style.css" />
 
+  <!-- Preload -->
+  <link rel="preload" href="/favicon.ico" as="image" />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="../../style.css" />
+
+  <!-- Inline Styles -->
   <style>
     body {
       background-color: #121015;
     }
+
     .text-link-button {
       display: inline-block;
       margin: 1rem 0;
-      color: #d4afff;
+      color: var(--secondary-color);
       font-weight: bold;
       text-decoration: none;
       transition: color 0.3s ease;
     }
+
     .text-link-button:hover {
-      color: #ffffff;
+      color: var(--text-light);
       text-decoration: underline;
     }
   </style>
 </head>
 <body>
+  <!-- Header -->
   <header>
     <h1>GrowSoft</h1>
     <div class="button-group">
-      <a href="/">Back</a> 
+      <a href="/">Back</a>
     </div>
     <p class="welcome-text">Why GrowSoft is Your Best Choice for GT Private Server Development</p>
   </header>
 
+  <!-- Main Content -->
   <div class="container">
+    <!-- Why Choose GrowSoft -->
     <div class="card">
       <h2>Why Choose GrowSoft?</h2>
       <p>
-        GrowSoft is a modern, stable, and community-supported base engine for building Growtopia Private Servers. Unlike outdated or poorly secured bases, GrowSoft provides an actively maintained codebase with security patches, event frameworks, and server management tools that scale with your needs.
-        <br><br>
-        Whether you're hosting a simple world for friends or building a professional server with advanced scripts, GrowSoft makes it easier and safer. Its smart whitelist system ensures only approved users can access protected functions, while the event engine gives you full control over in-game activities.
-        <br><br>
-        The Diamond Tier lets your server run up to <strong>7 full days</strong> without downtime. Perfect for giveaways, tournaments, and long-term survival-style worlds. Setup is quick and flexible — no need to edit dozens of files just to launch.
+        GrowSoft is a modern, stable, and community-supported base engine for building Growtopia Private Servers.
+        Unlike outdated or poorly secured bases, GrowSoft provides an actively maintained codebase with security patches,
+        event frameworks, and server management tools that scale with your needs.
+      </p>
+      <p>
+        Whether you're hosting a simple world for friends or building a professional server with advanced scripts,
+        GrowSoft makes it easier and safer. Its smart whitelist system ensures only approved users can access protected functions,
+        while the event engine gives you full control over in-game activities.
+      </p>
+      <p>
+        The Diamond Tier lets your server run up to <strong>7 full days</strong> without downtime.
+        Perfect for giveaways, tournaments, and long-term survival-style worlds. Setup is quick and flexible — no need to edit dozens of files just to launch.
       </p>
     </div>
 
-      <div class="card">
-    <h2>Features</h2>
-    <ul style="text-align: left; padding-left: 1.5rem; color: #dcd2ff;">
-      <li>✔️ Easy & Fast Setup (No advanced coding required)</li>
-      <li>✔️ Player can enter up to 50,000 players!</li>
-      <li>✔️ Live Console Logs & Debug Options</li>
-      <li>✔️ Supports latest Growtopia!</li>
-      <li>✔️ Make your own interesting script and share your hard work!</li>
-    </ul>
-  </div>
-    
-    <div style="margin-top: 2rem;">
-      <a href="https://discord.gg/zYEJSMuDtF" target="_blank" class="text-link-button">Official GrowSoft Discord</a><br>
-      <a href="https://www.growsoft.cc/" target="_blank" class="text-link-button">Official GrowSoft Website</a>
+    <!-- Features List -->
+    <div class="card">
+      <h2>Features</h2>
+      <ul>
+        <li>✔️ Easy & Fast Setup (No advanced coding required)</li>
+        <li>✔️ Player can enter up to 50,000 players!</li>
+        <li>✔️ Live Console Logs & Debug Options</li>
+        <li>✔️ Supports latest Growtopia!</li>
+        <li>✔️ Make your own interesting script and share your hard work!</li>
+      </ul>
     </div>
 
+    <!-- External Links -->
+    <div style="margin-top: 2rem;">
+      <a href="https://discord.gg/zYEJSMuDtF " target="_blank" class="text-link-button">Official GrowSoft Discord</a><br>
+      <a href="https://www.growsoft.cc/ " target="_blank" class="text-link-button">Official GrowSoft Website</a>
+    </div>
+  </div>
+
+  <!-- Footer -->
   <footer>
     Yume Private Server © 2025 | Not affiliated with Growtopia or Ubisoft
   </footer>
