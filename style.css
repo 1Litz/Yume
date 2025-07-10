@@ -1,15 +1,22 @@
 /* === CSS Variables for Theming === */
 :root {
-  --primary-color: #a875f0;
-  --secondary-color: #d4afff;
+  /* Base Colors */
   --bg-color: #1b112b;
   --card-bg: #2a1a3e;
   --text-light: #fff;
   --text-muted: #cdb8ff;
+  --primary-color: #a875f0;
   --accent-glow: #6a3cb6;
   --shadow-dark: rgba(0, 0, 0, 0.5);
   --border-radius: 12px;
   --transition: all 0.3s ease;
+
+  /* Light Theme Colors */
+  --light-bg: #ffffff;
+  --light-card: #f3f3f3;
+  --light-text: #111;
+  --light-muted: #555;
+  --light-primary: #FF5A57;
 }
 
 * {
@@ -19,19 +26,19 @@
   font-family: 'Poppins', sans-serif;
 }
 
-body {
+html, body {
   background: var(--bg-color);
   color: var(--text-light);
   line-height: 1.7;
-  position: relative;
-  overflow-x: hidden;
+  transition: background 0.4s ease, color 0.4s ease;
 }
 
 a {
-  color: var(--secondary-color);
+  color: var(--primary-color);
   text-decoration: none;
 }
 
+/* Header Section */
 header {
   position: relative;
   padding: 3rem 2rem;
@@ -39,6 +46,7 @@ header {
   text-align: center;
   box-shadow: 0 8px 20px var(--shadow-dark);
   z-index: 1;
+  transition: background 0.4s ease;
 }
 
 header::before {
@@ -57,6 +65,7 @@ header h1 {
   color: var(--secondary-color);
   margin-bottom: 1rem;
   line-height: 1.2;
+  transition: color 0.4s ease;
 }
 
 .welcome-text {
@@ -111,6 +120,25 @@ header h1 {
   font-weight: normal;
 }
 
+.theme-toggle-btn {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 1000;
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.theme-toggle-btn:hover {
+  background: #c18df5;
+}
+
 .card {
   background: var(--card-bg);
   border-radius: var(--border-radius);
@@ -126,10 +154,12 @@ header h1 {
 .card h3 {
   color: var(--secondary-color);
   margin-bottom: 1rem;
+  transition: color 0.4s ease;
 }
 
 .card p {
   color: #dcd2ff;
+  transition: color 0.4s ease;
 }
 
 .card ul {
@@ -141,6 +171,7 @@ header h1 {
 .card ul li {
   margin-bottom: 0.5rem;
   color: #dcd2ff;
+  transition: color 0.4s ease;
 }
 
 .card:hover {
@@ -158,6 +189,7 @@ header h1 {
   max-width: 1000px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
   position: relative;
+  transition: background 0.4s ease;
 }
 
 .feedback-track-wrapper {
@@ -200,12 +232,14 @@ header h1 {
   font-weight: bold;
   color: var(--secondary-color);
   margin-bottom: 0.5rem;
+  transition: color 0.4s ease;
 }
 
 .feedback-text {
   color: #dcd2ff;
   font-style: italic;
   font-size: 0.95rem;
+  transition: color 0.4s ease;
 }
 
 .feedback-track:hover {
@@ -217,6 +251,7 @@ header h1 {
   padding: 2.2rem;
   border-radius: var(--border-radius);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  transition: background 0.4s ease;
 }
 
 .copy-block {
@@ -233,6 +268,7 @@ header h1 {
 .copy-label {
   color: #fff;
   font-weight: bold;
+  transition: color 0.4s ease;
 }
 
 .copy-button {
@@ -277,6 +313,7 @@ footer {
   margin-top: 3rem;
   background: #160d25;
   border-radius: var(--border-radius);
+  transition: background 0.4s ease, color 0.4s ease;
 }
 
 .text-link-button {
