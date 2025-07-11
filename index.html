@@ -183,13 +183,14 @@
 
   <!-- Theme Toggle Script -->
   <script>
-    const toggleBtn = document.querySelector('.theme-toggle-btn');
-
+    const toggleBtn = document.querySelector('.theme-toggle');
+    const themeSwitch = document.getElementById('theme-switch');
+  
     function setTheme(themeName) {
       localStorage.setItem('theme', themeName);
       document.documentElement.setAttribute('data-theme', themeName);
     }
-
+  
     function toggleTheme() {
       if (localStorage.getItem('theme') === 'light') {
         setTheme('dark');
@@ -197,11 +198,11 @@
         setTheme('light');
       }
     }
-
+  
     function loadTheme() {
       const savedTheme = localStorage.getItem('theme');
       const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
+  
       if (savedTheme) {
         setTheme(savedTheme);
       } else if (prefersDark) {
@@ -210,7 +211,7 @@
         setTheme('light');
       }
     }
-
+  
     function applyDynamicStyles(theme) {
       const root = document.documentElement;
       if (theme === 'light') {
@@ -236,19 +237,19 @@
         root.style.setProperty('--card-bg', '#2a1a3e');
         root.style.setProperty('--bg-gradient', 'linear-gradient(135deg, #6700A3, #1B2062, #050C38)');
       }
-
+  
       // Update header gradient
       const headers = document.querySelectorAll('header');
       headers.forEach(header => {
         header.style.background = getComputedStyle(document.documentElement).getPropertyValue('--bg-gradient');
       });
     }
-
-    toggleBtn.addEventListener('click', () => {
+  
+    themeSwitch.addEventListener('change', () => {
       toggleTheme();
       applyDynamicStyles(localStorage.getItem('theme'));
     });
-
+  
     loadTheme();
     applyDynamicStyles(localStorage.getItem('theme') || 'dark');
   </script>
