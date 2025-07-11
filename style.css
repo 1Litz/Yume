@@ -455,17 +455,17 @@ footer {
   top: 1rem;
   right: 1rem;
   z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 
+/* Theme Toggle Switch */
 .theme-toggle {
+  position: relative;
+  display: inline-block;
   width: 60px;
   height: 30px;
-}
-
-.sun-icon,
-.moon-icon {
-  width: 26px;
-  height: 26px;
 }
 
 .theme-toggle input {
@@ -491,8 +491,8 @@ footer {
   content: "";
   height: 26px;
   width: 26px;
-  left: 4px;
-  bottom: 4px;
+  left: 4px; /* Adjust this value to center the circle */
+  bottom: 2px; /* Adjust this value to center the circle */
   background-color: white;
   transition: 0.4s;
   border-radius: 50%;
@@ -512,6 +512,8 @@ input:checked + .slider:before {
   justify-content: space-between;
   align-items: center;
   width: 60px;
+  height: 30px; /* Ensure icons fit within the container */
+  overflow: hidden; /* Prevent any overflow */
 }
 
 .sun-icon,
