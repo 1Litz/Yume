@@ -30,7 +30,39 @@
 </head>
 <body>
   <!-- Theme Toggle Button -->
-  <button class="theme-toggle-btn">Toggle Theme</button>
+  <div class="theme-toggle-container">
+    <label class="theme-toggle" for="theme-switch">
+      <input type="checkbox" id="theme-switch" />
+      <span class="slider round"></span>
+      <div class="icons">
+        <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+          <circle cx="25" cy="25" r="24" fill="#fff" stroke="none" />
+          <path d="M25 25m-8 0a8 8 0 1 0 16 0 8 8 0 1 0-16 0Z" fill="#FFD700" />
+          <g transform="rotate(45 25 25)">
+            <circle cx="25" cy="10" r="1.5" fill="#FFD700" />
+            <circle cx="25" cy="40" r="1.5" fill="#FFD700" />
+          </g>
+          <g transform="rotate(135 25 25)">
+            <circle cx="25" cy="10" r="1.5" fill="#FFD700" />
+            <circle cx="25" cy="40" r="1.5" fill="#FFD700" />
+          </g>
+          <g transform="rotate(225 25 25)">
+            <circle cx="25" cy="10" r="1.5" fill="#FFD700" />
+            <circle cx="25" cy="40" r="1.5" fill="#FFD700" />
+          </g>
+          <g transform="rotate(315 25 25)">
+            <circle cx="25" cy="10" r="1.5" fill="#FFD700" />
+            <circle cx="25" cy="40" r="1.5" fill="#FFD700" />
+          </g>
+        </svg>
+        <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+          <circle cx="25" cy="25" r="24" fill="#fff" stroke="none" />
+          <path d="M25 25m-8 0a8 8 0 1 0 16 0 8 8 0 1 0-16 0Z" fill="#fff" />
+          <path d="M25 25A10 10 0 1 1 35 25A10 10 0 0 1 25 25Z" fill="#fff" />
+        </svg>
+      </div>
+    </label>
+  </div>
 
   <!-- Background Particles -->
   <div class="particles">
