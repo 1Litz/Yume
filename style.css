@@ -448,3 +448,85 @@ footer {
     max-width: unset !important;
   }
 }
+
+/* Theme Toggle Container */
+.theme-toggle-container {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Theme Toggle Switch */
+.theme-toggle {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 30px;
+}
+
+.theme-toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--accent-glow);
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #393E46;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+/* Icons */
+.icons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 60px;
+}
+
+.sun-icon,
+.moon-icon {
+  width: 26px;
+  height: 26px;
+  fill: currentColor;
+  color: white;
+  transition: color 0.3s ease;
+}
+
+input:checked ~ .icons .sun-icon {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+input:checked ~ .icons .moon-icon {
+  color: white;
+}
