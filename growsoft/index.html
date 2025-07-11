@@ -4,21 +4,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>GrowSoft | Yume Private Server</title>
-
-  <!-- Favicon -->
+  
   <link rel="icon" href="/favicon.ico" type="image/x-icon" />
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
   <link rel="manifest" href="/site.webmanifest" />
-
-  <!-- Preload -->
+  
   <link rel="preload" href="/favicon.ico" as="image" />
-
-  <!-- CSS -->
+  
   <link rel="stylesheet" href="../../style.css" />
-
-  <!-- Inline Styles -->
+  
   <style>
     body {
       background-color: var(--bg-color);
@@ -90,22 +86,22 @@
     <div class="card">
       <h2>Why Choose GrowSoft?</h2>
       <p>
-        GrowSoft is a modern, stable, and community-supported base engine for building Growtopia Private Servers.
-        Unlike outdated or poorly secured bases, GrowSoft provides an actively maintained codebase with security patches,
-        event frameworks, and server management tools that scale with your needs.
+        Growsoft is where you can create your own community, making friends, social and everything. This is where
+        you can start begin to create your own Growtopia Private Server, made it fun, economy stable, communication,
+        and etc.
       </p>
       <p>
-        Whether you're hosting a simple world for friends or building a professional server with advanced scripts,
-        GrowSoft makes it easier and safer. Its smart whitelist system ensures only approved users can access protected functions,
-        while the event engine gives you full control over in-game activities.
+        Whether you can create your own event with your own ideas, or following the events like summertime, chinese new year,
+        christmas, and etc. Create with your own style and made it more fun, people are will sometimes will invite theire friends
+        to join them, so they can play together like trying to profit to become a pro, or even far from that!
       </p>
       <p>
-        The Diamond Tier lets your server run up to <strong>7 full days</strong> without downtime.
-        Perfect for giveaways, tournaments, and long-term survival-style worlds. Setup is quick and flexible — no need to edit dozens of files just to launch.
+        Tiers may need to be purchased but that is the way you need to support GrowSoft with </strong>LOVE</strong>. This is
+        where you can share your support to our beloved developer </strong>Sebia</strong> who is the creator of Growsoft.
+        Support the way how hard work his trying just for us to make far from that, his not just some Developer but a Legend.
       </p>
     </div>
-
-    <!-- Features List -->
+    
     <div class="card">
       <h2>Features</h2>
       <ul>
@@ -116,8 +112,7 @@
         <li>✔️ Make your own interesting script and share your hard work!</li>
       </ul>
     </div>
-
-    <!-- External Links -->
+    
     <div style="margin-top: 2rem;">
       <a href="https://discord.gg/zYEJSMuDtF " target="_blank" class="text-link-button">Official GrowSoft Discord</a><br>
       <a href="https://www.growsoft.cc/ " target="_blank" class="text-link-button">Official GrowSoft Website</a>
@@ -129,76 +124,76 @@
     Yume Private Server © 2025 | Not affiliated with Growtopia or Ubisoft
   </footer>
 
-    <script>
-      const toggleBtn = document.querySelector('.theme-toggle');
-      const themeSwitch = document.getElementById('theme-switch');
-    
-      function setTheme(themeName) {
-        localStorage.setItem('theme', themeName);
-        document.documentElement.setAttribute('data-theme', themeName);
+ <script>
+    const toggleBtn = document.querySelector('.theme-toggle');
+    const themeSwitch = document.getElementById('theme-switch');
+  
+    function setTheme(themeName) {
+      localStorage.setItem('theme', themeName);
+      document.documentElement.setAttribute('data-theme', themeName);
+    }
+  
+    function toggleTheme() {
+      if (localStorage.getItem('theme') === 'light') {
+        setTheme('dark');
+      } else {
+        setTheme('light');
       }
-    
-      function toggleTheme() {
-        if (localStorage.getItem('theme') === 'light') {
-          setTheme('dark');
-        } else {
-          setTheme('light');
-        }
+    }
+  
+    function loadTheme() {
+      const savedTheme = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  
+      if (savedTheme) {
+        setTheme(savedTheme);
+      } else if (prefersDark) {
+        setTheme('dark');
+      } else {
+        setTheme('light');
       }
-    
-      function loadTheme() {
-        const savedTheme = localStorage.getItem('theme');
-        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    
-        if (savedTheme) {
-          setTheme(savedTheme);
-        } else if (prefersDark) {
-          setTheme('dark');
-        } else {
-          setTheme('light');
-        }
+    }
+  
+    function applyDynamicStyles(theme) {
+      const root = document.documentElement;
+      if (theme === 'light') {
+        root.style.setProperty('--bg-color', '#ffffff');
+        root.style.setProperty('--card-bg', '#f3f3f3');
+        root.style.setProperty('--text-light', '#111');
+        root.style.setProperty('--text-muted', '#555');
+        root.style.setProperty('--primary-color', '#FF5A57');
+        root.style.setProperty('--secondary-color', '#FF5A57');
+        root.style.setProperty('--accent-glow', '#FCCBF0');
+        root.style.setProperty('--shadow-dark', 'rgba(0, 0, 0, 0.2)');
+        root.style.setProperty('--card-bg', '#f3f3f3');
+        root.style.setProperty('--bg-gradient', 'linear-gradient(135deg, #FCCBF0, #FF5A57)');
+      } else {
+        root.style.setProperty('--bg-color', '#1b112b');
+        root.style.setProperty('--card-bg', '#2a1a3e');
+        root.style.setProperty('--text-light', '#fff');
+        root.style.setProperty('--text-muted', '#cdb8ff');
+        root.style.setProperty('--primary-color', '#a875f0');
+        root.style.setProperty('--secondary-color', '#d4afff');
+        root.style.setProperty('--accent-glow', '#6a3cb6');
+        root.style.setProperty('--shadow-dark', 'rgba(0, 0, 0, 0.5)');
+        root.style.setProperty('--card-bg', '#2a1a3e');
+        root.style.setProperty('--bg-gradient', 'linear-gradient(135deg, #6700A3, #1B2062, #050C38)');
       }
-    
-      function applyDynamicStyles(theme) {
-        const root = document.documentElement;
-        if (theme === 'light') {
-          root.style.setProperty('--bg-color', '#ffffff');
-          root.style.setProperty('--card-bg', '#f3f3f3');
-          root.style.setProperty('--text-light', '#111');
-          root.style.setProperty('--text-muted', '#555');
-          root.style.setProperty('--primary-color', '#FF5A57');
-          root.style.setProperty('--secondary-color', '#FF5A57');
-          root.style.setProperty('--accent-glow', '#FCCBF0');
-          root.style.setProperty('--shadow-dark', 'rgba(0, 0, 0, 0.2)');
-          root.style.setProperty('--card-bg', '#f3f3f3');
-          root.style.setProperty('--bg-gradient', 'linear-gradient(135deg, #FCCBF0, #FF5A57)');
-        } else {
-          root.style.setProperty('--bg-color', '#1b112b');
-          root.style.setProperty('--card-bg', '#2a1a3e');
-          root.style.setProperty('--text-light', '#fff');
-          root.style.setProperty('--text-muted', '#cdb8ff');
-          root.style.setProperty('--primary-color', '#a875f0');
-          root.style.setProperty('--secondary-color', '#d4afff');
-          root.style.setProperty('--accent-glow', '#6a3cb6');
-          root.style.setProperty('--shadow-dark', 'rgba(0, 0, 0, 0.5)');
-          root.style.setProperty('--card-bg', '#2a1a3e');
-          root.style.setProperty('--bg-gradient', 'linear-gradient(135deg, #6700A3, #1B2062, #050C38)');
-        }
-    
-        // Update header gradient
-        const headers = document.querySelectorAll('header');
-        headers.forEach(header => {
-          header.style.background = getComputedStyle(document.documentElement).getPropertyValue('--bg-gradient');
-        });
-      }
-    
-      themeSwitch.addEventListener('change', () => {
-        toggleTheme();
-        applyDynamicStyles(localStorage.getItem('theme'));
+  
+      // Update header gradient
+      const headers = document.querySelectorAll('header');
+      headers.forEach(header => {
+        header.style.background = getComputedStyle(document.documentElement).getPropertyValue('--bg-gradient');
       });
-    
-      loadTheme();
-      applyDynamicStyles(localStorage.getItem('theme') || 'dark');
+    }
+  
+    themeSwitch.addEventListener('change', () => {
+      toggleTheme();
+      applyDynamicStyles(localStorage.getItem('theme'));
+    });
+  
+    loadTheme();
+    applyDynamicStyles(localStorage.getItem('theme') || 'dark');
   </script>
 </body>
 </html>
