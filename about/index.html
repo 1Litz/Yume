@@ -4,18 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>About | Yume Private Server</title>
-
-  <!-- Favicon -->
+  
   <link rel="icon" href="/favicon.ico" type="image/x-icon" />
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
   <link rel="manifest" href="/site.webmanifest" />
-
-  <!-- Preload -->
+  
   <link rel="preload" href="/favicon.ico" as="image" />
-
-  <!-- CSS -->
+  
   <link rel="stylesheet" href="../../style.css" />
 </head>
 <body>
@@ -53,127 +50,124 @@
       </div>
     </label>
   </div>
-
-  <!-- Header -->
+  
   <header>
     <h1>About Yume</h1>
     <div class="button-group">
       <a href="/">Back</a>
     </div>
-    <p class="welcome-text">The Story Behind the World of Yume</p>
   </header>
-
-  <!-- Main Content -->
+  
   <div class="container">
-    <!-- Who We Are -->
     <div class="card">
       <h2>Who We Are</h2>
       <p>
-        <strong>Yume Private Server</strong> is a fan-made, custom-hosted Growtopia server created with love and vision by <strong>iLitz_</strong>.
-        Our mission is to bring players a unique experience beyond the limits of the original game — one built with community, creativity, and fun.
+      </strong>Yume Private Server</strong> is where you can find your new friends, and communication. We are able to make what
+      we have right now, joyful, laughing, and everything to make people feel happy, this is where you should've join us!
+      We giveaway for almost everyday if you are staying active!
       </p>
     </div>
-
-    <!-- Why We're Different -->
+    
     <div class="card">
       <h2>Why We're Different</h2>
       <p>
-        Yume isn't just another Growtopia clone. It’s a re-imagined server that values fairness, customization, and innovation. We’ve
-        introduced tweaks and features not found in the original Growtopia, while still keeping that nostalgic sandbox charm.
+        </strong>Yume Private Server</strong> has pretty much mid-economy, you can find your own profitable, farming, trading, and etc.
+        You can make an suggestion and we will trying our best to reach out your suggestion! We also trying our best to make many
+        events so people can enjoy more when it comes to events!
       </p>
     </div>
-
-    <!-- Our Community -->
+    
     <div class="card">
-      <h2>Our Community</h2>
+      <h2>Build Your World With Your Own Creative Idea!</h2>
       <p>
-        From casual builders to hardcore traders, our Discord is the heart of our community. Join us for events, giveaways, updates, and more!
+        </strong>Yume Private Server</strong> has almost everything about building world where it comes to creative, and this is the
+        reason why we named it as a Yume where it means "Dream", you create your world with what you been </strong>Dream</strong> of
+        and share your building to us, we will make a schedule when and what time to start World Building Events and we will choose
+        the winners! If one of you win we give a very unique items.
       </p>
     </div>
-
-    <!-- Discord Icon -->
+    
     <div class="discord-icon">
       <a href="https://discord.com/invite/6TtvQDqZKT " target="_blank">
         <img src="https://cdn-icons-png.flaticon.com/512/5968/5968756.png " alt="Join Discord" />
       </a>
     </div>
   </div>
-
-  <!-- Footer -->
+  
   <footer>
     <p>Yume Private Server © 2025 | Crafted by <strong>iLitz_</strong> | Not affiliated with Growtopia or Ubisoft</p>
   </footer>
 
-    <script>
-      const toggleBtn = document.querySelector('.theme-toggle');
-      const themeSwitch = document.getElementById('theme-switch');
-    
-      function setTheme(themeName) {
-        localStorage.setItem('theme', themeName);
-        document.documentElement.setAttribute('data-theme', themeName);
+ <script>
+    const toggleBtn = document.querySelector('.theme-toggle');
+    const themeSwitch = document.getElementById('theme-switch');
+  
+    function setTheme(themeName) {
+      localStorage.setItem('theme', themeName);
+      document.documentElement.setAttribute('data-theme', themeName);
+    }
+  
+    function toggleTheme() {
+      if (localStorage.getItem('theme') === 'light') {
+        setTheme('dark');
+      } else {
+        setTheme('light');
       }
-    
-      function toggleTheme() {
-        if (localStorage.getItem('theme') === 'light') {
-          setTheme('dark');
-        } else {
-          setTheme('light');
-        }
+    }
+  
+    function loadTheme() {
+      const savedTheme = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  
+      if (savedTheme) {
+        setTheme(savedTheme);
+      } else if (prefersDark) {
+        setTheme('dark');
+      } else {
+        setTheme('light');
       }
-    
-      function loadTheme() {
-        const savedTheme = localStorage.getItem('theme');
-        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    
-        if (savedTheme) {
-          setTheme(savedTheme);
-        } else if (prefersDark) {
-          setTheme('dark');
-        } else {
-          setTheme('light');
-        }
+    }
+  
+    function applyDynamicStyles(theme) {
+      const root = document.documentElement;
+      if (theme === 'light') {
+        root.style.setProperty('--bg-color', '#ffffff');
+        root.style.setProperty('--card-bg', '#f3f3f3');
+        root.style.setProperty('--text-light', '#111');
+        root.style.setProperty('--text-muted', '#555');
+        root.style.setProperty('--primary-color', '#FF5A57');
+        root.style.setProperty('--secondary-color', '#FF5A57');
+        root.style.setProperty('--accent-glow', '#FCCBF0');
+        root.style.setProperty('--shadow-dark', 'rgba(0, 0, 0, 0.2)');
+        root.style.setProperty('--card-bg', '#f3f3f3');
+        root.style.setProperty('--bg-gradient', 'linear-gradient(135deg, #FCCBF0, #FF5A57)');
+      } else {
+        root.style.setProperty('--bg-color', '#1b112b');
+        root.style.setProperty('--card-bg', '#2a1a3e');
+        root.style.setProperty('--text-light', '#fff');
+        root.style.setProperty('--text-muted', '#cdb8ff');
+        root.style.setProperty('--primary-color', '#a875f0');
+        root.style.setProperty('--secondary-color', '#d4afff');
+        root.style.setProperty('--accent-glow', '#6a3cb6');
+        root.style.setProperty('--shadow-dark', 'rgba(0, 0, 0, 0.5)');
+        root.style.setProperty('--card-bg', '#2a1a3e');
+        root.style.setProperty('--bg-gradient', 'linear-gradient(135deg, #6700A3, #1B2062, #050C38)');
       }
-    
-      function applyDynamicStyles(theme) {
-        const root = document.documentElement;
-        if (theme === 'light') {
-          root.style.setProperty('--bg-color', '#ffffff');
-          root.style.setProperty('--card-bg', '#f3f3f3');
-          root.style.setProperty('--text-light', '#111');
-          root.style.setProperty('--text-muted', '#555');
-          root.style.setProperty('--primary-color', '#FF5A57');
-          root.style.setProperty('--secondary-color', '#FF5A57');
-          root.style.setProperty('--accent-glow', '#FCCBF0');
-          root.style.setProperty('--shadow-dark', 'rgba(0, 0, 0, 0.2)');
-          root.style.setProperty('--card-bg', '#f3f3f3');
-          root.style.setProperty('--bg-gradient', 'linear-gradient(135deg, #FCCBF0, #FF5A57)');
-        } else {
-          root.style.setProperty('--bg-color', '#1b112b');
-          root.style.setProperty('--card-bg', '#2a1a3e');
-          root.style.setProperty('--text-light', '#fff');
-          root.style.setProperty('--text-muted', '#cdb8ff');
-          root.style.setProperty('--primary-color', '#a875f0');
-          root.style.setProperty('--secondary-color', '#d4afff');
-          root.style.setProperty('--accent-glow', '#6a3cb6');
-          root.style.setProperty('--shadow-dark', 'rgba(0, 0, 0, 0.5)');
-          root.style.setProperty('--card-bg', '#2a1a3e');
-          root.style.setProperty('--bg-gradient', 'linear-gradient(135deg, #6700A3, #1B2062, #050C38)');
-        }
-    
-        // Update header gradient
-        const headers = document.querySelectorAll('header');
-        headers.forEach(header => {
-          header.style.background = getComputedStyle(document.documentElement).getPropertyValue('--bg-gradient');
-        });
-      }
-    
-      themeSwitch.addEventListener('change', () => {
-        toggleTheme();
-        applyDynamicStyles(localStorage.getItem('theme'));
+  
+      // Update header gradient
+      const headers = document.querySelectorAll('header');
+      headers.forEach(header => {
+        header.style.background = getComputedStyle(document.documentElement).getPropertyValue('--bg-gradient');
       });
-    
-      loadTheme();
-      applyDynamicStyles(localStorage.getItem('theme') || 'dark');
+    }
+  
+    themeSwitch.addEventListener('change', () => {
+      toggleTheme();
+      applyDynamicStyles(localStorage.getItem('theme'));
+    });
+  
+    loadTheme();
+    applyDynamicStyles(localStorage.getItem('theme') || 'dark');
   </script>
 </body>
 </html>
