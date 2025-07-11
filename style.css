@@ -491,8 +491,8 @@ footer {
   content: "";
   height: 26px;
   width: 26px;
-  left: 4px; /* Adjust this value to center the circle */
-  bottom: 2px; /* Adjust this value to center the circle */
+  left: 4px;
+  bottom: 2px;
   background-color: white;
   transition: 0.4s;
   border-radius: 50%;
@@ -512,8 +512,8 @@ input:checked + .slider:before {
   justify-content: space-between;
   align-items: center;
   width: 60px;
-  height: 30px; /* Ensure icons fit within the container */
-  overflow: hidden; /* Prevent any overflow */
+  height: 30px;
+  overflow: hidden;
 }
 
 .sun-icon,
@@ -525,12 +525,22 @@ input:checked + .slider:before {
   transition: color 0.3s ease;
 }
 
-input:checked ~ .icons .sun-icon {
-  color: rgba(255, 255, 255, 0.3);
+/* Show Sun Icon in Light Mode */
+[data-theme="light"] .sun-icon {
+  display: block;
 }
 
-input:checked ~ .icons .moon-icon {
-  color: white;
+[data-theme="light"] .moon-icon {
+  display: none;
+}
+
+/* Show Moon Icon in Dark Mode */
+[data-theme="dark"] .sun-icon {
+  display: none;
+}
+
+[data-theme="dark"] .moon-icon {
+  display: block;
 }
 
 @media (max-width: 480px) {
