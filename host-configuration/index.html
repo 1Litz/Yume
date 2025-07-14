@@ -60,32 +60,19 @@
     <h1>Host Configuration</h1>
   </header>
 
-    <!-- Host Configuration Details -->
+    <!-- Android -->
     <section class="card">
-      <h2>Host Configuration Files</h2>
-      <p>
-        Below are the host configuration files for different platforms. Copy and paste the appropriate file into your Growtopia client's host configuration directory.
-      <nav class="button-group">
-        <a href="/">Home</a>
-        <span class="separator">|</span>
-        <a href="/main-features/">Features</a>
-        <span class="separator">|</span>
-        <a href="/about/">About</a>
-      </nav>
-      </p>
-
-      <!-- Android -->
-      <div class="card">
-        <h3>Android (PowerTunnel)</h3>
-        <pre><code>
+      <h3>Android (PowerTunnel)</h3>
+      <pre><code id="android-host-config">
 https://growsoft.cc/android.txt 
-        </code></pre>
-      </div>
+      </code></pre>
+      <button class="copy-button" onclick="copyToClipboard('android-host-config')">Copy</button>
+    </section>
 
-      <!-- iOS -->
-      <div class="card">
-        <h3>iOS</h3>
-        <pre><code>
+    <!-- iOS -->
+    <section class="card">
+      <h3>iOS</h3>
+      <pre><code id="ios-host-config">
 [General]
 bypass-system = true
 
@@ -97,30 +84,31 @@ growtopia1.com = 91.134.85.13
 growtopia2.com = 91.134.85.13
 www.growtopia1.com = 91.134.85.13
 www.growtopia2.com = 91.134.85.13
-        </code></pre>
-      </div>
+      </code></pre>
+      <button class="copy-button" onclick="copyToClipboard('ios-host-config')">Copy</button>
+    </section>
 
-      <!-- macOS -->
-      <div class="card">
-        <h3>macOS</h3>
-        <pre><code>
+    <!-- macOS -->
+    <section class="card">
+      <h3>macOS</h3>
+      <pre><code id="macos-host-config">
 91.134.85.13 growtopia1.com
 91.134.85.13 growtopia2.com
 91.134.85.13 www.growtopia1.com
 91.134.85.13 www.growtopia2.com
-        </code></pre>
-      </div>
-
-      <!-- PC -->
-      <div class="card">
-        <h3>PC</h3>
-        <pre><code>
-91.134.85.13 growtopia1.com
+      </code></pre>
+      <button class="copy-button" onclick="copyToClipboard('macos-host-config')">Copy</button>
+    </section>
+    <!-- Windows -->
+    <section class="card">
+      <h3>Windows</h3>
+      <pre><code id="windows-host-config">
+        91.134.85.13 growtopia1.com
 91.134.85.13 growtopia2.com
 91.134.85.13 www.growtopia1.com
 91.134.85.13 www.growtopia2.com
-        </code></pre>
-      </div>
+      </code></pre>
+      <button class="copy-button" onclick="copyToClipboard('windows-host-config')">Copy</button>
     </section>
 
   <footer>
