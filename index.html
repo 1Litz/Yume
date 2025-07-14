@@ -282,28 +282,26 @@
     .moon-icon {
       width: 16px;
       height: 16px;
-      fill: currentColor;
-      color: white;
-      transition: color 0.3s ease;
+      fill: white;
+      transition: opacity 0.3s ease;
     }
 
-    [data-theme="light"] .sun-icon {
-      display: block;
+    input:checked ~ .icons .sun-icon {
+      opacity: 1;
     }
 
-    [data-theme="light"] .moon-icon {
-      display: none;
+    input:checked ~ .icons .moon-icon {
+      opacity: 0;
     }
 
-    [data-theme="dark"] .sun-icon {
-      display: none;
+    input:not(:checked) ~ .icons .sun-icon {
+      opacity: 0;
     }
 
-    [data-theme="dark"] .moon-icon {
-      display: block;
+    input:not(:checked) ~ .icons .moon-icon {
+      opacity: 1;
     }
 
-    /* Toast Notification */
     #copy-toast {
       position: fixed;
       bottom: -60px;
@@ -384,7 +382,6 @@
           <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" stroke="white" stroke-width="2"/>
           <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" stroke="white" stroke-width="2"/>
         </svg>
-        <!-- Moon Icon -->
         <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
           <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" fill="white"/>
         </svg>

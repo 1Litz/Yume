@@ -292,6 +292,31 @@
         font-size: 0.85rem;
       }
     }
+
+    .copy-toast {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background: var(--primary-color);
+      color: white;
+      padding: 0.8rem 1.2rem;
+      border-radius: var(--border-radius);
+      box-shadow: 0 4px 10px var(--shadow-dark);
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(20px);
+      transition: all 0.3s ease;
+      z-index: 9999;
+      text-align: center;
+      font-weight: bold;
+      font-size: 0.95rem;
+    }
+
+  .copy-toast.show {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
   </style>
 </head>
 <body data-theme="dark">
@@ -314,7 +339,6 @@
           <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" stroke="white" stroke-width="2"/>
           <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" stroke="white" stroke-width="2"/>
         </svg>
-        <!-- Moon Icon -->
         <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
           <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" fill="white"/>
         </svg>
@@ -322,25 +346,21 @@
     </label>
   </div>
 
-  <!-- Header -->
   <header>
     Host Configuration
   </header>
 
-  <!-- Main Content -->
   <main class="container">
     <p class="welcome-text">
       Below are the host configuration files for various platforms. Copy and paste them into your Growtopia client's host configuration directory.
     </p>
 
-    <!-- Android -->
     <section class="card">
       <h3>Android (PowerTunnel)</h3>
       <pre><code id="android-host-config">https://growsoft.cc/android.txt </code></pre>
       <button class="copy-button" onclick="copyToClipboard('android-host-config')">Copy</button>
     </section>
 
-    <!-- iOS -->
     <section class="card">
       <h3>iOS</h3>
       <pre><code id="ios-host-config">
@@ -359,7 +379,6 @@ www.growtopia2.com = 91.134.85.13
       <button class="copy-button" onclick="copyToClipboard('ios-host-config')">Copy</button>
     </section>
 
-    <!-- macOS -->
     <section class="card">
       <h3>macOS</h3>
       <pre><code id="macos-host-config">
@@ -371,7 +390,6 @@ www.growtopia2.com = 91.134.85.13
       <button class="copy-button" onclick="copyToClipboard('macos-host-config')">Copy</button>
     </section>
 
-    <!-- Windows -->
     <section class="card">
       <h3>Windows</h3>
       <pre><code id="windows-host-config">
@@ -383,21 +401,15 @@ www.growtopia2.com = 91.134.85.13
       <button class="copy-button" onclick="copyToClipboard('windows-host-config')">Copy</button>
     </section>
 
-    <!-- Back to Home -->
     <div class="button-group">
       <a href="/" class="back-button">← Back to Home</a>
     </div>
   </main>
 
-  <!-- Footer -->
   <footer>
     Yume Private Server © 2025 | Created by <strong>iLitz_</strong> | All rights reserved
   </footer>
 
-  <!-- Toast Notification -->
-  <div id="copy-toast" class="copy-toast">✅ Success<br>Copied to clipboard</div>
-
-  <!-- Toast Script -->
   <script>
     function showToast() {
       const toast = document.getElementById('copy-toast');
@@ -408,7 +420,7 @@ www.growtopia2.com = 91.134.85.13
     }
 
     function copyToClipboard(id) {
-      const codeBlock = document.querySelector(`#${id} code`);
+      const codeBlock = document.getElementById(id);
       const tempInput = document.createElement('textarea');
       tempInput.value = codeBlock.textContent.trim();
       document.body.appendChild(tempInput);
@@ -418,6 +430,12 @@ www.growtopia2.com = 91.134.85.13
 
       showToast();
     }
+    document.querySelectorAll('.copy-button').forEach(button => {
+      button.addEventListener('click', function() {
+        const codeId = this.previousElementSibling.id;
+        copyToClipboard(codeId);
+      });
+    });
   </script>
 
   <!-- Theme Script -->
