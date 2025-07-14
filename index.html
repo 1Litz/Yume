@@ -169,25 +169,11 @@
 </div>
 
     <!-- CTA Button -->
-    <div class="text-button-container" style="text-align: center; margin: 2rem 0;">
-    <button 
-      class="text-button"
-      onclick="window.location.href='https://www.yumegt.xyz/growsoft'"
-      aria-label="Learn how to make your own GTPS"
-      style="
-        padding: 0.75rem 1.5rem;
-        font-size: 1rem;
-        font-weight: 600;
-        color: var(--text-light);
-        background: var(--primary-color);
-        border: none;
-        border-radius: 8px;
-        box-shadow: 0 0 15px var(--accent-glow);
-        cursor: pointer;
-        transition: all 0.3s ease;
-      "
-      onmouseover="this.style.transform='scale(1.05)'"
-      onmouseout="this.style.transform='scale(1)'"
+    <div class="text-button-container">
+  <button 
+    class="text-button" 
+    onclick="window.location.href='https://www.yumegt.xyz/growsoft '"
+    aria-label="Learn how to make your own GTPS"
     >
       Want to make your own GTPS?
     </button>
@@ -205,6 +191,27 @@
   <footer>
     <p>Yume Private Server © 2025 | Created by <strong>iLitz_</strong> | All rights reserved</p>
   </footer>
+
+  <!-- Toast Notification -->
+  <div id="copy-toast" class="copy-toast">✅ Success<br>Copied to your clipboard</div>
+
+  <!-- Particle Script -->
+  <script>
+    const createParticles = () => {
+      const particleContainer = document.querySelector('.particles');
+      for (let i = 0; i < 30; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        particle.style.left = ${Math.random() * 100}%;
+        particle.style.top = ${Math.random() * 100}%;
+        particle.style.animationDuration = ${4 + Math.random() * 6}s;
+        particle.style.opacity = Math.random();
+        particle.style.transform = scale(${Math.random() + 0.5});
+        particleContainer.appendChild(particle);
+      }
+    };
+    createParticles();
+  </script>
 
   <!-- Theme Toggle Script -->
   <script>
