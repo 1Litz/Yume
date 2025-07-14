@@ -317,6 +317,36 @@
     transform: translateY(0);
     pointer-events: auto;
   }
+
+  @media (max-width: 768px) {
+      body {
+        padding-bottom: 8rem; /* create space for footer on mobile */
+      }
+
+      .container {
+        padding-bottom: 4rem; /* create room for back button */
+      }
+
+      .back-button {
+        font-size: 0.95rem;
+        padding: 0.6rem 1.2rem;
+      }
+
+      .card {
+        margin: 1.5rem 0.75rem;
+      }
+
+      footer {
+        font-size: 0.8rem;
+        padding: 0.8rem;
+      }
+
+      .theme-toggle-container {
+        top: 0.5rem;
+        right: 0.5rem;
+        transform: scale(0.9);
+      }
+    }
   </style>
 </head>
 <body data-theme="dark">
