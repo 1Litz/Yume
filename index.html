@@ -24,8 +24,345 @@
   <meta name="twitter:description" content="Play Yume Private Server — custom Growtopia experience with new features & community events.">
   <meta name="twitter:image" content="https://www.yumegt.xyz/yume_banner.jpg ">
 
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="style.css" />
+  <!-- Styles -->
+  <style>
+    :root {
+      --bg-color: #1b112b;
+      --card-bg: #2a1a3e;
+      --text-light: #fff;
+      --text-muted: #cdb8ff;
+      --primary-color: #a875f0;
+      --secondary-color: #d4afff;
+      --accent-glow: #6a3cb6;
+      --shadow-dark: rgba(0, 0, 0, 0.5);
+      --border-radius: 12px;
+      --bg-gradient: linear-gradient(135deg, #6700A3, #1B2062, #050C38);
+    }
+
+    [data-theme="light"] {
+      --bg-color: #ffffff;
+      --card-bg: #f3f3f3;
+      --text-light: #111;
+      --text-muted: #555;
+      --primary-color: #FF5A57;
+      --secondary-color: #FF5A57;
+      --accent-glow: #FCCBF0;
+      --shadow-dark: rgba(0, 0, 0, 0.2);
+      --bg-gradient: linear-gradient(135deg, #FCCBF0, #FF5A57);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-light);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s ease, color 0.3s ease;
+      padding-top: 8rem;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      text-align: center;
+      padding: 1rem 0;
+      background: var(--bg-gradient);
+      color: white;
+      font-size: 1.5rem;
+      font-weight: bold;
+      z-index: 10;
+    }
+
+    .container {
+      max-width: 900px;
+      padding: 0 1rem;
+      text-align: center;
+    }
+
+    .welcome-text {
+      font-size: 1.5rem;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+
+    /* Feedback Carousel */
+    .feedback-section {
+      overflow: hidden;
+      width: 100%;
+      margin: 3rem auto;
+    }
+
+    .feedback-track-wrapper {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+    }
+
+    .feedback-track {
+      display: flex;
+      gap: 2rem;
+      animation: scroll-left 60s linear infinite;
+      padding-bottom: 2rem;
+    }
+
+    @keyframes scroll-left {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .feedback-item {
+      flex: 0 0 auto;
+      background: var(--card-bg);
+      border-radius: var(--border-radius);
+      padding: 1.5rem;
+      width: 280px;
+      box-shadow: 0 4px 12px var(--shadow-dark);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    @media (max-width: 768px) {
+      .feedback-item {
+        width: 90vw !important;
+        min-width: unset !important;
+        max-width: unset !important;
+      }
+    }
+
+    .feedback-item:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 8px 20px var(--shadow-dark);
+    }
+
+    .avatar {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-bottom: 1rem;
+    }
+
+    .feedback-name {
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: var(--primary-color);
+      margin-bottom: 0.5rem;
+    }
+
+    .feedback-text {
+      font-size: 1rem;
+      color: var(--text-muted);
+      font-style: italic;
+    }
+
+    /* CTA Button */
+    .text-button-container {
+      margin: 2rem 0;
+    }
+
+    .text-button {
+      display: inline-block;
+      background: none;
+      border: none;
+      color: var(--primary-color);
+      font-size: 1.1rem;
+      font-weight: bold;
+      cursor: pointer;
+      text-decoration: underline;
+      transition: color 0.3s ease;
+    }
+
+    .text-button:hover {
+      color: #c18df5;
+    }
+
+    /* Discord Icon */
+    .discord-icon {
+      text-align: center;
+      margin: 2rem 0;
+    }
+
+    .discord-icon img {
+      width: 50px;
+      height: 50px;
+      transition: transform 0.3s ease;
+    }
+
+    .discord-icon img:hover {
+      transform: scale(1.1);
+    }
+
+    /* Footer */
+    footer {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      background: var(--card-bg);
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    /* Theme Toggle */
+    .theme-toggle-container {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .theme-toggle {
+      position: relative;
+      display: inline-block;
+      width: 50px;
+      height: 24px;
+    }
+
+    .theme-toggle input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 34px;
+      transition: 0.4s;
+      width: 50px;
+      height: 24px;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 20px;
+      width: 20px;
+      left: 2px;
+      bottom: 2px;
+      background-color: white;
+      transition: 0.4s;
+      border-radius: 50%;
+    }
+
+    input:checked + .slider:before {
+      transform: translateX(26px);
+    }
+
+    .icons {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 6px;
+      pointer-events: none;
+    }
+
+    .sun-icon,
+    .moon-icon {
+      width: 16px;
+      height: 16px;
+      fill: currentColor;
+      color: white;
+      transition: color 0.3s ease;
+    }
+
+    [data-theme="light"] .sun-icon {
+      display: block;
+    }
+
+    [data-theme="light"] .moon-icon {
+      display: none;
+    }
+
+    [data-theme="dark"] .sun-icon {
+      display: none;
+    }
+
+    [data-theme="dark"] .moon-icon {
+      display: block;
+    }
+
+    /* Toast Notification */
+    #copy-toast {
+      position: fixed;
+      bottom: -60px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #8f5bd7;
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: 10px;
+      font-weight: bold;
+      opacity: 0;
+      transition: all 0.4s ease;
+      z-index: 1000;
+    }
+
+    #copy-toast.show {
+      bottom: 30px;
+      opacity: 1;
+    }
+
+    /* Particles */
+    .particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .particle {
+      position: absolute;
+      background: radial-gradient(circle, var(--primary-color), #3d2463);
+      border-radius: 50%;
+      width: 10px;
+      height: 10px;
+      opacity: 0.2;
+      filter: blur(1px);
+      animation: float 10s infinite ease-in-out alternate;
+      z-index: 0;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 0.2;
+      }
+      50% {
+        transform: translateY(-150px) scale(1.6);
+        opacity: 0.6;
+      }
+      100% {
+        transform: translateY(0) scale(1);
+        opacity: 0.2;
+      }
+    }
+  </style>
 </head>
 <body data-theme="dark">
 
@@ -55,17 +392,20 @@
     </label>
   </div>
 
+  <!-- Background Particles -->
+  <div class="particles" id="particles"></div>
+
   <!-- Header -->
   <header>
-    <h1>Yume Private Server</h1>
+    Yume Private Server
   </header>
 
   <!-- Main Content -->
   <main class="container">
+    <h1>Yume Private Server</h1>
     <p class="welcome-text">
-      Welcome to the official homepage of <strong>Yume Private Server</strong>, an independent and enhanced Growtopia experience.<br>
+      Welcome to the official homepage of <strong>Yume Private Server</strong>, an independent and enhanced Growtopia experience.
       Use the navigation above to explore our features, configure your host, or learn more about us.
-    </nav>
     </p>
 
     <!-- Feedback Carousel -->
@@ -158,7 +498,30 @@
     Yume Private Server © 2025 | Created by <strong>iLitz_</strong> | All rights reserved
   </footer>
 
-  <!-- Theme Script -->
+  <!-- Toast Notification -->
+  <div id="copy-toast" class="copy-toast">✅ Success<br>Copied to clipboard</div>
+
+  <!-- Scripts -->
+
+  <!-- Particle Script -->
+  <script>
+    const createParticles = () => {
+      const container = document.getElementById('particles');
+      for (let i = 0; i < 30; i++) {
+        const p = document.createElement('div');
+        p.className = 'particle';
+        p.style.left = `${Math.random() * 100}%`;
+        p.style.top = `${Math.random() * 100}%`;
+        p.style.animationDuration = `${4 + Math.random() * 6}s`;
+        p.style.opacity = Math.random();
+        p.style.transform = `scale(${Math.random() + 0.5})`;
+        container.appendChild(p);
+      }
+    };
+    createParticles();
+  </script>
+
+  <!-- Theme Toggle Script -->
   <script>
     const themeSwitch = document.getElementById('theme-switch');
 
@@ -184,6 +547,7 @@
     loadTheme();
   </script>
 
+  <!-- Feedback Scroll Script -->
   <script>
     const feedbackTrack = document.getElementById('feedbackTrack');
     let startX = 0;
@@ -204,11 +568,11 @@
       isDragging = false;
     });
   </script>
-
+  
   <script disable-devtool-auto 
     disabled-menu='true'
     disable-select='true'
     src='https://cdn.jsdelivr.net/npm/disable-devtool '>
-    </script>
+  </script>
 </body>
 </html>
