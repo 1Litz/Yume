@@ -156,15 +156,15 @@
     }
 
     footer {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
       text-align: center;
-      padding: 2rem 1rem;
-      color: #aaa;
+      padding: 1rem;
       font-size: 0.9rem;
-      border-top: 1px solid #333;
-      margin-top: 3rem;
-      background: #160d25;
-      border-radius: var(--border-radius);
-      transition: background 0.4s ease, color 0.4s ease;
+      color: var(--text-muted);
+      background: var(--card-bg);
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
     }
 
     .button-group {
@@ -352,7 +352,6 @@
 
   <main class="container">
     <p class="welcome-text">
-      Below are the host configuration files for various platforms. Copy and paste them into your Growtopia client's host configuration directory.
     </p>
 
     <section class="card">
@@ -409,6 +408,8 @@ www.growtopia2.com = 91.134.85.13
   <footer>
     Yume Private Server © 2025 | Created by <strong>iLitz_</strong> | All rights reserved
   </footer>
+
+  <div id="copy-toast" class="copy-toast">✅ Copied to clipboard</div>
 
   <script>
     function showToast() {
