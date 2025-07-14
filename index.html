@@ -24,10 +24,276 @@
   <meta name="twitter:description" content="Play Yume Private Server — custom Growtopia experience with new features & community events.">
   <meta name="twitter:image" content="https://www.yumegt.xyz/yume_banner.jpg ">
 
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="style.css" />
+  <!-- Styles -->
+  <style>
+    :root {
+      --bg-color: #1b112b;
+      --card-bg: #2a1a3e;
+      --text-light: #fff;
+      --text-muted: #cdb8ff;
+      --primary-color: #a875f0;
+      --secondary-color: #d4afff;
+      --accent-glow: #6a3cb6;
+      --shadow-dark: rgba(0, 0, 0, 0.5);
+      --border-radius: 12px;
+      --bg-gradient: linear-gradient(135deg, #6700A3, #1B2062, #050C38);
+    }
+
+    [data-theme="light"] {
+      --bg-color: #ffffff;
+      --card-bg: #f3f3f3;
+      --text-light: #111;
+      --text-muted: #555;
+      --primary-color: #FF5A57;
+      --secondary-color: #FF5A57;
+      --accent-glow: #FCCBF0;
+      --shadow-dark: rgba(0, 0, 0, 0.2);
+      --bg-gradient: linear-gradient(135deg, #FCCBF0, #FF5A57);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-light);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding-top: 8rem;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      text-align: center;
+      padding: 1rem 0;
+      background: var(--bg-gradient);
+      color: white;
+      font-size: 1.5rem;
+      font-weight: bold;
+      z-index: 10;
+    }
+
+    .container {
+      max-width: 900px;
+      padding: 0 1rem;
+      text-align: center;
+    }
+
+    .welcome-text {
+      font-size: 1.5rem;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+
+    /* Feedback Carousel */
+    .feedback-section {
+      overflow: hidden;
+      width: 100%;
+      margin: 3rem auto;
+    }
+
+    .feedback-track-wrapper {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+    }
+
+    .feedback-track {
+      display: flex;
+      gap: 2rem;
+      animation: scroll-left 60s linear infinite;
+      padding-bottom: 2rem;
+    }
+
+    @keyframes scroll-left {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .feedback-item {
+      flex: 0 0 auto;
+      background: var(--card-bg);
+      border-radius: var(--border-radius);
+      padding: 1.5rem;
+      width: 280px;
+      box-shadow: 0 4px 12px var(--shadow-dark);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .feedback-item:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 8px 20px var(--shadow-dark);
+    }
+
+    .avatar {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-bottom: 1rem;
+    }
+
+    .feedback-name {
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: var(--primary-color);
+      margin-bottom: 0.5rem;
+    }
+
+    .feedback-text {
+      font-size: 1rem;
+      color: var(--text-muted);
+      font-style: italic;
+    }
+
+    /* CTA Button */
+    .text-button-container {
+      margin: 2rem 0;
+    }
+
+    .text-button {
+      display: inline-block;
+      background: none;
+      border: none;
+      color: var(--primary-color);
+      font-size: 1.1rem;
+      font-weight: bold;
+      cursor: pointer;
+      text-decoration: underline;
+      transition: color 0.3s ease;
+    }
+
+    .text-button:hover {
+      color: #c18df5;
+    }
+
+    /* Discord Icon */
+    .discord-icon {
+      margin: 2rem 0;
+    }
+
+    .discord-icon img {
+      width: 50px;
+      height: 50px;
+      transition: transform 0.3s ease;
+    }
+
+    .discord-icon img:hover {
+      transform: scale(1.1);
+    }
+
+    /* Footer */
+    footer {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      background: var(--card-bg);
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    /* Theme Toggle */
+    .theme-toggle-container {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      z-index: 20;
+    }
+
+    .theme-toggle {
+      position: relative;
+      display: inline-block;
+      width: 50px;
+      height: 24px;
+    }
+
+    .theme-toggle input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 34px;
+      transition: 0.4s;
+      width: 50px;
+      height: 24px;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 20px;
+      width: 20px;
+      left: 2px;
+      bottom: 2px;
+      background-color: white;
+      transition: 0.4s;
+      border-radius: 50%;
+    }
+
+    input:checked + .slider:before {
+      transform: translateX(26px);
+    }
+
+    .icons {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 6px;
+      pointer-events: none;
+    }
+
+    .sun-icon,
+    .moon-icon {
+      width: 16px;
+      height: 16px;
+      fill: white;
+      transition: opacity 0.3s ease;
+    }
+
+    input:checked ~ .icons .sun-icon {
+      opacity: 1;
+    }
+
+    input:checked ~ .icons .moon-icon {
+      opacity: 0;
+    }
+
+    input:not(:checked) ~ .icons .sun-icon {
+      opacity: 0;
+    }
+
+    input:not(:checked) ~ .icons .moon-icon {
+      opacity: 1;
+    }
+    
+  </style>
 </head>
 <body data-theme="dark">
+
   <!-- Theme Toggle Button -->
   <div class="theme-toggle-container">
     <label class="theme-toggle" for="theme-switch">
@@ -35,42 +301,35 @@
       <span class="slider round"></span>
       <div class="icons">
         <!-- Sun Icon -->
-        <svg class="sun-icon" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="25" cy="25" r="24" fill="#fff" />
-          <path d="M25 17a8 8 0 1 0 0 16 8 8 0 1 0 0-16zm0-8v2a10 10 0 1 1 0 20v2a10 10 0 1 1 0-24z" fill="#FFD700" />
-          <g transform="rotate(45 25 25)">
-            <circle cx="25" cy="10" r="1.5" fill="#FFD700" />
-            <circle cx="25" cy="40" r="1.5" fill="#FFD700" />
-          </g>
+        <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="5" stroke="white" stroke-width="2" fill="none"/>
+          <line x1="12" y1="1" x2="12" y2="3" stroke="white" stroke-width="2"/>
+          <line x1="12" y1="21" x2="12" y2="23" stroke="white" stroke-width="2"/>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" stroke="white" stroke-width="2"/>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" stroke="white" stroke-width="2"/>
+          <line x1="1" y1="12" x2="3" y2="12" stroke="white" stroke-width="2"/>
+          <line x1="21" y1="12" x2="23" y2="12" stroke="white" stroke-width="2"/>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" stroke="white" stroke-width="2"/>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" stroke="white" stroke-width="2"/>
         </svg>
         <!-- Moon Icon -->
-        <svg class="moon-icon" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="25" cy="25" r="24" fill="#fff" />
-          <circle cx="33" cy="17" r="3" fill="#000" />
+        <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" fill="white"/>
         </svg>
       </div>
     </label>
   </div>
 
-  <!-- Background Particles -->
-  <div class="particles" id="particles"></div>
-
   <!-- Header -->
   <header>
-    <h1>Yume Private Server</h1>
-    <nav class="button-group">
-      <a href="/main-features/">Features</a>
-      <span class="separator">|</span>
-      <a href="/host-configuration/">Host</a>
-      <span class="separator">|</span>
-      <a href="/about/">About</a>
-    </nav>
+    Yume Private Server
   </header>
 
   <!-- Main Content -->
   <main class="container">
+    <h1>Yume Private Server</h1>
     <p class="welcome-text">
-      Welcome to the official homepage of <strong>Yume Private Server</strong>, an independent and enhanced Growtopia experience.<br>
+      Welcome to the official homepage of <strong>Yume Private Server</strong>, an independent and enhanced Growtopia experience.
       Use the navigation above to explore our features, configure your host, or learn more about us.
     </p>
 
@@ -146,7 +405,7 @@
 
     <!-- CTA Button -->
     <div class="text-button-container">
-      <button class="text-button" onclick="window.location.href='https://www.yumegt.xyz/growsoft '" aria-label="Learn how to make your own GTPS">
+      <button class="text-button" onclick="window.location.href='https://www.yumegt.xyz/growsoft '">
         Want to make your own GTPS?
       </button>
     </div>
@@ -161,37 +420,19 @@
 
   <!-- Footer -->
   <footer>
-    <p>Yume Private Server © 2025 | Created by <strong>iLitz_</strong> | All rights reserved</p>
+    Yume Private Server © 2025 | Crafted by <strong>iLitz_</strong> | All rights reserved
   </footer>
 
   <!-- Toast Notification -->
   <div id="copy-toast" class="copy-toast">✅ Success<br>Copied to your clipboard</div>
 
-  <!-- Particle Script -->
-  <script>
-    const createParticles = () => {
-      const container = document.getElementById('particles');
-      for (let i = 0; i < 30; i++) {
-        const p = document.createElement('div');
-        p.className = 'particle';
-        p.style.left = `${Math.random() * 100}%`;
-        p.style.top = `${Math.random() * 100}%`;
-        p.style.animationDuration = `${4 + Math.random() * 6}s`;
-        p.style.opacity = Math.random();
-        p.style.transform = `scale(${Math.random() + 0.5})`;
-        container.appendChild(p);
-      }
-    };
-    createParticles();
-  </script>
-
-  <!-- Theme Toggle Script -->
+  <!-- Theme Script -->
   <script>
     const themeSwitch = document.getElementById('theme-switch');
 
-    function setTheme(theme) {
-      localStorage.setItem('theme', theme);
-      document.documentElement.setAttribute('data-theme', theme);
+    function setTheme(themeName) {
+      localStorage.setItem('theme', themeName);
+      document.documentElement.setAttribute('data-theme', themeName);
     }
 
     function loadTheme() {
@@ -199,8 +440,8 @@
       const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
       const theme = saved || (prefersDark ? 'dark' : 'light');
       setTheme(theme);
-      if (theme === 'dark') themeSwitch.checked = false;
-      else themeSwitch.checked = true;
+      if (theme === 'light') themeSwitch.checked = true;
+      else themeSwitch.checked = false;
     }
 
     themeSwitch.addEventListener('change', () => {

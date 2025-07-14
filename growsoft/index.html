@@ -13,52 +13,114 @@
   <link rel="manifest" href="/site.webmanifest" />
   <meta name="theme-color" content="#1b112b" />
 
-  <!-- Stylesheet -->
-  <link rel="stylesheet" href="../../style.css" />
+  <!-- SEO Meta Tags -->
+  <meta property="og:title" content="GrowSoft | Yume Private Server">
+  <meta property="og:description" content="Learn how to make your own GTPS using GrowSoft — a stable, secure, and community-supported engine for building custom Growtopia servers.">
+  <meta property="og:image" content="https://www.yumegt.xyz/yume_banner.jpg ">
+  <meta property="og:url" content="https://www.yumegt.xyz/growsoft ">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="GrowSoft | Yume Private Server">
+  <meta name="twitter:description" content="Learn how to make your own GTPS using GrowSoft — a stable, secure, and community-supported engine for building custom Growtopia servers.">
+  <meta name="twitter:image" content="https://www.yumegt.xyz/yume_banner.jpg ">
 
-  <!-- Inline Styles -->
+  <!-- Custom CSS -->
   <style>
+    :root {
+      --bg-color: #1b112b;
+      --card-bg: #2a1a3e;
+      --text-light: #fff;
+      --text-muted: #cdb8ff;
+      --primary-color: #a875f0;
+      --secondary-color: #d4afff;
+      --accent-glow: #6a3cb6;
+      --shadow-dark: rgba(0, 0, 0, 0.5);
+      --border-radius: 12px;
+      --transition: all 0.3s ease;
+      --bg-gradient: linear-gradient(135deg, #6700A3, #1B2062, #050C38);
+    }
+
+    [data-theme="light"] {
+      --bg-color: #ffffff;
+      --card-bg: #f3f3f3;
+      --text-light: #111;
+      --text-muted: #555;
+      --primary-color: #FF5A57;
+      --secondary-color: #FF5A57;
+      --accent-glow: #FCCBF0;
+      --shadow-dark: rgba(0, 0, 0, 0.2);
+      --bg-gradient: linear-gradient(135deg, #FCCBF0, #FF5A57);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-light);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 8rem;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      text-align: center;
+      padding: 1rem 0;
+      background: var(--bg-gradient);
+      color: white;
+      font-size: 1.5rem;
+      font-weight: bold;
+      z-index: 10;
+    }
+
     .container {
-      max-width: 768px;
-      margin: 4rem auto 2rem;
+      max-width: 900px;
       padding: 0 1rem;
+      text-align: center;
+    }
+
+    .welcome-text {
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      max-width: 700px;
+      margin: 1rem auto;
+      line-height: 1.6;
+      font-weight: 500;
     }
 
     .card {
-      background-color: var(--card-bg);
+      background: var(--card-bg);
       border-radius: var(--border-radius);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
       padding: 2rem;
-      margin-bottom: 2rem;
+      margin: 2rem auto;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+      transform: translateY(-6px);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
     }
 
-    .card h2 {
+    .card h2,
+    .card h3 {
       color: var(--primary-color);
       margin-bottom: 1rem;
     }
 
-    .card p,
-    .card li {
+    .card p {
+      color: var(--text-muted);
       font-size: 1.1rem;
       line-height: 1.6;
-      color: var(--text-muted);
-      margin-bottom: 1rem;
-    }
-
-    ul {
-      list-style-type: none;
-      padding-left: 0;
-    }
-
-    ul li::before {
-      content: "✔️";
-      margin-right: 0.5rem;
     }
 
     .external-links {
@@ -67,16 +129,138 @@
 
     .external-links a {
       display: inline-block;
-      color: var(--secondary-color);
-      text-decoration: none;
+      color: var(--primary-color);
+      text-decoration: underline;
+      margin: 0.5rem 0;
       font-weight: bold;
-      margin-bottom: 1rem;
-      transition: color 0.3s ease, text-decoration 0.3s ease;
+      transition: color 0.3s ease;
     }
 
     .external-links a:hover {
-      color: var(--text-light);
-      text-decoration: underline;
+      color: #c18df5;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.9rem;
+      color: #aaa;
+      background: var(--card-bg);
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      margin-top: 3rem;
+    }
+
+    /* Theme Toggle */
+    .theme-toggle-container {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .theme-toggle {
+      position: relative;
+      display: inline-block;
+      width: 50px;
+      height: 24px;
+    }
+
+    .theme-toggle input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 34px;
+      transition: 0.4s;
+      width: 50px;
+      height: 24px;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 20px;
+      width: 20px;
+      left: 2px;
+      bottom: 2px;
+      background-color: white;
+      transition: 0.4s;
+      border-radius: 50%;
+    }
+
+    input:checked + .slider:before {
+      transform: translateX(26px);
+    }
+
+    .icons {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 6px;
+      pointer-events: none;
+    }
+
+    .sun-icon,
+    .moon-icon {
+      width: 16px;
+      height: 16px;
+      fill: white;
+      transition: opacity 0.3s ease;
+    }
+
+    input:checked ~ .icons .sun-icon {
+      opacity: 1;
+    }
+
+    input:checked ~ .icons .moon-icon {
+      opacity: 0;
+    }
+
+    input:not(:checked) ~ .icons .sun-icon {
+      opacity: 0;
+    }
+
+    input:not(:checked) ~ .icons .moon-icon {
+      opacity: 1;
+    }
+
+    .button-group {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+    }
+
+    .back-button {
+      display: inline-block;
+      background: var(--primary-color);
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: var(--border-radius);
+      font-weight: bold;
+      text-decoration: none;
+      transition: background 0.3s ease, transform 0.2s ease;
+      box-shadow: 0 4px 12px var(--shadow-dark);
+    }
+
+    .back-button:hover {
+      background: #c18df5;
+      transform: translateY(-2px);
     }
   </style>
 </head>
@@ -110,53 +294,59 @@
 
   <!-- Header -->
   <header>
-    <h1>GrowSoft</h1>
-    <p class="welcome-text">Why GrowSoft is Your Best Choice for GT Private Server Development</p>
-    <div class="button-group">
-      <a href="/">← Back to Home</a>
-    </div>
+    Yume Private Server
   </header>
 
   <!-- Main Content -->
   <main class="container">
-    <!-- Why Choose GrowSoft -->
+    <h1>GrowSoft</h1>
+    <p class="welcome-text">
+      GrowSoft is where you can create your own community, making friends, trading, chatting, and collaborative growth.
+      It's the perfect tool to start your very own Growtopia Private Server — fun, economy-stable, and full of events.
+    </p>
+
+    <!-- Feature Cards -->
     <section class="card">
-      <h2>Why Choose GrowSoft?</h2>
+      <h2>What Is GrowSoft?</h2>
       <p>
-        Growsoft lets you create your own community — make friends, socialize, and build something special.
-        It’s the perfect tool to start your very own Growtopia Private Server with fun gameplay, a stable economy, and great communication.
-      </p>
-      <p>
-        Whether it's hosting custom events like summertime festivals, Chinese New Year celebrations, or Christmas parties,
-        you can bring your ideas to life and make your server unique and engaging for everyone.
-      </p>
-      <p>
-        Supporting GrowSoft helps its talented developer, <strong>Sebia</strong>, who has poured countless hours into building this platform.
-        Buying tiers is not just about unlocking features — it's a way to show love and appreciation for his hard work.
+        GrowSoft is a modern, stable, and community-supported base engine for building Growtopia Private Servers.
+        Unlike outdated or poorly secured bases, GrowSoft provides an actively maintained codebase with security patches,
+        event frameworks, and server management tools that scale with your needs.
       </p>
     </section>
 
     <section class="card">
-      <h2>Features</h2>
+      <h2>Why Choose GrowSoft?</h2>
       <ul>
-        <li>Easy & Fast Setup (No advanced coding required)</li>
-        <li>Supports up to 50,000 players!</li>
-        <li>Live Console Logs & Debug Options</li>
-        <li>Always updated with the latest Growtopia versions</li>
-        <li>Create and share your own scripts and game logic</li>
+        <li><strong>Easy Setup:</strong> No need to edit dozens of files just to launch your server.</li>
+        <li><strong>Actively Maintained:</strong> Regular updates ensure long-term stability and security.</li>
+        <li><strong>Smart Whitelist System:</strong> Protect server functions from unauthorized access.</li>
+        <li><strong>Event Engine:</strong> Full control over in-game activities and giveaways.</li>
+        <li><strong>Diamond Tier:</strong> Run your server up to 7 full days without downtime.</li>
       </ul>
     </section>
 
-    <!-- External Links -->
-    <div class="external-links">
-      <a href="https://discord.gg/zYEJSMuDtF " target="_blank">Official GrowSoft Discord</a><br>
-      <a href="https://www.growsoft.cc/ " target="_blank">Official GrowSoft Website</a>
+    <section class="card">
+      <h2>Getting Started</h2>
+      <p>
+        Whether you're hosting a simple world for friends or building a professional server with advanced scripts,
+        GrowSoft makes it easier and safer. You can use our configuration files below for Android, iOS, PC, or macOS.
+      </p>
+      <div class="external-links">
+        <a href="https://growsoft.cc/ " target="_blank">Official GrowSoft Website</a><br>
+        <a href="https://discord.gg/zYEJSMuDtF " target="_blank">Official GrowSoft Discord</a>
+      </div>
+    </section>
+
+    <!-- Back to Home -->
+    <div class="button-group">
+      <a href="/" class="back-button">← Back to Home</a>
     </div>
   </main>
 
   <!-- Footer -->
   <footer>
-    Yume Private Server © 2025 | Not affiliated with Growtopia or Ubisoft
+    Yume Private Server © 2025 | Created by <strong>iLitz_</strong> | All rights reserved
   </footer>
 
   <!-- Theme Script -->
