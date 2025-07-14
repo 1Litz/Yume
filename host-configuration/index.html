@@ -15,228 +15,17 @@
 
   <!-- SEO Meta Tags -->
   <meta property="og:title" content="Host Configuration | Yume Private Server">
-  <meta property="og:description" content="Learn how to configure your own Growtopia Private Server using GrowSoft — stable, secure, and community-supported base engine.">
+  <meta property="og:description" content="Learn how to set up your own Growtopia Private Server using GrowSoft — a modern, stable, and community-supported base engine.">
   <meta property="og:image" content="https://www.yumegt.xyz/yume_banner.jpg ">
   <meta property="og:url" content="https://www.yumegt.xyz/host-configuration/ ">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Host Configuration | Yume Private Server">
-  <meta name="twitter:description" content="Configure your own Growtopia Private Server using GrowSoft — stable, secure, and community-supported base engine.">
+  <meta name="twitter:description" content="Learn how to set up your own Growtopia Private Server using GrowSoft — a modern, stable, and community-supported base engine.">
   <meta name="twitter:image" content="https://www.yumegt.xyz/yume_banner.jpg ">
 
   <!-- Custom CSS -->
-  <style>
-    :root {
-      --bg-color: #1b112b;
-      --card-bg: #2a1a3e;
-      --text-light: #fff;
-      --text-muted: #cdb8ff;
-      --primary-color: #a875f0;
-      --secondary-color: #d4afff;
-      --accent-glow: #6a3cb6;
-      --shadow-dark: rgba(0, 0, 0, 0.5);
-      --border-radius: 12px;
-      --transition: all 0.3s ease;
-      --bg-gradient: linear-gradient(135deg, #6700A3, #1B2062, #050C38);
-    }
-
-    [data-theme="light"] {
-      --bg-color: #ffffff;
-      --card-bg: #f3f3f3;
-      --text-light: #111;
-      --text-muted: #555;
-      --primary-color: #FF5A57;
-      --secondary-color: #FF5A57;
-      --accent-glow: #FCCBF0;
-      --shadow-dark: rgba(0, 0, 0, 0.2);
-      --bg-gradient: linear-gradient(135deg, #FCCBF0, #FF5A57);
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-
-    body {
-      background-color: var(--bg-color);
-      color: var(--text-light);
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding-top: 8rem;
-    }
-
-    header {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      text-align: center;
-      padding: 1rem 0;
-      background: var(--bg-gradient);
-      color: white;
-      font-size: 1.5rem;
-      font-weight: bold;
-      z-index: 10;
-    }
-
-    .container {
-      max-width: 900px;
-      padding: 0 1rem;
-      text-align: center;
-    }
-
-    .card {
-      background: var(--card-bg);
-      border-radius: var(--border-radius);
-      padding: 2rem;
-      margin: 2rem auto;
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
-    }
-
-    .card h2,
-    .card h3 {
-      color: var(--secondary-color);
-      margin-bottom: 1rem;
-    }
-
-    .card p {
-      color: #dcd2ff;
-      transition: color 0.4s ease;
-    }
-
-    .button-group {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 1.5rem;
-      flex-wrap: wrap;
-    }
-
-    .back-button {
-      display: inline-block;
-      background: var(--primary-color);
-      color: white;
-      padding: 0.75rem 1.5rem;
-      border-radius: var(--border-radius);
-      font-weight: bold;
-      text-decoration: none;
-      transition: background 0.3s ease, transform 0.2s ease;
-      box-shadow: 0 4px 12px var(--shadow-dark);
-    }
-
-    .back-button:hover {
-      background: #c18df5;
-      transform: translateY(-2px);
-    }
-
-    footer {
-      text-align: center;
-      padding: 2rem 1rem;
-      color: #aaa;
-      font-size: 0.9rem;
-      border-top: 1px solid #333;
-      margin-top: 3rem;
-      background: #160d25;
-      border-radius: var(--border-radius);
-      transition: background 0.4s ease, color 0.4s ease;
-    }
-
-    /* Theme Toggle */
-    .theme-toggle-container {
-      position: fixed;
-      top: 1rem;
-      right: 1rem;
-      z-index: 1000;
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-
-    .theme-toggle {
-      position: relative;
-      display: inline-block;
-      width: 50px;
-      height: 24px;
-    }
-
-    .theme-toggle input {
-      opacity: 0;
-      width: 0;
-      height: 0;
-    }
-
-    .slider {
-      position: absolute;
-      cursor: pointer;
-      background-color: rgba(255, 255, 255, 0.1);
-      border-radius: 34px;
-      transition: 0.4s;
-      width: 50px;
-      height: 24px;
-    }
-
-    .slider:before {
-      position: absolute;
-      content: "";
-      height: 20px;
-      width: 20px;
-      left: 2px;
-      bottom: 2px;
-      background-color: white;
-      transition: 0.4s;
-      border-radius: 50%;
-    }
-
-    input:checked + .slider:before {
-      transform: translateX(26px);
-    }
-
-    .icons {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 6px;
-      pointer-events: none;
-    }
-
-    .sun-icon,
-    .moon-icon {
-      width: 16px;
-      height: 16px;
-      fill: white;
-      transition: opacity 0.3s ease;
-    }
-
-    input:checked ~ .icons .sun-icon {
-      opacity: 1;
-    }
-
-    input:checked ~ .icons .moon-icon {
-      opacity: 0;
-    }
-
-    input:not(:checked) ~ .icons .sun-icon {
-      opacity: 0;
-    }
-
-    input:not(:checked) ~ .icons .moon-icon {
-      opacity: 1;
-    }
-  </style>
+  <link rel="stylesheet" href="../../style.css" />
 </head>
 <body data-theme="dark">
 
@@ -268,57 +57,75 @@
 
   <!-- Header -->
   <header>
-    Yume Private Server
+    <h1>Host</h1>
+    <nav class="button-group">
+      <a href="/main-features/">Features</a>
+      <span class="separator">|</span>
+      <a href="/about/">About</a>
+    </nav>
   </header>
 
-  <!-- Main Content -->
-  <main class="container">
-    <h1>Host Configuration</h1>
-    <p class="welcome-text">
-      Learn how to set up your own Growtopia Private Server using GrowSoft, the modern, stable, and community-supported base engine.
-    </p>
-
-    <!-- Feature Cards -->
+    <!-- Host Configuration Details -->
     <section class="card">
-      <h2>Why Choose GrowSoft?</h2>
-      <ul>
-        <li><strong>Actively Maintained Codebase:</strong> Regular updates and security patches ensure stability.</li>
-        <li><strong>Smart Whitelist System:</strong> Protect server functions from unauthorized access.</li>
-        <li><strong>Event Engine:</strong> Full control over in-game activities and events.</li>
-        <li><strong>Scalable Management Tools:</strong> Easy setup and flexible configuration for any server size.</li>
-        <li><strong>Diamond Tier:</strong> Run your server up to 7 full days without downtime.</li>
-      </ul>
-    </section>
-
-    <section class="card">
-      <h2>Getting Started</h2>
+      <h2>Host Configuration Files</h2>
       <p>
-        Follow these steps to configure your Growtopia Private Server:
+        Below are the host configuration files for different platforms. Copy and paste the appropriate file into your Growtopia client's host configuration directory.
       </p>
-      <ol>
-        <li><strong>Download GrowSoft:</strong> Visit the official GrowSoft website or our recommended download link.</li>
-        <li><strong>Create Your Account:</strong> Sign up for a GrowSoft account to access server management tools.</li>
-        <li><strong>Configure Settings:</strong> Customize your server settings, including IP, port, and whitelist rules.</li>
-        <li><strong>Launch Your Server:</strong> Start hosting your private server and invite friends!</li>
-      </ol>
+
+      <!-- Android -->
+      <div class="card">
+        <h3>Android (PowerTunnel)</h3>
+        <pre><code>
+https://growsoft.cc/android.txt 
+        </code></pre>
+      </div>
+
+      <!-- iOS -->
+      <div class="card">
+        <h3>iOS</h3>
+        <pre><code>
+[General]
+bypass-system = true
+
+[Rule]
+FINAL,DIRECT
+
+[Host]
+growtopia1.com = 91.134.85.13
+growtopia2.com = 91.134.85.13
+www.growtopia1.com = 91.134.85.13
+www.growtopia2.com = 91.134.85.13
+        </code></pre>
+      </div>
+
+      <!-- macOS -->
+      <div class="card">
+        <h3>macOS</h3>
+        <pre><code>
+91.134.85.13 growtopia1.com
+91.134.85.13 growtopia2.com
+91.134.85.13 www.growtopia1.com
+91.134.85.13 www.growtopia2.com
+        </code></pre>
+      </div>
+
+      <!-- PC -->
+      <div class="card">
+        <h3>PC</h3>
+        <pre><code>
+91.134.85.13 growtopia1.com
+91.134.85.13 growtopia2.com
+91.134.85.13 www.growtopia1.com
+91.134.85.13 www.growtopia2.com
+        </code></pre>
+      </div>
     </section>
 
-    <section class="card">
-      <h2>Tips & Best Practices</h2>
-      <p>
-        Ensure a smooth hosting experience by following these tips:
-      </p>
-      <ul>
-        <li><strong>Regular Backups:</strong> Keep regular backups of your server data.</li>
-        <li><strong>Community Engagement:</strong> Engage with players through Discord or forums.</li>
-        <li><strong>Event Planning:</strong> Schedule regular events to keep the community active.</li>
-        <li><strong>Feedback Loop:</strong> Collect player feedback to improve your server.</li>
-      </ul>
-    </section>
-
-    <!-- CTA Button -->
-    <div class="button-group">
-      <a href="/" class="back-button">← Back to Home</a>
+    <!-- Back Button -->
+    <div class="text-button-container">
+      <button class="text-button" onclick="window.location.href='/'">
+        ← Go Back Home
+      </button>
     </div>
   </main>
 
@@ -356,7 +163,7 @@
   <script disable-devtool-auto 
     disabled-menu='true'
     disable-select='true'
-    src='https://cdn.jsdelivr.net/npm/disable-devtool'>
+    src='https://cdn.jsdelivr.net/npm/disable-devtool '>
     </script>
 </body>
 </html>
