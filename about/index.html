@@ -16,76 +16,118 @@
   <link rel="stylesheet" href="../../style.css" />
 </head>
 <body>
+  <!-- Theme Toggle Button -->
   <div class="theme-toggle-container">
     <label class="theme-toggle" for="theme-switch">
       <input type="checkbox" id="theme-switch" />
       <span class="slider round"></span>
       <div class="icons">
-        <!-- SVG Icons here -->
+        <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+          <circle cx="25" cy="25" r="24" fill="#fff" stroke="none" />
+          <path d="M25 25m-8 0a8 8 0 1 0 16 0 8 8 0 1 0-16 0Z" fill="#FFD700" />
+          <g transform="rotate(45 25 25)">
+            <circle cx="25" cy="10" r="1.5" fill="#FFD700" />
+            <circle cx="25" cy="40" r="1.5" fill="#FFD700" />
+          </g>
+          <g transform="rotate(135 25 25)">
+            <circle cx="25" cy="10" r="1.5" fill="#FFD700" />
+            <circle cx="25" cy="40" r="1.5" fill="#FFD700" />
+          </g>
+          <g transform="rotate(225 25 25)">
+            <circle cx="25" cy="10" r="1.5" fill="#FFD700" />
+            <circle cx="25" cy="40" r="1.5" fill="#FFD700" />
+          </g>
+          <g transform="rotate(315 25 25)">
+            <circle cx="25" cy="10" r="1.5" fill="#FFD700" />
+            <circle cx="25" cy="40" r="1.5" fill="#FFD700" />
+          </g>
+        </svg>
+        <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+          <circle cx="25" cy="25" r="24" fill="#fff" stroke="none" />
+          <path d="M25 25m-8 0a8 8 0 1 0 16 0 8 8 0 1 0-16 0Z" fill="#fff" />
+          <path d="M25 25A10 10 0 1 1 35 25A10 10 0 0 1 25 25Z" fill="#fff" />
+        </svg>
       </div>
     </label>
   </div>
-
+  
   <header>
-    <h1>About Yume</h1>
+    <h1>About Us</h1>
     <div class="button-group">
       <a href="/">Back</a>
     </div>
   </header>
-
+  
   <div class="container">
     <div class="card">
       <h2>Who We Are</h2>
       <p>
-        <strong>Yume Private Server</strong> is more than just a server—it's a fun community where players meet, laugh, and enjoy the game together. We host regular giveaways and fun activities for active players!
+      </strong>Yume Private Server</strong> is where you can find your new friends, and communication. We are able to make what
+      we have right now, joyful, laughing, and everything to make people feel happy, this is where you should've join us!
+      We giveaway for almost everyday if you are staying active!
       </p>
     </div>
-
+    
     <div class="card">
       <h2>Why We're Different</h2>
       <p>
-        Our mid-level economy gives players a fair shot at farming, trading, and profiting. We actively listen to suggestions and host creative in-game events for everyone to enjoy.
+        </strong>Yume Private Server</strong> has pretty much mid-economy, you can find your own profitable, farming, trading, and etc.
+        You can make an suggestion and we will trying our best to reach out your suggestion! We also trying our best to make many
+        events so people can enjoy more when it comes to events!
       </p>
     </div>
-
+    
     <div class="card">
-      <h2>Build Your Dream World</h2>
+      <h2>Build Your World With Your Own Creative Idea!</h2>
       <p>
-        "Yume" means dream—and we believe your ideas matter. With powerful building tools and creative freedom, we host world-building events where you can showcase your dream world and win exclusive items!
+        </strong>Yume Private Server</strong> has almost everything about building world where it comes to creative, and this is the
+        reason why we named it as a Yume where it means "Dream", you create your world with what you been </strong>Dream</strong> of
+        and share your building to us, we will make a schedule when and what time to start World Building Events and we will choose
+        the winners! If one of you win we give a very unique items.
       </p>
     </div>
-
+    
     <div class="discord-icon">
-      <a href="https://discord.com/invite/6TtvQDqZKT" target="_blank">
-        <img src="https://cdn-icons-png.flaticon.com/512/5968/5968756.png" alt="Join Discord" />
+      <a href="https://discord.com/invite/6TtvQDqZKT " target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/5968/5968756.png " alt="Join Discord" />
       </a>
     </div>
   </div>
-
+  
   <footer>
     <p>Yume Private Server © 2025 | Crafted by <strong>iLitz_</strong> | Not affiliated with Growtopia or Ubisoft</p>
   </footer>
 
-  <script>
+ <script>
+    const toggleBtn = document.querySelector('.theme-toggle');
     const themeSwitch = document.getElementById('theme-switch');
-
+  
     function setTheme(themeName) {
       localStorage.setItem('theme', themeName);
       document.documentElement.setAttribute('data-theme', themeName);
     }
-
+  
     function toggleTheme() {
-      const current = localStorage.getItem('theme');
-      setTheme(current === 'light' ? 'dark' : 'light');
-      applyDynamicStyles(localStorage.getItem('theme'));
+      if (localStorage.getItem('theme') === 'light') {
+        setTheme('dark');
+      } else {
+        setTheme('light');
+      }
     }
-
+  
     function loadTheme() {
       const savedTheme = localStorage.getItem('theme');
       const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      setTheme(savedTheme || (prefersDark ? 'dark' : 'light'));
+  
+      if (savedTheme) {
+        setTheme(savedTheme);
+      } else if (prefersDark) {
+        setTheme('dark');
+      } else {
+        setTheme('light');
+      }
     }
-
+  
     function applyDynamicStyles(theme) {
       const root = document.documentElement;
       if (theme === 'light') {
@@ -97,6 +139,7 @@
         root.style.setProperty('--secondary-color', '#FF5A57');
         root.style.setProperty('--accent-glow', '#FCCBF0');
         root.style.setProperty('--shadow-dark', 'rgba(0, 0, 0, 0.2)');
+        root.style.setProperty('--card-bg', '#f3f3f3');
         root.style.setProperty('--bg-gradient', 'linear-gradient(135deg, #FCCBF0, #FF5A57)');
       } else {
         root.style.setProperty('--bg-color', '#1b112b');
@@ -107,17 +150,29 @@
         root.style.setProperty('--secondary-color', '#d4afff');
         root.style.setProperty('--accent-glow', '#6a3cb6');
         root.style.setProperty('--shadow-dark', 'rgba(0, 0, 0, 0.5)');
+        root.style.setProperty('--card-bg', '#2a1a3e');
         root.style.setProperty('--bg-gradient', 'linear-gradient(135deg, #6700A3, #1B2062, #050C38)');
       }
-      document.querySelectorAll('header').forEach(header => {
-        header.style.background = getComputedStyle(root).getPropertyValue('--bg-gradient');
+  
+      // Update header gradient
+      const headers = document.querySelectorAll('header');
+      headers.forEach(header => {
+        header.style.background = getComputedStyle(document.documentElement).getPropertyValue('--bg-gradient');
       });
     }
-
-    themeSwitch.addEventListener('change', toggleTheme);
+  
+    themeSwitch.addEventListener('change', () => {
+      toggleTheme();
+      applyDynamicStyles(localStorage.getItem('theme'));
+    });
+  
     loadTheme();
     applyDynamicStyles(localStorage.getItem('theme') || 'dark');
   </script>
-  <script disable-devtool-auto disabled-menu='true' disable-select='true' src='https://cdn.jsdelivr.net/npm/disable-devtool'></script>
+  <script disable-devtool-auto 
+    disabled-menu='true'
+    disable-select='true'
+    src='https://cdn.jsdelivr.net/npm/disable-devtool'>
+    </script>
 </body>
 </html>
