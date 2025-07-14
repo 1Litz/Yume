@@ -11,42 +11,82 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
   <link rel="manifest" href="/site.webmanifest" />
-  <link rel="preload" href="/favicon.ico" as="image" />
+  <meta name="theme-color" content="#1b112b" />
 
-  <!-- CSS -->
+  <!-- Stylesheet -->
   <link rel="stylesheet" href="../../style.css" />
+  <style>
+    .container {
+      max-width: 900px;
+      margin: 4rem auto 2rem;
+      padding: 0 1rem;
+    }
+
+    .card {
+      background-color: var(--card-bg);
+      border-radius: var(--border-radius);
+      box-shadow: 0 4px 20px var(--shadow-dark);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    }
+
+    .card h3 {
+      font-size: 1.75rem;
+      color: var(--primary-color);
+      margin-bottom: 1rem;
+    }
+
+    .card p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: var(--text-muted);
+    }
+
+    .button-group a {
+      display: inline-block;
+      background: var(--primary-color);
+      color: white;
+      padding: 0.6rem 1.2rem;
+      border-radius: var(--border-radius);
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+
+    .button-group a:hover {
+      background: #c18df5;
+    }
+  </style>
 </head>
-<body>
+<body data-theme="dark">
+
   <!-- Theme Toggle Button -->
   <div class="theme-toggle-container">
     <label class="theme-toggle" for="theme-switch">
       <input type="checkbox" id="theme-switch" />
       <span class="slider round"></span>
       <div class="icons">
-        <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
-          <circle cx="25" cy="25" r="24" fill="#fff" stroke="none" />
-          <path d="M25 25m-8 0a8 8 0 1 0 16 0 8 8 0 1 0-16 0Z" fill="#FFD700" />
-          <g transform="rotate(45 25 25)">
-            <circle cx="25" cy="10" r="1.5" fill="#FFD700" />
-            <circle cx="25" cy="40" r="1.5" fill="#FFD700" />
-          </g>
-          <g transform="rotate(135 25 25)">
-            <circle cx="25" cy="10" r="1.5" fill="#FFD700" />
-            <circle cx="25" cy="40" r="1.5" fill="#FFD700" />
-          </g>
-          <g transform="rotate(225 25 25)">
-            <circle cx="25" cy="10" r="1.5" fill="#FFD700" />
-            <circle cx="25" cy="40" r="1.5" fill="#FFD700" />
-          </g>
-          <g transform="rotate(315 25 25)">
-            <circle cx="25" cy="10" r="1.5" fill="#FFD700" />
-            <circle cx="25" cy="40" r="1.5" fill="#FFD700" />
-          </g>
+        <!-- Sun Icon -->
+        <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="5" stroke="white" stroke-width="2" fill="none"/>
+          <line x1="12" y1="1" x2="12" y2="3" stroke="white" stroke-width="2"/>
+          <line x1="12" y1="21" x2="12" y2="23" stroke="white" stroke-width="2"/>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" stroke="white" stroke-width="2"/>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" stroke="white" stroke-width="2"/>
+          <line x1="1" y1="12" x2="3" y2="12" stroke="white" stroke-width="2"/>
+          <line x1="21" y1="12" x2="23" y2="12" stroke="white" stroke-width="2"/>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" stroke="white" stroke-width="2"/>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" stroke="white" stroke-width="2"/>
         </svg>
-        <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
-          <circle cx="25" cy="25" r="24" fill="#fff" stroke="none" />
-          <path d="M25 25m-8 0a8 8 0 1 0 16 0 8 8 0 1 0-16 0Z" fill="#fff" />
-          <path d="M25 25A10 10 0 1 1 35 25A10 10 0 0 1 25 25Z" fill="#fff" />
+        <!-- Moon Icon -->
+        <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" fill="white"/>
         </svg>
       </div>
     </label>
@@ -56,115 +96,67 @@
   <header>
     <h1>Features</h1>
     <div class="button-group">
-      <a href="/">Back</a>
+      <a href="/">← Back to Home</a>
     </div>
   </header>
 
   <!-- Main Content -->
-  <div class="container">
+  <main class="container">
     <!-- Feature Cards -->
-    <div class="card">
+    <section class="card">
       <h3>Daily Giveaways</h3>
       <p>
-        Our company provides rewards to dedicated players who actively participate in our platform. Our platform runs daily giveaways which offer players the opportunity to obtain rare items together with Diamond Locks and exclusive limited-edition sets and event-based rewards. The giveaways take place in our Discord server where participants need to follow basic instructions to enter the drawing for potential luck-based wins.
+        Our server offers daily giveaways that reward active players with rare items, Diamond Locks, exclusive sets, and event-based rewards.
+        These events take place in our Discord server where participants follow simple instructions to enter the drawing for a chance to win!
       </p>
-    </div>
+    </section>
 
-    <div class="card">
+    <section class="card">
       <h3>Over 500+ Custom Items</h3>
       <p>
-        The Yume platform offers users access to more than 500 hand-made custom items which differ from standard server content. The game features 500+ hand-crafted custom items which include gear and clothing as well as furniture and consumables to boost your creativity and gameplay. The items in the game draw inspiration from fantasy worlds and anime and original concepts to create a distinctive visual appearance for your world.
+        Yume features over 500 hand-crafted custom items including gear, clothing, furniture, and consumables. These items are inspired by anime, fantasy worlds, and original concepts to give your gameplay a unique visual flair.
       </p>
-    </div>
+    </section>
 
-    <div class="card">
+    <section class="card">
       <h3>Thriving & Supportive Community</h3>
       <p>
-        The server Yume functions as a home base for hundreds of players who unite through mutual support and trading and chatting and collaborative growth. Our community welcomes both new private server users and experienced builders who need assistance at any time. Our community organizes various events including PvP tournaments and world-building competitions. Your voice matters here.
+        Yume is home to hundreds of players who connect through trading, chatting, and collaborative building. The community regularly hosts events like PvP tournaments and world-building competitions. New players are always welcome, and help is just a message away!
       </p>
-    </div>
-  </div>
+    </section>
+  </main>
 
   <!-- Footer -->
   <footer>
     Yume Private Server © 2025 | All rights reserved
   </footer>
 
-  <!-- Toast Notification -->
-  <div id="copy-toast" class="copy-toast">✅ Success<br>Copied to your clipboard</div>
-
   <!-- Theme Script -->
- <script>
-    const toggleBtn = document.querySelector('.theme-toggle');
+  <script>
     const themeSwitch = document.getElementById('theme-switch');
-  
+
     function setTheme(themeName) {
       localStorage.setItem('theme', themeName);
       document.documentElement.setAttribute('data-theme', themeName);
     }
-  
-    function toggleTheme() {
-      if (localStorage.getItem('theme') === 'light') {
-        setTheme('dark');
-      } else {
-        setTheme('light');
-      }
-    }
-  
+
     function loadTheme() {
-      const savedTheme = localStorage.getItem('theme');
+      const saved = localStorage.getItem('theme');
       const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  
-      if (savedTheme) {
-        setTheme(savedTheme);
-      } else if (prefersDark) {
-        setTheme('dark');
-      } else {
-        setTheme('light');
-      }
+      const theme = saved || (prefersDark ? 'dark' : 'light');
+      setTheme(theme);
+      if (theme === 'light') themeSwitch.checked = true;
+      else themeSwitch.checked = false;
     }
-  
-    function applyDynamicStyles(theme) {
-      const root = document.documentElement;
-      if (theme === 'light') {
-        root.style.setProperty('--bg-color', '#ffffff');
-        root.style.setProperty('--card-bg', '#f3f3f3');
-        root.style.setProperty('--text-light', '#111');
-        root.style.setProperty('--text-muted', '#555');
-        root.style.setProperty('--primary-color', '#FF5A57');
-        root.style.setProperty('--secondary-color', '#FF5A57');
-        root.style.setProperty('--accent-glow', '#FCCBF0');
-        root.style.setProperty('--shadow-dark', 'rgba(0, 0, 0, 0.2)');
-        root.style.setProperty('--card-bg', '#f3f3f3');
-        root.style.setProperty('--bg-gradient', 'linear-gradient(135deg, #FCCBF0, #FF5A57)');
-      } else {
-        root.style.setProperty('--bg-color', '#1b112b');
-        root.style.setProperty('--card-bg', '#2a1a3e');
-        root.style.setProperty('--text-light', '#fff');
-        root.style.setProperty('--text-muted', '#cdb8ff');
-        root.style.setProperty('--primary-color', '#a875f0');
-        root.style.setProperty('--secondary-color', '#d4afff');
-        root.style.setProperty('--accent-glow', '#6a3cb6');
-        root.style.setProperty('--shadow-dark', 'rgba(0, 0, 0, 0.5)');
-        root.style.setProperty('--card-bg', '#2a1a3e');
-        root.style.setProperty('--bg-gradient', 'linear-gradient(135deg, #6700A3, #1B2062, #050C38)');
-      }
-  
-      // Update header gradient
-      const headers = document.querySelectorAll('header');
-      headers.forEach(header => {
-        header.style.background = getComputedStyle(document.documentElement).getPropertyValue('--bg-gradient');
-      });
-    }
-  
+
     themeSwitch.addEventListener('change', () => {
-      toggleTheme();
-      applyDynamicStyles(localStorage.getItem('theme'));
+      const theme = themeSwitch.checked ? 'light' : 'dark';
+      setTheme(theme);
     });
-  
+
     loadTheme();
-    applyDynamicStyles(localStorage.getItem('theme') || 'dark');
   </script>
+
   <script disable-devtool-auto 
     disabled-menu='true'
     disable-select='true'

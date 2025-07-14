@@ -1,5 +1,96 @@
-    .error-message {
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>404 - Page Not Found | Yume Private Server</title>
+
+  <!-- Favicon -->
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <meta name="theme-color" content="#1b112b" />
+
+  <!-- Styles -->
+  <style>
+    :root {
+      --bg-color: #1b112b;
+      --card-bg: #2a1a3e;
+      --text-light: #fff;
+      --text-muted: #cdb8ff;
+      --primary-color: #a875f0;
+      --secondary-color: #d4afff;
+      --accent-glow: #6a3cb6;
+      --shadow-dark: rgba(0, 0, 0, 0.5);
+      --border-radius: 12px;
+      --bg-gradient: linear-gradient(135deg, #6700A3, #1B2062, #050C38);
+    }
+
+    [data-theme="light"] {
+      --bg-color: #ffffff;
+      --card-bg: #f3f3f3;
+      --text-light: #111;
+      --text-muted: #555;
+      --primary-color: #FF5A57;
+      --secondary-color: #FF5A57;
+      --accent-glow: #FCCBF0;
+      --shadow-dark: rgba(0, 0, 0, 0.2);
+      --bg-gradient: linear-gradient(135deg, #FCCBF0, #FF5A57);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-light);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    header {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      text-align: center;
+      padding: 1rem 0;
+      background: var(--bg-gradient);
+      color: white;
       font-size: 1.5rem;
+      font-weight: bold;
+      z-index: 10;
+    }
+
+    .error-container {
+      text-align: center;
+      max-width: 500px;
+      padding: 2rem;
+      margin-top: 4rem;
+    }
+
+    .error-code {
+      font-size: 5rem;
+      color: var(--primary-color);
+      margin-bottom: 1rem;
+    }
+
+    .welcome-text {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .error-message {
+      font-size: 1.2rem;
       color: var(--text-muted);
       margin-bottom: 2rem;
     }
@@ -12,45 +103,135 @@
       border-radius: var(--border-radius);
       font-weight: bold;
       text-decoration: none;
-      transition: background 0.3s ease;
+      transition: background 0.3s ease, transform 0.2s ease;
+      box-shadow: 0 4px 12px var(--shadow-dark);
     }
 
     .back-button:hover {
       background: #c18df5;
+      transform: translateY(-2px);
+    }
+
+    footer {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      background: var(--card-bg);
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    /* Theme Toggle */
+    .theme-toggle-container {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      z-index: 20;
+    }
+
+    .theme-toggle {
+      position: relative;
+      display: inline-block;
+      width: 50px;
+      height: 24px;
+    }
+
+    .theme-toggle input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 34px;
+      transition: 0.4s;
+      width: 50px;
+      height: 24px;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 20px;
+      width: 20px;
+      left: 2px;
+      bottom: 2px;
+      background-color: white;
+      transition: 0.4s;
+      border-radius: 50%;
+    }
+
+    input:checked + .slider:before {
+      transform: translateX(26px);
+    }
+
+    .icons {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 6px;
+      pointer-events: none;
+    }
+
+    .sun-icon,
+    .moon-icon {
+      width: 16px;
+      height: 16px;
+      fill: white;
+      transition: opacity 0.3s ease;
+    }
+
+    input:checked ~ .icons .sun-icon {
+      opacity: 1;
+    }
+
+    input:checked ~ .icons .moon-icon {
+      opacity: 0;
+    }
+
+    input:not(:checked) ~ .icons .sun-icon {
+      opacity: 0;
+    }
+
+    input:not(:checked) ~ .icons .moon-icon {
+      opacity: 1;
     }
   </style>
 </head>
-<body>
+<body data-theme="dark">
+
   <!-- Theme Toggle Button -->
   <div class="theme-toggle-container">
     <label class="theme-toggle" for="theme-switch">
       <input type="checkbox" id="theme-switch" />
       <span class="slider round"></span>
       <div class="icons">
-        <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
-          <circle cx="25" cy="25" r="24" fill="#fff" stroke="none" />
-          <path d="M25 25m-8 0a8 8 0 1 0 16 0 8 8 0 1 0-16 0Z" fill="#FFD700" />
-          <g transform="rotate(45 25 25)">
-            <circle cx="25" cy="10" r="1.5" fill="#FFD700" />
-            <circle cx="25" cy="40" r="1.5" fill="#FFD700" />
-          </g>
-          <g transform="rotate(135 25 25)">
-            <circle cx="25" cy="10" r="1.5" fill="#FFD700" />
-            <circle cx="25" cy="40" r="1.5" fill="#FFD700" />
-          </g>
-          <g transform="rotate(225 25 25)">
-            <circle cx="25" cy="10" r="1.5" fill="#FFD700" />
-            <circle cx="25" cy="40" r="1.5" fill="#FFD700" />
-          </g>
-          <g transform="rotate(315 25 25)">
-            <circle cx="25" cy="10" r="1.5" fill="#FFD700" />
-            <circle cx="25" cy="40" r="1.5" fill="#FFD700" />
-          </g>
+        <!-- Sun Icon -->
+        <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="5" stroke="white" stroke-width="2" fill="none"/>
+          <line x1="12" y1="1" x2="12" y2="3" stroke="white" stroke-width="2"/>
+          <line x1="12" y1="21" x2="12" y2="23" stroke="white" stroke-width="2"/>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" stroke="white" stroke-width="2"/>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" stroke="white" stroke-width="2"/>
+          <line x1="1" y1="12" x2="3" y2="12" stroke="white" stroke-width="2"/>
+          <line x1="21" y1="12" x2="23" y2="12" stroke="white" stroke-width="2"/>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" stroke="white" stroke-width="2"/>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" stroke="white" stroke-width="2"/>
         </svg>
-        <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
-          <circle cx="25" cy="25" r="24" fill="#fff" stroke="none" />
-          <path d="M25 25m-8 0a8 8 0 1 0 16 0 8 8 0 1 0-16 0Z" fill="#fff" />
-          <path d="M25 25A10 10 0 1 1 35 25A10 10 0 0 1 25 25Z" fill="#fff" />
+        <!-- Moon Icon -->
+        <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" fill="white"/>
         </svg>
       </div>
     </label>
@@ -58,7 +239,7 @@
 
   <!-- Header -->
   <header>
-    <h1>Yume Private Server</h1>
+    Yume Private Server
   </header>
 
   <!-- Error Content -->
@@ -74,81 +255,35 @@
 
   <!-- Footer -->
   <footer>
-    <p>Yume Private Server © 2025 | Crafted by <strong>iLitz_</strong> | All rights reserved</p>
+    Yume Private Server © 2025 | Crafted by <strong>iLitz_</strong> | All rights reserved
   </footer>
 
   <!-- Theme Script -->
- <script>
-    const toggleBtn = document.querySelector('.theme-toggle');
+  <script>
     const themeSwitch = document.getElementById('theme-switch');
-  
+
     function setTheme(themeName) {
       localStorage.setItem('theme', themeName);
       document.documentElement.setAttribute('data-theme', themeName);
     }
-  
-    function toggleTheme() {
-      if (localStorage.getItem('theme') === 'light') {
-        setTheme('dark');
-      } else {
-        setTheme('light');
-      }
-    }
-  
+
     function loadTheme() {
-      const savedTheme = localStorage.getItem('theme');
+      const saved = localStorage.getItem('theme');
       const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  
-      if (savedTheme) {
-        setTheme(savedTheme);
-      } else if (prefersDark) {
-        setTheme('dark');
-      } else {
-        setTheme('light');
-      }
+      const theme = saved || (prefersDark ? 'dark' : 'light');
+      setTheme(theme);
+      if (theme === 'light') themeSwitch.checked = true;
+      else themeSwitch.checked = false;
     }
-  
-    function applyDynamicStyles(theme) {
-      const root = document.documentElement;
-      if (theme === 'light') {
-        root.style.setProperty('--bg-color', '#ffffff');
-        root.style.setProperty('--card-bg', '#f3f3f3');
-        root.style.setProperty('--text-light', '#111');
-        root.style.setProperty('--text-muted', '#555');
-        root.style.setProperty('--primary-color', '#FF5A57');
-        root.style.setProperty('--secondary-color', '#FF5A57');
-        root.style.setProperty('--accent-glow', '#FCCBF0');
-        root.style.setProperty('--shadow-dark', 'rgba(0, 0, 0, 0.2)');
-        root.style.setProperty('--card-bg', '#f3f3f3');
-        root.style.setProperty('--bg-gradient', 'linear-gradient(135deg, #FCCBF0, #FF5A57)');
-      } else {
-        root.style.setProperty('--bg-color', '#1b112b');
-        root.style.setProperty('--card-bg', '#2a1a3e');
-        root.style.setProperty('--text-light', '#fff');
-        root.style.setProperty('--text-muted', '#cdb8ff');
-        root.style.setProperty('--primary-color', '#a875f0');
-        root.style.setProperty('--secondary-color', '#d4afff');
-        root.style.setProperty('--accent-glow', '#6a3cb6');
-        root.style.setProperty('--shadow-dark', 'rgba(0, 0, 0, 0.5)');
-        root.style.setProperty('--card-bg', '#2a1a3e');
-        root.style.setProperty('--bg-gradient', 'linear-gradient(135deg, #6700A3, #1B2062, #050C38)');
-      }
-  
-      // Update header gradient
-      const headers = document.querySelectorAll('header');
-      headers.forEach(header => {
-        header.style.background = getComputedStyle(document.documentElement).getPropertyValue('--bg-gradient');
-      });
-    }
-  
+
     themeSwitch.addEventListener('change', () => {
-      toggleTheme();
-      applyDynamicStyles(localStorage.getItem('theme'));
+      const theme = themeSwitch.checked ? 'light' : 'dark';
+      setTheme(theme);
     });
-  
+
     loadTheme();
-    applyDynamicStyles(localStorage.getItem('theme') || 'dark');
   </script>
+
   <script disable-devtool-auto 
     disabled-menu='true'
     disable-select='true'
