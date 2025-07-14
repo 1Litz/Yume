@@ -36,7 +36,6 @@
   </style>
 </head>
 <body>
-  <!-- Theme Toggle Button -->
   <div class="theme-toggle-container">
     <label class="theme-toggle" for="theme-switch">
       <input type="checkbox" id="theme-switch" />
@@ -71,7 +70,6 @@
     </label>
   </div>
 
-  <!-- Header -->
   <header>
     <h1>GrowSoft</h1>
     <div class="button-group">
@@ -80,59 +78,50 @@
     <p class="welcome-text">Why GrowSoft is Your Best Choice for GT Private Server Development</p>
   </header>
 
-  <!-- Main Content -->
   <div class="container">
-    <!-- Why Choose GrowSoft -->
     <div class="card">
       <h2>Why Choose GrowSoft?</h2>
       <p>
-        Growsoft is where you can create your own community, making friends, social and everything. This is where
-        you can start begin to create your own Growtopia Private Server, made it fun, economy stable, communication,
-        and etc.
+        GrowSoft lets you create your own community, make friends, socialize, and build your own Growtopia Private Server with fun gameplay, stable economy, and better communication.
       </p>
       <p>
-        Whether you can create your own event with your own ideas, or following the events like summertime, chinese new year,
-        christmas, and etc. Create with your own style and made it more fun, people are will sometimes will invite theire friends
-        to join them, so they can play together like trying to profit to become a pro, or even far from that!
+        Host events from your imagination or follow seasonal ones like Summer, CNY, or Christmas. Build your own style and invite your friends—grind, profit, and play together!
       </p>
       <p>
-        Tiers may need to be purchased but that is the way you need to support GrowSoft with </strong>LOVE</strong>. This is
-        where you can share your support to our beloved developer </strong>Sebia</strong> who is the creator of Growsoft.
-        Support the way how hard work his trying just for us to make far from that, his not just some Developer but a Legend.
+        Premium tiers support GrowSoft and show love to <strong>Sebia</strong>, our legendary developer who works hard for the community.
       </p>
     </div>
-    
+
     <div class="card">
       <h2>Features</h2>
       <ul>
-        <li>✔️ Easy & Fast Setup (No advanced coding required)</li>
-        <li>✔️ Player can enter up to 50,000 players!</li>
-        <li>✔️ Live Console Logs & Debug Options</li>
-        <li>✔️ Supports latest Growtopia!</li>
-        <li>✔️ Make your own interesting script and share your hard work!</li>
+        <li>⚡ Easy & Fast Setup (No coding needed)</li>
+        <li>👥 Up to 50,000 player support</li>
+        <li>📟 Live console logs + debug</li>
+        <li>🌐 Compatible with latest Growtopia</li>
+        <li>🧠 Share and run your own Lua scripts</li>
       </ul>
     </div>
-    
+
     <div style="margin-top: 2rem;">
-      <a href="https://discord.gg/zYEJSMuDtF " target="_blank" class="text-link-button">Official GrowSoft Discord</a><br>
-      <a href="https://www.growsoft.cc/ " target="_blank" class="text-link-button">Official GrowSoft Website</a>
+      <a href="https://discord.gg/zYEJSMuDtF" target="_blank" class="text-link-button">Official GrowSoft Discord</a><br>
+      <a href="https://www.growsoft.cc/" target="_blank" class="text-link-button">Official GrowSoft Website</a>
     </div>
   </div>
 
-  <!-- Footer -->
   <footer>
     Yume Private Server © 2025 | Not affiliated with Growtopia or Ubisoft
   </footer>
 
- <script>
+  <script>
     const toggleBtn = document.querySelector('.theme-toggle');
     const themeSwitch = document.getElementById('theme-switch');
-  
+
     function setTheme(themeName) {
       localStorage.setItem('theme', themeName);
       document.documentElement.setAttribute('data-theme', themeName);
     }
-  
+
     function toggleTheme() {
       if (localStorage.getItem('theme') === 'light') {
         setTheme('dark');
@@ -140,11 +129,11 @@
         setTheme('light');
       }
     }
-  
+
     function loadTheme() {
       const savedTheme = localStorage.getItem('theme');
       const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  
+
       if (savedTheme) {
         setTheme(savedTheme);
       } else if (prefersDark) {
@@ -153,7 +142,7 @@
         setTheme('light');
       }
     }
-  
+
     function applyDynamicStyles(theme) {
       const root = document.documentElement;
       if (theme === 'light') {
@@ -179,26 +168,21 @@
         root.style.setProperty('--card-bg', '#2a1a3e');
         root.style.setProperty('--bg-gradient', 'linear-gradient(135deg, #6700A3, #1B2062, #050C38)');
       }
-  
-      // Update header gradient
+
       const headers = document.querySelectorAll('header');
       headers.forEach(header => {
         header.style.background = getComputedStyle(document.documentElement).getPropertyValue('--bg-gradient');
       });
     }
-  
+
     themeSwitch.addEventListener('change', () => {
       toggleTheme();
       applyDynamicStyles(localStorage.getItem('theme'));
     });
-  
+
     loadTheme();
     applyDynamicStyles(localStorage.getItem('theme') || 'dark');
   </script>
-  <script disable-devtool-auto 
-    disabled-menu='true'
-    disable-select='true'
-    src='https://cdn.jsdelivr.net/npm/disable-devtool'>
-    </script>
+  <script disable-devtool-auto disabled-menu='true' disable-select='true' src='https://cdn.jsdelivr.net/npm/disable-devtool'></script>
 </body>
 </html>

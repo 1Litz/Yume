@@ -1,185 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>404 - Page Not Found | Yume Private Server</title>
-
-  <!-- Favicon -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 - Not Found | Yume Private Server</title>
+  <link rel="stylesheet" href="/style.css">
   <link rel="icon" href="/favicon.ico" type="image/x-icon" />
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-  <link rel="manifest" href="/site.webmanifest" />
-
-  <!-- CSS -->
-  <link rel="stylesheet" href="/style.css" />
-
-  <style>
-    .error-container {
-      text-align: center;
-      margin-top: 5rem;
-      padding: 2rem;
-    }
-
-    .error-code {
-      font-size: 5rem;
-      color: var(--primary-color);
-      font-weight: bold;
-      margin-bottom: 1rem;
-    }
-
-    .error-message {
-      font-size: 1.5rem;
-      color: var(--text-muted);
-      margin-bottom: 2rem;
-    }
-
-    .back-button {
-      display: inline-block;
-      background: var(--primary-color);
-      color: white;
-      padding: 0.75rem 1.5rem;
-      border-radius: var(--border-radius);
-      font-weight: bold;
-      text-decoration: none;
-      transition: background 0.3s ease;
-    }
-
-    .back-button:hover {
-      background: #c18df5;
-    }
-  </style>
 </head>
 <body>
-  <!-- Theme Toggle Button -->
-  <div class="theme-toggle-container">
-    <label class="theme-toggle" for="theme-switch">
-      <input type="checkbox" id="theme-switch" />
-      <span class="slider round"></span>
-      <div class="icons">
-        <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
-          <circle cx="25" cy="25" r="24" fill="#fff" stroke="none" />
-          <path d="M25 25m-8 0a8 8 0 1 0 16 0 8 8 0 1 0-16 0Z" fill="#FFD700" />
-          <g transform="rotate(45 25 25)">
-            <circle cx="25" cy="10" r="1.5" fill="#FFD700" />
-            <circle cx="25" cy="40" r="1.5" fill="#FFD700" />
-          </g>
-          <g transform="rotate(135 25 25)">
-            <circle cx="25" cy="10" r="1.5" fill="#FFD700" />
-            <circle cx="25" cy="40" r="1.5" fill="#FFD700" />
-          </g>
-          <g transform="rotate(225 25 25)">
-            <circle cx="25" cy="10" r="1.5" fill="#FFD700" />
-            <circle cx="25" cy="40" r="1.5" fill="#FFD700" />
-          </g>
-          <g transform="rotate(315 25 25)">
-            <circle cx="25" cy="10" r="1.5" fill="#FFD700" />
-            <circle cx="25" cy="40" r="1.5" fill="#FFD700" />
-          </g>
-        </svg>
-        <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
-          <circle cx="25" cy="25" r="24" fill="#fff" stroke="none" />
-          <path d="M25 25m-8 0a8 8 0 1 0 16 0 8 8 0 1 0-16 0Z" fill="#fff" />
-          <path d="M25 25A10 10 0 1 1 35 25A10 10 0 0 1 25 25Z" fill="#fff" />
-        </svg>
-      </div>
-    </label>
-  </div>
+  <button class="theme-toggle" onclick="toggleTheme()">Toggle Theme</button>
 
-  <!-- Header -->
   <header>
     <h1>Yume Private Server</h1>
   </header>
 
-  <!-- Error Content -->
   <div class="error-container">
     <div class="error-code">404</div>
-    <h2 class="welcome-text">Oops! Page Not Found</h2>
-    <p class="error-message">
-      The page you're looking for doesn't exist or has been moved.<br>
-      Don’t worry — we’ve got you covered!
-    </p>
-    <a href="/" class="back-button">Go Back Home</a>
+    <div class="error-message">Oops! The page you’re looking for doesn’t exist.</div>
+    <a href="/" class="back-button">Back to Home</a>
   </div>
 
-  <!-- Footer -->
   <footer>
-    <p>Yume Private Server © 2025 | Crafted by <strong>iLitz_</strong> | All rights reserved</p>
+    <p>Yume Private Server © 2025 | Created by <strong>iLitz_</strong></p>
   </footer>
 
-  <!-- Theme Script -->
- <script>
-    const toggleBtn = document.querySelector('.theme-toggle');
-    const themeSwitch = document.getElementById('theme-switch');
-  
-    function setTheme(themeName) {
-      localStorage.setItem('theme', themeName);
-      document.documentElement.setAttribute('data-theme', themeName);
-    }
-  
+  <script>
     function toggleTheme() {
-      if (localStorage.getItem('theme') === 'light') {
-        setTheme('dark');
-      } else {
-        setTheme('light');
-      }
+      const current = document.documentElement.getAttribute('data-theme');
+      const newTheme = current === 'light' ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
     }
-  
-    function loadTheme() {
-      const savedTheme = localStorage.getItem('theme');
+
+    (function loadTheme() {
+      const saved = localStorage.getItem('theme');
       const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  
-      if (savedTheme) {
-        setTheme(savedTheme);
-      } else if (prefersDark) {
-        setTheme('dark');
-      } else {
-        setTheme('light');
-      }
-    }
-  
-    function applyDynamicStyles(theme) {
-      const root = document.documentElement;
-      if (theme === 'light') {
-        root.style.setProperty('--bg-color', '#ffffff');
-        root.style.setProperty('--card-bg', '#f3f3f3');
-        root.style.setProperty('--text-light', '#111');
-        root.style.setProperty('--text-muted', '#555');
-        root.style.setProperty('--primary-color', '#FF5A57');
-        root.style.setProperty('--secondary-color', '#FF5A57');
-        root.style.setProperty('--accent-glow', '#FCCBF0');
-        root.style.setProperty('--shadow-dark', 'rgba(0, 0, 0, 0.2)');
-        root.style.setProperty('--card-bg', '#f3f3f3');
-        root.style.setProperty('--bg-gradient', 'linear-gradient(135deg, #FCCBF0, #FF5A57)');
-      } else {
-        root.style.setProperty('--bg-color', '#1b112b');
-        root.style.setProperty('--card-bg', '#2a1a3e');
-        root.style.setProperty('--text-light', '#fff');
-        root.style.setProperty('--text-muted', '#cdb8ff');
-        root.style.setProperty('--primary-color', '#a875f0');
-        root.style.setProperty('--secondary-color', '#d4afff');
-        root.style.setProperty('--accent-glow', '#6a3cb6');
-        root.style.setProperty('--shadow-dark', 'rgba(0, 0, 0, 0.5)');
-        root.style.setProperty('--card-bg', '#2a1a3e');
-        root.style.setProperty('--bg-gradient', 'linear-gradient(135deg, #6700A3, #1B2062, #050C38)');
-      }
-  
-      // Update header gradient
-      const headers = document.querySelectorAll('header');
-      headers.forEach(header => {
-        header.style.background = getComputedStyle(document.documentElement).getPropertyValue('--bg-gradient');
-      });
-    }
-  
-    themeSwitch.addEventListener('change', () => {
-      toggleTheme();
-      applyDynamicStyles(localStorage.getItem('theme'));
-    });
-  
-    loadTheme();
-    applyDynamicStyles(localStorage.getItem('theme') || 'dark');
+      const theme = saved || (prefersDark ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
   </script>
+
   <script disable-devtool-auto 
     disabled-menu='true'
     disable-select='true'

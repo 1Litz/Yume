@@ -65,7 +65,6 @@
   </style>
 </head>
 <body>
-   <!-- Theme Toggle Button -->
   <div class="theme-toggle-container">
     <label class="theme-toggle" for="theme-switch">
       <input type="checkbox" id="theme-switch" />
@@ -100,7 +99,6 @@
     </label>
   </div>
 
-  <!-- Header -->
   <header>
     <h1>Host Configuration</h1>
     <div class="button-group">
@@ -108,17 +106,15 @@
     </div>
   </header>
 
-  <!-- Main Content -->
   <div class="container">
     <div class="copy-section">
-      <!-- Android -->
+
       <div class="copy-block">
         <span class="copy-label">Android (ptunnel)</span>
         <button type="button" class="copy-button" data-copy-id="android-host">Copy</button>
         <textarea id="android-host" readonly style="display:none;">https://growsoft.cc/android.txt </textarea>
       </div>
 
-      <!-- iOS -->
       <div class="copy-block">
         <span class="copy-label">iOS</span>
         <button type="button" class="copy-button" data-copy-id="ios-host">Copy</button>
@@ -135,7 +131,6 @@ www.growtopia1.com = 91.134.85.13
 www.growtopia2.com = 91.134.85.13</textarea>
       </div>
 
-      <!-- PC -->
       <div class="copy-block">
         <span class="copy-label">PC</span>
         <button type="button" class="copy-button" data-copy-id="pc-host">Copy</button>
@@ -145,7 +140,6 @@ www.growtopia2.com = 91.134.85.13</textarea>
 91.134.85.13 www.growtopia2.com</textarea>
       </div>
 
-      <!-- macOS -->
       <div class="copy-block">
         <span class="copy-label">macOS</span>
         <button type="button" class="copy-button" data-copy-id="macos-host">Copy</button>
@@ -157,15 +151,12 @@ www.growtopia2.com = 91.134.85.13</textarea>
     </div>
   </div>
 
-  <!-- Footer -->
   <footer>
     Yume Private Server © 2025 | All rights reserved
   </footer>
 
-  <!-- Toast Notification -->
   <div id="copy-toast" class="copy-toast">✅ Success<br>Copied to your clipboard</div>
 
-  <!-- Copy Script -->
   <script>
     window.onload = function () {
       const buttons = document.querySelectorAll('.copy-button');
@@ -191,16 +182,15 @@ www.growtopia2.com = 91.134.85.13</textarea>
     };
   </script>
 
-  <!-- Theme Script -->
  <script>
     const toggleBtn = document.querySelector('.theme-toggle');
     const themeSwitch = document.getElementById('theme-switch');
-  
+
     function setTheme(themeName) {
       localStorage.setItem('theme', themeName);
       document.documentElement.setAttribute('data-theme', themeName);
     }
-  
+
     function toggleTheme() {
       if (localStorage.getItem('theme') === 'light') {
         setTheme('dark');
@@ -208,11 +198,11 @@ www.growtopia2.com = 91.134.85.13</textarea>
         setTheme('light');
       }
     }
-  
+
     function loadTheme() {
       const savedTheme = localStorage.getItem('theme');
       const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  
+
       if (savedTheme) {
         setTheme(savedTheme);
       } else if (prefersDark) {
@@ -221,7 +211,7 @@ www.growtopia2.com = 91.134.85.13</textarea>
         setTheme('light');
       }
     }
-  
+
     function applyDynamicStyles(theme) {
       const root = document.documentElement;
       if (theme === 'light') {
@@ -247,19 +237,18 @@ www.growtopia2.com = 91.134.85.13</textarea>
         root.style.setProperty('--card-bg', '#2a1a3e');
         root.style.setProperty('--bg-gradient', 'linear-gradient(135deg, #6700A3, #1B2062, #050C38)');
       }
-  
-      // Update header gradient
+
       const headers = document.querySelectorAll('header');
       headers.forEach(header => {
         header.style.background = getComputedStyle(document.documentElement).getPropertyValue('--bg-gradient');
       });
     }
-  
+
     themeSwitch.addEventListener('change', () => {
       toggleTheme();
       applyDynamicStyles(localStorage.getItem('theme'));
     });
-  
+
     loadTheme();
     applyDynamicStyles(localStorage.getItem('theme') || 'dark');
   </script>
